@@ -1,35 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  const userId = useSelector(state => state.userId)
+  console.log("userId", userId);
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
+        <Route
+          index
+          element={<Homepage />}
+          loader={async () => {
+            const res = await axios.get(`/api/events`);
+            console.log("res.data", res.data);
+            return { events: res.data};
+          }}
+        />
+        <Route 
+          path="/login" 
+          element={userId? <Navigate to='/admin'/> : <Login />} />
+        <Route
+          path="/about-conductor"
+          element={<AboutConductor />}
+          loader={async () => {
+            const res = await axios.get(`/api/conductor`);
+            console.log("res.data", res.data);
+            return { conductor: res.data };
+          }}
+        />
+        <Route
+          path="/affiliates"
+          element={<Affiliate />}
+          loader={async () => {
+            const res = await axios.get(`/api/affiliates/`);
+            console.log("res.data", res.data);
+            return { affiliates: res.data };
+          }}
+        /> 
+        <Route
+          path="/admin"
+          element={userId? <Admin /> : <Navigate to='/login'/>}
+          loader={async () => {
+            const res = await axios.get(`/api/admin`);
+            return { admin: res.data };
+          }}
+        />
+      </Route>
+    )
+  );
+  return <RouterProvider router={router} />
 }
 
-export default App
+export default App;
+
