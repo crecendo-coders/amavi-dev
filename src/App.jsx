@@ -14,6 +14,11 @@ import Support from './Pages/Support';
 import Chorale from './Pages/Chorale';
 import Artists from './Pages/Artists';
 import Audition from './Pages/Audition';
+import TermsConditions from './Pages/TermsConditions';
+import Credits from './Pages/Credits';
+import EqualityDiversityPolicy from './Pages/EqualityDiversityPolicy';
+import PrivacyPolicy from './Pages/PrivacyPolicy';
+import Contact from './Pages/Contact';
 
 function App() {
   const userId = useSelector(state => state.userId)
@@ -24,15 +29,25 @@ function App() {
         <Route
           index
           element={<Homepage />}
-          // loader={async () => {
-          //   const res = await axios.get(`/api/events`);
-          //   console.log("res.data", res.data);
-          //   return { events: res.data};
-          // }}
         />
         <Route 
           path="/login" 
           element={userId? <Navigate to='/admin'/> : <Login />} />
+        <Route 
+          path="/terms-conditions" 
+          element={<TermsConditions/>} />
+        <Route 
+          path="/credits" 
+          element={<Credits/>} />
+        <Route 
+          path="/equality-diversity-policy" 
+          element={<EqualityDiversityPolicy/>} />
+        <Route 
+          path="/privacy-policy" 
+          element={<PrivacyPolicy/>} />
+        <Route 
+          path="/contact" 
+          element={<Contact/>} />
         <Route
           path="/about-conductor"
           element={<Conductor />}
