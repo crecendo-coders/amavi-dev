@@ -5,6 +5,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import axios from "axios";
 
+import { Dropdown } from "rsuite"; 
+import "rsuite/dist/rsuite.min.css"; 
+
 const navLinks = [
   { name: "Events", route: "/events" },
   { name: "Conductor", route: "/about-conductor" },
@@ -31,14 +34,16 @@ const NavBar = () => {
       .catch((err) => console.error("Logout Error", err));
   };
   return (
-    <nav>
+    <nav className="dropdown-menu">
       <NavLink to="/events">Events</NavLink>
-      <NavLink to="/support">Support Us</NavLink>
+      <NavLink to="/support" >Support Us</NavLink>
       <NavLink to="/login">Login</NavLink>
       <NavLink to="/affiliates">Our Supporters</NavLink>
-      <NavLink to="/about-conductor">Conductor</NavLink>
-      <NavLink to="/about-chorale">Chorale</NavLink>
-      <NavLink to="/about-artists">Guest Artists</NavLink>
+      <Dropdown title="About"> 
+        <Dropdown.Item as="a" href= "/about-conductor">Conductor</Dropdown.Item> 
+        <Dropdown.Item as="a" href= "/about-chorale">Chorale</Dropdown.Item> 
+        <Dropdown.Item as="a" href= "/about-artists">Guest Artists</Dropdown.Item> 
+      </Dropdown> 
       <NavLink to="/audition">Join Us</NavLink>
     </nav>
     );
