@@ -4,7 +4,6 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import axios from "axios";
-import Logo from "./Logo";
 
 const navLinks = [
   { name: "Events", route: "/events" },
@@ -32,9 +31,9 @@ const NavBar = () => {
       .catch((err) => console.error("Logout Error", err));
   };
   return (
-      <NavLink to=>
-          <p>Hello</p>
-      </NavLink>
+    <nav>
+      <NavLink to="/events">Events</NavLink>
+    </nav>
     );
   }
 
