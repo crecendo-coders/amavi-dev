@@ -28,9 +28,9 @@ const SocialMedia = () => {
 
   return (
     <>
-      <a href="https://www.youtube.com/amavi" style={style.youtube}>
+      {/* <a href="https://www.youtube.com/amavi" style={style.youtube}>
         <FontAwesomeIcon icon={faYoutube} size="2x" />
-      </a>
+      </a> */}
       <a href="https://www.facebook.com/amavi/" style={style.facebook}>
         <FontAwesomeIcon icon={faFacebook} size="2x" />
       </a>

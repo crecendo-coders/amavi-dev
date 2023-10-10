@@ -7,10 +7,10 @@ const Header = () => {
     <header>
       <div className="container mx-auto flex justify-between items-center">
         <div>Amavi</div>
-        <p>tagline</p>
-        <div className="flex">
+        <a href="/">
           <img src="logo.svg" width={50} />
-        </div>
+          <div>tagline</div>
+        </a>
         <SocialMedia />
         <button>
           <a
