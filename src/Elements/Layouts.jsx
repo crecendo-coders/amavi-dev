@@ -3,7 +3,8 @@ import Header from "./Header";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import axios from "axios";
-import { Grid } from "@mui/material";
+import NavBar from "./NavBar";
+import Footer from "./Footer";
 
 const Layout = () => {
   const userId = useSelector(state => state.userId)
@@ -19,12 +20,12 @@ const Layout = () => {
   }, [userId]);
 
   return (
-    <Grid >
+    <div >
       <Header />
-      <Navbar />
-      {/* <Outlet /> */}
-      {/* <Footer /> */}
-    </Grid>
+      <NavBar />
+      <Outlet />
+      <Footer />
+    </div>
   );
 };
 
