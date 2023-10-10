@@ -33,6 +33,13 @@ const NavBar = () => {
   return (
     <nav>
       <NavLink to="/events">Events</NavLink>
+      <NavLink to="/support">Support Us</NavLink>
+      <NavLink to="/login">Login</NavLink>
+      <NavLink to="/affiliates">Our Supporters</NavLink>
+      <NavLink to="/about-conductor">Conductor</NavLink>
+      <NavLink to="/about-chorale">Chorale</NavLink>
+      <NavLink to="/about-artists">Guest Artists</NavLink>
+      <NavLink to="/audition">Join Us</NavLink>
     </nav>
     );
   }
