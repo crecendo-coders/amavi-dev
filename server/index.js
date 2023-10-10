@@ -23,4 +23,4 @@ app.use(session({
 // Authentication endpoints Go Here
 
 
-ViteExpress.listen(app, PORT, () => console.log(`Server is running on http://localhost:${PORT}!`));
+ViteExpress.listen(app, PORT, () => console.log(`Server is running on http://localhost:${PORT}`));
