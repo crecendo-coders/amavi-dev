@@ -21,7 +21,9 @@ const Layout = () => {
   return (
     <Grid >
       <Header />
-      <Outlet />
+      <Navbar />
+      {/* <Outlet /> */}
+      {/* <Footer /> */}
     </Grid>
   );
 };
