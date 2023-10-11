@@ -222,7 +222,6 @@ Member.belongsTo(Voicing, { foreignKey: "voicingId" });
 
 export { Member, Role, Status, Voicing, Affiliate, Event };
 
-console.log(process.env, import.meta.url);
 if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
   console.log("Syncing database...");
   await db.sync();
