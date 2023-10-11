@@ -1,7 +1,15 @@
-import { DataTypes, Model } from 'sequelize';
-import connectToDB from './db.js';
+import { DataTypes, Model } from "sequelize";
+import connectToDB from "./db.js";
 
-const db = await connectToDB('postgresql:///personal-project');
+import process from 'process'
+const dbName = process.env.DB_NAME
+const dbPwd = process.env.DB_PWD
+const dbUser = process.env.DB_USER
+const dbPort = process.env.DB_PORT
+const dbIp = process.env.DB_IP
+const dbAuth = (dbPwd && dbUser && dbPort && dbIp) ? `${dbUser}:${dbPwd}@${dbIP}:${dbPort}:`:""
+// postgres://user:password@IPAddress:5432/dbname
+const db = await connectToDB(`postgresql://${dbAuth}/${dbName}`);
 
 class Member extends Model {}
 Member.init(
@@ -40,7 +48,7 @@ Member.init(
     },
   },
   {
-    modelName: 'member',
+    modelName: "member",
     sequelize: db,
   }
 );
@@ -57,7 +65,7 @@ Role.init(
     },
   },
   {
-    modelName: 'role',
+    modelName: "role",
     sequelize: db,
   }
 );
@@ -74,7 +82,7 @@ Status.init(
     },
   },
   {
-    modelName: 'status',
+    modelName: "status",
     sequelize: db,
   }
 );
@@ -91,7 +99,7 @@ Voicing.init(
     },
   },
   {
-    modelName: 'voicing',
+    modelName: "voicing",
     sequelize: db,
   }
 );
@@ -121,7 +129,7 @@ Affiliate.init(
     },
   },
   {
-    modelName: 'affiliate',
+    modelName: "affiliate",
     sequelize: db,
   }
 );
@@ -160,13 +168,18 @@ Event.init(
     },
   },
   {
-    modelName: 'event',
+    modelName: "event",
     sequelize: db,
   }
 );
 
-Member.belongsTo(Role, { foreignKey: 'roleId' });
-Member.belongsTo(Status, { foreignKey: 'statusId' });
-Member.belongsTo(Voicing, { foreignKey: 'voicingId' });
+Role.hasMany(Member, { foreignKey: "roleId" });
+Member.belongsTo(Role, { foreignKey: "roleId" });
+
+Status.hasMany(Member, { foreignKey: "statusId" });
+Member.belongsTo(Status, { foreignKey: "statusId" });
+
+Voicing.hasMany(Member, { foreignKey: "voicingId" });
+Member.belongsTo(Voicing, { foreignKey: "voicingId" });
 
 export { Member, Role, Status, Voicing, Affiliate, Event };

@@ -9,6 +9,7 @@ const seedData = async () => {
     const roles = await Role.bulkCreate([
       { type: 'Admin' },
       { type: 'User' },
+      { type: 'Conductor' },
     ]);
 
     const statuses = await Status.bulkCreate([
@@ -45,6 +46,17 @@ const seedData = async () => {
         voicingId: voicings[1].id,
         username: 'regular_user',
         password: 'user_password',
+      },
+      { // conductor
+        roleId: roles[2].id,
+        statusId: statuses[0].id,
+        email: 'conductor@example.com',
+        phone: '987-654-3210',
+        dob: '1990-05-05',
+        experience: 'Extensive',
+        voicingId: voicings[2].id,
+        username: 'conductor',
+        password: 'conductor_password',
       },
     ]);
 
