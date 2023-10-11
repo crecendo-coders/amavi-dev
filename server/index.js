@@ -1,8 +1,7 @@
 import express from "express";
 import ViteExpress from 'vite-express';
 import session from "express-session";
-import { fileURLToPath } from 'url'; // Import the fileURLToPath function
-import path from "path";
+import eventCtrl from "./controllers/eventCtrl.js"
 
 
 import get from './getController.js'
@@ -10,10 +9,6 @@ import del from './deleteController.js'
 import post from './postController.js'
 import put from './putController.js'
 import auth from './authController.js'
-
-// const __filename = fileURLToPath(import.meta.url); // Get the current file's path
-// const __dirname = path.dirname(__filename); // Get the current directory's path
-
 
 const app = express();
 const PORT = 2319;
@@ -29,9 +24,6 @@ app.use(session({
         maxAge: 1000 * 60 * 60 * 48 // 48 hour cookie
     }
 }));
-
-// Serve static files from a directory (e.g., public)
-app.use(express.static(path.join(__dirname, '../index.html')));
 
 // Routes Go Here
 app.get('/api/conductor/', get.conductor)
