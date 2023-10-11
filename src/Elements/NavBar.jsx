@@ -8,14 +8,6 @@ import axios from "axios";
 import { Dropdown } from "rsuite"; 
 import "rsuite/dist/rsuite.min.css"; 
 
-const navLinks = [
-  { name: "Events", route: "/events" },
-  { name: "Conductor", route: "/about-conductor" },
-  { name: "Chorale", route: "/about-chorale" },
-  { name: "Guests", route: "/about-guests" },
-  { name: "Support Us", route: "/support-us" },
-  { name: "Audition", route: "/audition" },
-];
 
 
 const NavBar = () => {
@@ -38,11 +30,13 @@ const NavBar = () => {
       <NavLink to="/events">Events</NavLink>
       <NavLink to="/support" >Support Us</NavLink>
       <NavLink to="/login">Login</NavLink>
-      <NavLink to="/affiliates">Our Supporters</NavLink>
+      <NavLink to="/logout">Logout</NavLink>
       <Dropdown title="About"> 
+        <Dropdown.Item as="a" href= "/affiliates">Our Supporters</Dropdown.Item> 
         <Dropdown.Item as="a" href= "/about-conductor">Conductor</Dropdown.Item> 
         <Dropdown.Item as="a" href= "/about-chorale">Chorale</Dropdown.Item> 
         <Dropdown.Item as="a" href= "/about-artists">Guest Artists</Dropdown.Item> 
+        <Dropdown.Item as="a" href= "/about-executive-team">Executive Team</Dropdown.Item> 
       </Dropdown> 
       <NavLink to="/audition">Join Us</NavLink>
     </nav>

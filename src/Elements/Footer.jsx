@@ -2,8 +2,8 @@ const Footer = () => {
   return (
     <footer id="primary">
       <section id="footer">
-        <div class="wrapper">
-          <div class="flex">
+        <div className="wrapper">
+          <div className="flex">
             <a href="/mailing-list" id="footerMailingList">
               <h3>Join our Mailing List</h3>
               <p>
@@ -24,19 +24,19 @@ const Footer = () => {
       </section>
 
       <section id="legal">
-        <div class="wrapper">
-          <nav id="secondary" class="menu-secondary-container">
-            <ul id="menu-secondary" class="">
+        <div className="wrapper">
+          <nav id="secondary" className="menu-secondary-container">
+            <ul id="menu-secondary" className="">
               <li
                 id="menu-item-12413"
-                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12413"
+                className="menu-item menu-item-type-post_type menu-item-object-page menu-item-12413"
               >
                 <a href="/contact">Contact</a>
               </li>
 
               <li
                 id="menu-item-60"
-                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-60"
+                className="menu-item menu-item-type-post_type menu-item-object-page menu-item-60"
               >
                 <a href="/privacy-policy">
                   Privacy Policy
@@ -44,7 +44,7 @@ const Footer = () => {
               </li>
               <li
                 id="menu-item-11279"
-                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11279"
+                className="menu-item menu-item-type-post_type menu-item-object-page menu-item-11279"
               >
                 <a href="/equality-diversity-policy">
                   Equality &amp; Diversity Policy
@@ -52,7 +52,7 @@ const Footer = () => {
               </li>
               <li
                 id="menu-item-61"
-                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-61"
+                className="menu-item menu-item-type-post_type menu-item-object-page menu-item-61"
               >
                 <a href="/terms-conditions">
                   Terms &amp; Conditions
@@ -60,7 +60,7 @@ const Footer = () => {
               </li>
               <li
                 id="menu-item-59"
-                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-59"
+                className="menu-item menu-item-type-post_type menu-item-object-page menu-item-59"
               >
                 <a href="/credits">Credits</a>
               </li>

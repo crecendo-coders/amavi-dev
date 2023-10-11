@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import './App.css'
 import Homepage from './Pages/Homepage';
 import { Navigate, Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
-import Layout from './Elements/Layouts';
+import Layout from './Elements/Layout';
 import ErrorPage from './Pages/Error';
 import Login from './Pages/Login';
 import Conductor from './Pages/Conductor';
@@ -19,6 +19,7 @@ import Credits from './Pages/Credits';
 import EqualityDiversityPolicy from './Pages/EqualityDiversityPolicy';
 import PrivacyPolicy from './Pages/PrivacyPolicy';
 import Contact from './Pages/Contact';
+import ExecutiveTeam from './Pages/ExecutiveTeam';
 
 function App() {
   const userId = useSelector(state => state.userId)
@@ -51,11 +52,11 @@ function App() {
         <Route
           path="/about-conductor"
           element={<Conductor />}
-          // loader={async () => {
-          //   const res = await axios.get(`/api/conductor`);
-          //   console.log("res.data", res.data);
-          //   return { conductor: res.data };
-          // }}
+          loader={async () => {
+            const res = await axios.get(`/api/conductor`);
+            console.log("res.data", res.data);
+            return { conductor: res.data };
+          }}
         />
         <Route
           path="/about-chorale"
@@ -69,6 +70,15 @@ function App() {
         <Route
           path="/about-artists"
           element={<Artists />}
+          // loader={async () => {
+          //   const res = await axios.get(`/api/conductor`);
+          //   console.log("res.data", res.data);
+          //   return { conductor: res.data };
+          // }}
+        />
+        <Route
+          path="/about-executive-team"
+          element={<ExecutiveTeam />}
           // loader={async () => {
           //   const res = await axios.get(`/api/conductor`);
           //   console.log("res.data", res.data);
