@@ -1,14 +1,7 @@
 import express from "express";
 import ViteExpress from 'vite-express';
 import session from "express-session";
-import eventCtrl from "./controllers/eventCtrl.js"
-
-
-import get from './getController.js'
-import del from './deleteController.js'
-import post from './postController.js'
-import put from './putController.js'
-import auth from './authController.js'
+import getEvents from "./controllers/eventCtrl.js"
 
 const app = express();
 const PORT = 2319;
@@ -26,8 +19,9 @@ app.use(session({
 }));
 
 // Routes Go Here
-app.get('/api/conductor/', get.conductor)
-app.get('/api/chorale/', get.chorale)
+//app.get('/api/conductor/', get.conductor)
+//app.get('/api/chorale/', get.chorale)
+app.get('/api/events/', getEvents)
 // app.get('/api/guest-artists/', get.guestArtists)
 // app.get('/api/guest-artists/:id', get.guestArtist)
 
