@@ -35,7 +35,7 @@ export default {
             if(!user){
                 res.status(400).send('There was no user found with that email.')
             } else {
-                const isAuthenticated = bcrypt.compareSync(password, Person.password)
+                const isAuthenticated = bcrypt.compareSync(password, user.password)
 
                 if(isAuthenticated){
                     req.session.user = {
