@@ -1,20 +1,35 @@
 import { DataTypes, Model } from "sequelize";
 import connectToDB from "./db.js";
+import dotenv from "dotenv";
+import util from "util";
+import url from 'url'
+dotenv.config();
 
-import process from 'process'
-const dbName = process.env.DB_NAME
-const dbPwd = process.env.DB_PWD
-const dbUser = process.env.DB_USER
-const dbPort = process.env.DB_PORT
-const dbIp = process.env.DB_IP
-const dbAuth = (dbPwd && dbUser && dbPort && dbIp) ? `${dbUser}:${dbPwd}@${dbIP}:${dbPort}:`:""
-// postgres://user:password@IPAddress:5432/dbname
-const db = await connectToDB(`postgresql://${dbAuth}/${dbName}`);
+import process from "process";
+// local db
+const dbURI = "postgresql:///amavi";
+// remote db
+// if (process.env.ENV === "production") {
+//   const dbName = process.env.DB_NAME;
+//   const dbPwd = process.env.DB_PWD;
+//   const dbUser = process.env.DB_USER;
+//   const dbPort = process.env.DB_PORT;
+//   const dbIp = process.env.DB_IP;
+//   const dbAuth = `${dbUser}:${dbPwd}@${dbIp}:${dbPort}:`
+//   // postgres://user:password@IPAddress:5432/dbname
+//   const dbURI = `postgresql://${dbAuth}/${dbName}`;
+// }
+console.log("dbURI", dbURI);
+const db = await connectToDB(dbURI);
 
-class Member extends Model {}
+class Member extends Model {
+  [util.inspect.custom]() {
+    return this.toJSON();
+  }
+}
 Member.init(
   {
-    id: {
+    memberId: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
@@ -53,29 +68,39 @@ Member.init(
   }
 );
 
-class Role extends Model {}
+class Role extends Model {
+  [util.inspect.custom]() {
+    return this.toJSON();
+  }
+}
 Role.init(
   {
-    id: {
+    roleId: {
       type: DataTypes.INTEGER,
       primaryKey: true,
+      autoIncrement: true,
     },
     type: {
       type: DataTypes.STRING,
     },
   },
   {
-    modelName: "role",
+    modelName: "roles",
     sequelize: db,
   }
 );
 
-class Status extends Model {}
+class Status extends Model {
+  [util.inspect.custom]() {
+    return this.toJSON();
+  }
+}
 Status.init(
   {
-    id: {
+    statusId: {
       type: DataTypes.INTEGER,
       primaryKey: true,
+      autoIncrement: true,
     },
     type: {
       type: DataTypes.STRING,
@@ -87,12 +112,17 @@ Status.init(
   }
 );
 
-class Voicing extends Model {}
+class Voicing extends Model {
+  [util.inspect.custom]() {
+    return this.toJSON();
+  }
+}
 Voicing.init(
   {
-    id: {
+    voicingId: {
       type: DataTypes.INTEGER,
       primaryKey: true,
+      autoIncrement: true,
     },
     type: {
       type: DataTypes.STRING,
@@ -104,10 +134,14 @@ Voicing.init(
   }
 );
 
-class Affiliate extends Model {}
+class Affiliate extends Model {
+  [util.inspect.custom]() {
+    return this.toJSON();
+  }
+}
 Affiliate.init(
   {
-    id: {
+    affiliateId: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
@@ -134,10 +168,14 @@ Affiliate.init(
   }
 );
 
-class Event extends Model {}
+class Event extends Model {
+  [util.inspect.custom]() {
+    return this.toJSON();
+  }
+}
 Event.init(
   {
-    id: {
+    eventId: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
@@ -183,3 +221,10 @@ Voicing.hasMany(Member, { foreignKey: "voicingId" });
 Member.belongsTo(Voicing, { foreignKey: "voicingId" });
 
 export { Member, Role, Status, Voicing, Affiliate, Event };
+
+console.log(process.env, import.meta.url);
+if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
+  console.log("Syncing database...");
+  await db.sync();
+  console.log("Finished syncing database!");
+}
