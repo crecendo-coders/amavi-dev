@@ -1,7 +1,8 @@
 import express from "express";
 import ViteExpress from 'vite-express';
 import session from "express-session";
-import getEvents from "./controllers/eventCtrl.js"
+import eventCtrl from "./controllers/eventCtrl.js"
+import auth from "./controllers/authCtrl.js"
 
 const app = express();
 const PORT = 2319;
@@ -17,11 +18,20 @@ app.use(session({
         maxAge: 1000 * 60 * 60 * 48 // 48 hour cookie
     }
 }));
-
 // Routes Go Here
+app.get('/api/events', eventCtrl.getEvents)
+
+// Authentication endpoints Go Here
+app.delete('/api/logout', auth.logout)
+app.post('/api/register', auth.register)
+app.post('/api/login', auth.login)
+app.get('/api/user', auth.checkUser)
+
+ViteExpress.listen(app, PORT, () => console.log(`Server is running on http://localhost:${PORT}`));
+
+
 //app.get('/api/conductor/', get.conductor)
 //app.get('/api/chorale/', get.chorale)
-app.get('/api/events/', getEvents)
 // app.get('/api/guest-artists/', get.guestArtists)
 // app.get('/api/guest-artists/:id', get.guestArtist)
 
@@ -39,14 +49,3 @@ app.get('/api/events/', getEvents)
 // app.post('/api/chorale/', post.chorale)
 // app.post('/api/guest-artists/', post.guestArtists)
 // app.post('/api/guest-artist/:id', post.guestArtist)
-
-
-
-
-// Authentication endpoints Go Here
-app.delete('/api/logout', auth.logout)
-app.post('/api/register', auth.register)
-app.post('/api/login', auth.login)
-app.get('/api/user', auth.checkUser)
-
-ViteExpress.listen(app, PORT, () => console.log(`Server is running on http://localhost:${PORT}`));
