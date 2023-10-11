@@ -1,6 +1,5 @@
 
 import { useSelector } from 'react-redux';
-import './App.css'
 import Homepage from './Pages/Homepage';
 import { Navigate, Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import Layout from './Elements/Layout';
