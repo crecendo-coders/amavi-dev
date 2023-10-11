@@ -1,49 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-// Sample data for events (you can replace this with your own data)
-const eventsData = [
-  {
-    id: 1,
-    title: 'Next Event',
-    date: 'October 15, 2023',
-    description: 'Join us for our next exciting event!',
-  },
-  {
-    id: 2,
-    title: 'Future Event 1',
-    date: 'November 5, 2023',
-    description: 'Details about the first future event.',
-  },
-  {
-    id: 3,
-    title: 'Future Event 2',
-    date: 'December 10, 2023',
-    description: 'Details about the second future event.',
-  },
-];
+const EventComponent = () => {
+  const [events, setEvents] = useState([]);
 
-export default function Events() {
-  const nextEvent = eventsData[0];
-
-  const futureEvents = eventsData.slice(1);
+  useEffect(() => {
+    axios
+      .get("/api/events")
+      .then((res) => {
+        setEvents(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
 
   return (
     <div className="events-container">
       <div className="event-banner">
-        <h2>{nextEvent.title}</h2>
-        <p>Date: {nextEvent.date}</p>
-        <p>{nextEvent.description}</p>
+        {events.length > 0 ? (
+          <>
+            <h2>{events[0].name}</h2>
+            <p>Date: {events[0].date}</p>
+            <p>{events[0].summary}</p>
+          </>
+        ) : (
+          <p>No upcoming events</p>
+        )}
       </div>
 
       <div className="future-events">
-        {futureEvents.map(event => (
+        {events.slice(1).map((event) => (
           <div key={event.id} className="event-card">
-            <h3>{event.title}</h3>
+            <h3>{event.name}</h3>
             <p>Date: {event.date}</p>
-            <p>{event.description}</p>
+            <p>{event.summary}</p>
           </div>
         ))}
       </div>
     </div>
   );
-}
+};
+
+export default EventComponent;
