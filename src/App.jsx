@@ -114,10 +114,6 @@ function App() {
         <Route
           path="/events"
           element={<Events/>}
-          // loader={async () => {
-          //   const res = await axios.get(`/api/admin`);
-          //   return { admin: res.data };
-          // }}
         />
         <Route
           path="/support"
