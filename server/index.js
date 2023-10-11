@@ -3,8 +3,6 @@ import ViteExpress from 'vite-express';
 import session from "express-session";
 import eventCtrl from "./controllers/eventCtrl.js"
 
-const { postEvent, getEvents } = eventCtrl; 
-
 
 import get from './getController.js'
 import del from './deleteController.js'
