@@ -110,3 +110,4 @@ await db.sync({ force: true })
 
 await db.close()
 
+
