@@ -8,7 +8,7 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center">
         <div>Amavi</div>
         <a href="/">
-          <img src="logo.svg" width={50} />
+          <img src="amavi-big-logo.png" width={150} />
           <div>tagline</div>
         </a>
         <SocialMedia />
