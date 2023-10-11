@@ -5,19 +5,12 @@ import eventCtrl from "./controllers/eventCtrl.js"
 
 const { postEvent, getEvents } = eventCtrl; 
 
-<<<<<<< feat/events
-=======
 
 import get from './getController.js'
 import del from './deleteController.js'
 import post from './postController.js'
 import put from './putController.js'
 import auth from './authController.js'
-
-// const __filename = fileURLToPath(import.meta.url); // Get the current file's path
-// const __dirname = path.dirname(__filename); // Get the current directory's path
-
->>>>>>> main
 
 const app = express();
 const PORT = 2319;
@@ -33,12 +26,6 @@ app.use(session({
         maxAge: 1000 * 60 * 60 * 48 // 48 hour cookie
     }
 }));
-
-<<<<<<< feat/events
-app.get('/api/events', getEvents);
-=======
-// Serve static files from a directory (e.g., public)
-app.use(express.static(path.join(__dirname, '../index.html')));
 
 // Routes Go Here
 app.get('/api/conductor/', get.conductor)
@@ -63,7 +50,6 @@ app.get('/api/chorale/', get.chorale)
 
 
 
->>>>>>> main
 
 // Authentication endpoints Go Here
 app.delete('/api/logout', auth.logout)
