@@ -10,11 +10,14 @@
     }
   },
   "scripts": {
-    "dev": "nodemon server/index.js -w index.js -w server",
+    "dev": "nodemon server/index.js -w server/index.js -w src",
     "build": "vite build",
-    "style": "postcss css/tailwind.css -o public/build/tailwind.css",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "createdb": "dropdb --if-exists amavi && createdb amavi",
+    "seedModels": "node server/model.js",
+    "seedData": "node server/seed.js",
+    "initdb": "npm run createdb && npm run seedModels && npm run seedData"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
