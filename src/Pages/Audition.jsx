@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import {Swal} from 'sweet'
 import "./../../css/form.css";
 
 export default function Audition() {
+  const Confirm = withReactContent(Swal);
   const {
     register,
     handleSubmit,
@@ -14,7 +16,11 @@ export default function Audition() {
       .post("/api/audition", data)
       .then((res) => {
         console.log("Response: ", res.data);
-        // confirmation
+        Confirm.fire({
+          icon: "success",
+          title: "Thank you for applying",
+          showConfirmButton: true,
+        });
       })
       .catch((err) => console.log(err));
    }
