@@ -1,8 +1,8 @@
 import {
-  faYoutube,
   faFacebook,
-  faTwitter,
   faInstagram,
+  // faTwitter,
+  // faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -31,13 +31,13 @@ const SocialMedia = () => {
       {/* <a href="https://www.youtube.com/amavi" style={style.youtube}>
         <FontAwesomeIcon icon={faYoutube} size="2x" />
       </a> */}
-      <a href="https://www.facebook.com/amavi/" style={style.facebook}>
+      <a href="https://www.facebook.com/amavichorale/" style={style.facebook}>
         <FontAwesomeIcon icon={faFacebook} size="2x" />
       </a>
-      <a href="https://www.twitter.com/amavi" style={style.twitter}>
+      {/* <a href="https://www.twitter.com/amavi" style={style.twitter}>
         <FontAwesomeIcon icon={faTwitter} size="2x" />
-      </a>
-      <a href="https://www.instagram.com/amavi" style={style.instagram}>
+      </a> */}
+      <a href="https://www.instagram.com/amavi_chorale" style={style.instagram}>
         <FontAwesomeIcon icon={faInstagram} size="2x" />
       </a>
     </>
