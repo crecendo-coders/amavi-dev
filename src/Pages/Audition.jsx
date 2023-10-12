@@ -83,7 +83,7 @@ export default function Audition() {
         <option value="baritone">Baritone</option>
         <option value="bass">Bass</option>
       </select>
-    
+      <div class="g-recaptcha" data-sitekey={import.meta.env.VITE_PUBLIC_CAPTCHA}></div>
       <input type="submit" />
     </form>
   );
