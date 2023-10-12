@@ -7,9 +7,8 @@ import {
   Event,
 } from "./../server/model.js";
 import bcrypt from 'bcryptjs'
-
 import connectToDB from "./../server/db.js";
-
+import 'dotenv/config'
 const salt = bcrypt.genSaltSync(10);
 
 const roles = [{ type: "Admin" }, { type: "User" }, { type: "Conductor" }];
@@ -94,7 +93,8 @@ const events = [
   },
 ];
 
-const db = await connectToDB("postgresql:///amavi")
+const {CONNECTION_STRING} = process.env
+const db = await connectToDB(CONNECTION_STRING);
 
 await db.sync({ force: true })
 .then(async () => {
