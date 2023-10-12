@@ -246,23 +246,9 @@ Member.belongsTo(Status, { foreignKey: "statusId" });
 Voicing.hasMany(Member, { foreignKey: "voicingId" });
 Member.belongsTo(Voicing, { foreignKey: "voicingId" });
 
-// Voicing.hasMany(Audition, { foreignKey: "voicingId" });
-// Audition.belongsTo(Voicing, { foreignKey: "voicingId" });
+Voicing.hasMany(Audition, { foreignKey: "voicingId" });
+Audition.belongsTo(Voicing, { foreignKey: "voicingId" });
 
-// Voicing.belongsToMany(Audition, {
-//   through: "Audition_Voicing",
-//   as: "audition",
-//   foreignKey: "voicingId",
-// });
-
-// Audition.belongsToMany(Voicing, {
-//   through: "Audition_Voicing",
-//   as: "voicing",
-//   foreignKey: "AuditionId",
-// });
-
-Voicing.belongsToMany(Audition, { through: 'AuditionVoicing', as: 'Auditions' });
-Audition.belongsToMany(Voicing, { through: 'AuditionVoicing', as: 'Voicings' });
 
 export { Member, Role, Status, Voicing, Affiliate, Event, Audition };
 

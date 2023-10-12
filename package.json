@@ -17,7 +17,7 @@
     "createdb": "dropdb --if-exists amavi && createdb amavi",
     "seedModels": "node server/model.js",
     "seedData": " node scripts/seed.js",
-    "initdb": "npm run createdb && npm run seedModels && npm run seedData",
+    "initdb": "npm run seedModels && npm run seedData",
     "preview": "vite preview"
   },
   "dependencies": {

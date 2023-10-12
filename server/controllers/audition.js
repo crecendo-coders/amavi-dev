@@ -1,4 +1,4 @@
-import { Event } from "../model.js";
+import { Audition, Event } from "../model.js";
 
 export default {
   post: (req, res) => {

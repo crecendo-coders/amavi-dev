@@ -34,7 +34,7 @@ const auditions = [
     experience: 3,
     expDetail: "I love to sing",
     connection: "event",
-    voicing: [{ voicingId: 2 }, { voicingId: 3 }],
+    voicingId: 1,
   },
   {
     name: "Curly",
@@ -43,7 +43,7 @@ const auditions = [
     experience: 2,
     expDetail: "I love to sing",
     connection: "friend",
-    voicing: [{ voicingId: 1 }, { voicingId: 3 }],
+    voicingId: 3,
   },
 ];
 const members = [
@@ -130,9 +130,7 @@ await db
     await Voicing.bulkCreate(voicing);
     await Member.bulkCreate(members);
     await Affiliate.bulkCreate(affiliates);
-    await Audition.bulkCreate(auditions, {
-      include: [{ model: Voicing, as: 'Voicings' }],
-    });
+    await Audition.bulkCreate(auditions);
     await Event.bulkCreate(events);
     console.log("Seed data inserted successfully.");
   })
