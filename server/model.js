@@ -1,24 +1,13 @@
 import { DataTypes, Model } from "sequelize";
 import connectToDB from "./db.js";
-import dotenv from "dotenv";
 import util from "util";
 import url from 'url'
-dotenv.config();
+import 'dotenv/config'
 
 import process from "process";
-// local db
-const dbURI = "postgresql:///amavi";
-// remote db
-// if (process.env.ENV === "production") {
-//   const dbName = process.env.DB_NAME;
-//   const dbPwd = process.env.DB_PWD;
-//   const dbUser = process.env.DB_USER;
-//   const dbPort = process.env.DB_PORT;
-//   const dbIp = process.env.DB_IP;
-//   const dbAuth = `${dbUser}:${dbPwd}@${dbIp}:${dbPort}:`
-//   // postgres://user:password@IPAddress:5432/dbname
-//   const dbURI = `postgresql://${dbAuth}/${dbName}`;
-// }
+const {CONNECTION_STRING} = process.env
+const dbURI = CONNECTION_STRING;
+
 console.log("dbURI", dbURI);
 const db = await connectToDB(dbURI);
 
