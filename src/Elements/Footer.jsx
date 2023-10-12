@@ -16,7 +16,7 @@ const Footer = () => {
           <a href="/support" id="footerDonate" className="md:w-1/2 p-4">
             <h3 className="text-xl font-semibold">Donate to Amavi</h3>
             <p>
-              Please help sustain the choir’s essential music education work
+              Please help sustain the choir's essential music education work
               and artistic output.
             </p>
           </a>
