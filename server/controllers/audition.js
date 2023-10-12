@@ -28,10 +28,10 @@ export default {
         const message = {
           from: {mail: "Amavi Chorale",
           address: process.env.EMAIL}, // sender address
-            to: "dannyjeee@yahoo.com", // list of receivers
+            to: req.body.email, // list of receivers
             subject: "We have recieved your audition request ✔", // Subject line
             text: "Greetings.  Let me know when you would like to meet", // plain text body
-            html: "<b>HTML</b>", // html body
+            html: "<b>Should use a HTML formatted template</b>", // html body
           }
         previewEmail(message).then(console.log).catch(console.error)
         await transporter.sendMail(message);
