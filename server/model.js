@@ -168,6 +168,43 @@ Affiliate.init(
   }
 );
 
+class Audition extends Model {
+  [util.inspect.custom]() {
+    return this.toJSON();
+  }
+}
+Audition.init(
+  {
+    auditionId: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    name: {
+      type: DataTypes.STRING,
+    },
+    email: {
+      type: DataTypes.STRING,
+    },
+    phone: {
+      type: DataTypes.STRING,
+    },
+    expDetail: {
+      type: DataTypes.STRING,
+    },
+    experience: {
+      type: DataTypes.INTEGER,
+    },
+    connection: {
+      type: DataTypes.STRING,
+    },
+  },
+  {
+    modelName: "audition",
+    sequelize: db,
+  }
+);
+
 class Event extends Model {
   [util.inspect.custom]() {
     return this.toJSON();
@@ -220,7 +257,23 @@ Member.belongsTo(Status, { foreignKey: "statusId" });
 Voicing.hasMany(Member, { foreignKey: "voicingId" });
 Member.belongsTo(Voicing, { foreignKey: "voicingId" });
 
-export { Member, Role, Status, Voicing, Affiliate, Event };
+Voicing.hasMany(Audition, { foreignKey: "voicingId" });
+Audition.belongsTo(Voicing, { foreignKey: "voicingId" });
+
+Voicing.belongsToMany(Audition, {
+  through: "Audition_Voicing",
+  as: "audition",
+  foreignKey: "voicingId",
+});
+
+Audition.belongsToMany(Voicing, {
+  through: "Audition_Voicing",
+  as: "voicing",
+  foreignKey: "AuditionId",
+});
+
+
+export { Member, Role, Status, Voicing, Affiliate, Event, Audition };
 
 if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
   console.log("Syncing database...");
