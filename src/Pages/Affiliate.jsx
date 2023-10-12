@@ -30,6 +30,11 @@ export default function Affiliate() {
           <li>Additionally, you'll receive an invitation to a special reception following our season in June 2023.</li>
         </ul>
       </div>
+      <div className="flex justify-center mt-4">
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Become an Affiliate
+        </button>
+      </div>
     </div>
   );
 }
