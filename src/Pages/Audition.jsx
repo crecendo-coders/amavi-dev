@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import {Swal} from 'sweet'
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 import "./../../css/form.css";
+import axios from "axios";
 
 export default function Audition() {
   const Confirm = withReactContent(Swal);
@@ -18,11 +20,17 @@ export default function Audition() {
         console.log("Response: ", res.data);
         Confirm.fire({
           icon: "success",
-          title: "Thank you for applying",
+          title: "We will contact you soon",
           showConfirmButton: true,
         });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        Confirm.fire({
+          icon: "error",
+          title: err,
+          showConfirmButton: false,
+        });
+      });
    }
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
