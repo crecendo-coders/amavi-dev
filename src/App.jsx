@@ -1,5 +1,4 @@
 
-import { useSelector } from 'react-redux';
 import Homepage from './Pages/Homepage';
 import { Navigate, Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import Layout from './Elements/Layout';
@@ -21,8 +20,6 @@ import Contact from './Pages/Contact';
 import ExecutiveTeam from './Pages/ExecutiveTeam';
 
 function App() {
-  const userId = useSelector(state => state.userId)
-  console.log("userId", userId);
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
@@ -30,9 +27,6 @@ function App() {
           index
           element={<Homepage />}
         />
-        <Route 
-          path="/login" 
-          element={userId? <Navigate to='/admin'/> : <Login />} />
         <Route 
           path="/terms-conditions" 
           element={<TermsConditions/>} />
@@ -104,7 +98,7 @@ function App() {
         /> 
         <Route
           path="/admin"
-          element={userId? <Admin /> : <Navigate to='/login'/>}
+          element={<Admin /> }
           // loader={async () => {
           //   const res = await axios.get(`/api/admin`);
           //   return { admin: res.data };
