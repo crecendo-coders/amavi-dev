@@ -207,7 +207,7 @@ Event.init(
       autoIncrement: true,
     },
     archive: {
-      type: DataTypes.TEXT,
+      type: DataTypes.BOOLEAN,
       defaultValue: false
     },
     programme: {
@@ -225,8 +225,9 @@ Event.init(
     start_time: {
       type: DataTypes.STRING,
     },
-    duration: {
-      type: DataTypes.STRING,
+    durationMin: {
+      type: DataTypes.INTEGER,
+      default: 120
     },
     name: {
       type: DataTypes.STRING,

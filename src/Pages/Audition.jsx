@@ -7,22 +7,16 @@ import axios from "axios";
 
 export default function Audition() {
   const Confirm = withReactContent(Swal);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+
+  const {register, handleSubmit, formState: { errors }} = useForm();
+  console.log("new audition form errors", errors);
+
   const onSubmit = (data) => { 
     console.log("Audition Data:", data);
     axios
       .post("/api/audition", data)
       .then((res) => {
         console.log("Response: ", res.data);
-        Confirm.fire({
-          icon: "success",
-          title: "We will contact you soon",
-          showConfirmButton: true,
-        });
       })
       .catch((err) => {
         Confirm.fire({

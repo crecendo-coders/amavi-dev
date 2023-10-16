@@ -9,12 +9,12 @@ async function connectToDB(dbURI) {
       timestamps: false,
       underscored: true,
     },
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false, // Set this to true in a production environment with valid certificates
-      },
-    },
+    // dialectOptions: {
+    //   ssl: {
+    //     require: true,
+    //     rejectUnauthorized: false, // Set this to true in a production environment with valid certificates
+    //   },
+    // },
   });
 
   try {
