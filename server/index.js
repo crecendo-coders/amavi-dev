@@ -4,9 +4,11 @@ import session from "express-session";
 import eventCtrl from "./controllers/eventCtrl.js"
 import audition from "./controllers/audition.js"
 import auth from "./controllers/authCtrl.js"
+import Stripe from "stripe";
 
 const app = express();
 const PORT = 2319;
+const stripe = require("stripe")('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
