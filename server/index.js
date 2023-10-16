@@ -1,7 +1,7 @@
 import express from "express";
 import ViteExpress from 'vite-express';
 import session from "express-session";
-import eventCtrl from "./controllers/eventCtrl.js"
+import event from "./controllers/eventCtrl.js"
 import audition from "./controllers/audition.js"
 import auth from "./controllers/authCtrl.js"
 
@@ -20,7 +20,11 @@ app.use(session({
     }
 }));
 // Routes Go Here
-app.get('/api/events', eventCtrl.getEvents)
+app.get('/api/events', event.get)
+app.put('/api/events/:id', event.put)
+app.put('/api/events/archive/:id', event.archive)
+app.delete('/api/events/:id', event.delete)
+
 app.post('/api/audition', audition.post)
 
 // Authentication endpoints Go Here

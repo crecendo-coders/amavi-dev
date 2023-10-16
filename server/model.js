@@ -206,6 +206,10 @@ Event.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    archive: {
+      type: DataTypes.TEXT,
+      defaultValue: false
+    },
     programme: {
       type: DataTypes.TEXT,
     },
