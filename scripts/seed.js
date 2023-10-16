@@ -5,8 +5,10 @@ import {
   Voicing,
   Affiliate,
   Event,
+  Audition,
 } from "./../server/model.js";
-import bcrypt from 'bcryptjs'
+import bcrypt from "bcryptjs";
+
 import connectToDB from "./../server/db.js";
 import 'dotenv/config'
 const salt = bcrypt.genSaltSync(10);
@@ -14,12 +16,36 @@ const salt = bcrypt.genSaltSync(10);
 const roles = [{ type: "Admin" }, { type: "User" }, { type: "Conductor" }];
 const statuses = [{ type: "Active" }, { type: "Inactive" }];
 const voicing = [
-  { type: "Soprano" },
-  { type: "Alto" },
-  { type: "Tenor" },
+  { type: "Soprano I" },
+  { type: "Soprano II" },
+  { type: "Alto I" },
+  { type: "Alto II" },
+  { type: "Tenor I" },
+  { type: "Tenor II" },
+  { type: "Baritone" },
   { type: "Bass" },
 ];
 
+const auditions = [
+  {
+    name: "Larry",
+    email: "some@examploe.com",
+    phone: "123 123-123",
+    experience: 3,
+    expDetail: "I love to sing",
+    connection: "event",
+    voicingId: 1,
+  },
+  {
+    name: "Curly",
+    email: "c@examploe.com",
+    phone: "123 123-123",
+    experience: 2,
+    expDetail: "I love to sing",
+    connection: "friend",
+    voicingId: 3,
+  },
+];
 const members = [
   {
     roleId: 1,
@@ -96,18 +122,18 @@ const events = [
 const {CONNECTION_STRING} = process.env
 const db = await connectToDB(CONNECTION_STRING);
 
-await db.sync({ force: true })
-.then(async () => {
-  await Role.bulkCreate(roles);
-  await Status.bulkCreate(statuses);
-  await Voicing.bulkCreate(voicing);
-  await Member.bulkCreate(members);
-  await Affiliate.bulkCreate(affiliates);
-  await Event.bulkCreate(events);
-  console.log("Seed data inserted successfully.");
-})
-.catch(error => console.error("Error seeding data:", error))
+await db
+  .sync({ force: true })
+  .then(async () => {
+    await Role.bulkCreate(roles);
+    await Status.bulkCreate(statuses);
+    await Voicing.bulkCreate(voicing);
+    await Member.bulkCreate(members);
+    await Affiliate.bulkCreate(affiliates);
+    await Audition.bulkCreate(auditions);
+    await Event.bulkCreate(events);
+    console.log("Seed data inserted successfully.");
+  })
+  .catch((error) => console.error("Error seeding data:", error));
 
-await db.close()
-
-
+await db.close();
