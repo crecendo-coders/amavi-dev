@@ -21,9 +21,9 @@ app.use(session({
 }));
 // Routes Go Here
 app.get('/api/events', event.get)
-app.put('/api/events/:id', event.put)
-app.put('/api/events/archive/:id', event.archive)
-app.delete('/api/events/:id', event.delete)
+app.put('/api/event/:id', event.put)
+app.put('/api/event/archive/:id', event.archive)
+app.delete('/api/event/:id', event.delete)
 
 app.post('/api/audition', audition.post)
 

@@ -19,7 +19,9 @@ export default function Admin() {
       });
   }, [editMode]);
 
-  const saveEvent = (id, event) => {
+  const saveEvent = (i) => {
+    const id = i+1
+    const event = events[i]
     console.log("save id", id, event);
     axios
       .put(`/api/event/${id}`, event)
@@ -33,41 +35,48 @@ export default function Admin() {
     setEditMode(false);
   };
 
-  const archiveEvent = (id) => {
+  const archiveEvent = (i) => {
+    const id = i+1
     console.log("archive id", id);
     axios
       .put(`/api/event/archive/${id}`)
       .then((res) => {
-        setEvents(res.data);
-        console.log("events", res.data);
+        console.log("event archive", res.data);
       })
       .catch((err) => {
         console.error("unable to get events for admin page", err);
       });
+      console.log("newEvents", events, archived,) ;
+      events.splice(i, 1)
+      setEvents(newEvents)
   };
-  const deleteEvent = (id) => {
+  const deleteEvent = (i) => {
+    const id = i+1
     console.log("delete id", id);
     axios
       .delete(`/api/event/${id}`)
       .then((res) => {
-        setEvents(res.data);
+        
         console.log("events", res.data);
       })
       .catch((err) => {
         console.error("unable to get events for admin page", err);
       });
+      const newEvents = events.slice(i,1)
+      console.log("newEvents", newEvents);      
+      setEvents(res.data);
   };
   return (
     <div>
       <h1>Events</h1>
       <Button>Add</Button>
       {events.map((event, i) => (
-          <div key={i + 1} className="bg-white rounded-lg p-4 shadow-md">
+          <div key={event.eventId} className="bg-white rounded-lg p-4 shadow-md">
             {editMode ? (
               <div>
                 <div>event form todo</div>
                 <ButtonGroup>
-                  <Button onClick={() => saveEvent(i + 1, event)}>Save</Button>
+                  <Button onClick={() => saveEvent(i, event)}>Save</Button>
                   <Button onClick={() => editMode(false)}>Cancel</Button>
                 </ButtonGroup>
               </div>
@@ -77,8 +86,8 @@ export default function Admin() {
                 <p>Date: {event.date}</p>
                 <p className="mt-2">{event.summary}</p>
                 <ButtonGroup>
-                  <Button onClick={() => deleteEvent(i + 1)}>Delete</Button>
-                  <Button onClick={() => archiveEvent(i + 1)}>Archive</Button>
+                  <Button onClick={() => deleteEvent(i)}>Delete</Button>
+                  <Button onClick={() => archiveEvent(i)}>Archive</Button>
                   <Button onClick={() => editMode(true)}>Edit</Button>
                 </ButtonGroup>
               </div>
