@@ -20,7 +20,7 @@ const EventComponent = () => {
     <div className="bg-gray-100 p-4"> 
       <div className="bg-blue-500 text-white p-4 mb-4"> 
         {events.length > 0 ? (
-          <div>
+          <div >
             <h2 className="text-2xl font-bold">{events[0].name}</h2>
             <p>Date: {events[0].date}</p>
             <p className="mt-2">{events[0].summary}</p>

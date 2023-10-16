@@ -2,6 +2,7 @@ import express from "express";
 import ViteExpress from 'vite-express';
 import session from "express-session";
 import eventCtrl from "./controllers/eventCtrl.js"
+import audition from "./controllers/audition.js"
 import auth from "./controllers/authCtrl.js"
 
 const app = express();
@@ -20,6 +21,7 @@ app.use(session({
 }));
 // Routes Go Here
 app.get('/api/events', eventCtrl.getEvents)
+app.post('/api/audition', audition.post)
 
 // Authentication endpoints Go Here
 app.delete('/api/logout', auth.logout)
