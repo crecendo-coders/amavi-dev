@@ -1,6 +1,6 @@
-
 import Homepage from './Pages/Homepage';
 import { Navigate, Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
+import axios from 'axios';
 import Layout from './Elements/Layout';
 import ErrorPage from './Pages/Error';
 import Login from './Pages/Login';
@@ -45,11 +45,11 @@ function App() {
         <Route
           path="/about-conductor"
           element={<Conductor />}
-          loader={async () => {
-            const res = await axios.get(`/api/conductor`);
-            console.log("res.data", res.data);
-            return { conductor: res.data };
-          }}
+          // loader={async () => {
+          //   const res = await axios.get(`/api/conductor`);
+          //   console.log("res.data", res.data);
+          //   return { conductor: res.data };
+          // }}
         />
         <Route
           path="/about-chorale"

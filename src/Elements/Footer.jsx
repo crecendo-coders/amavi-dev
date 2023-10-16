@@ -1,25 +1,26 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
     <footer id="primary" className="bg-gray-900 text-white py-8">
       <section id="footer" className="wrapper">
         <div className="flex flex-col md:flex-row">
-          <a href="/mailing-list" id="footerMailingList" className="md:w-1/2 p-4">
+          <NavLink href="/mailing-list" id="footerMailingList" className="md:w-1/2 p-4">
             <h3 className="text-xl font-semibold">Join our Mailing List</h3>
             <p>
               Subscribe to receive advance notice of concerts, and occasional
               news from the group.
             </p>
-          </a>
+          </NavLink>
 
-          <a href="/support" id="footerDonate" className="md:w-1/2 p-4">
+          <NavLink href="/support" id="footerDonate" className="md:w-1/2 p-4">
             <h3 className="text-xl font-semibold">Donate to Amavi</h3>
             <p>
               Please help sustain the choir's essential music education work
               and artistic output.
             </p>
-          </a>
+          </NavLink>
         </div>
       </section>
 
@@ -31,44 +32,44 @@ const Footer = () => {
           >
             <ul id="menu-secondary" className="flex flex-wrap">
               <li className="w-full md:w-1/2">
-                <a
+                <NavLink
                   href="/contact"
                   className="text-white hover:text-blue-400 py-2 px-4 block"
                 >
                   Contact
-                </a>
+                </NavLink>
               </li>
               <li className="w-full md:w-1/2">
-                <a
+                <NavLink
                   href="/privacy-policy"
                   className="text-white hover:text-blue-400 py-2 px-4 block"
                 >
                   Privacy Policy
-                </a>
+                </NavLink>
               </li>
               <li className="w-full md:w-1/2">
-                <a
+                <NavLink
                   href="/equality-diversity-policy"
                   className="text-white hover:text-blue-400 py-2 px-4 block"
                 >
                   Equality &amp; Diversity Policy
-                </a>
+                </NavLink>
               </li>
               <li className="w-full md:w-1/2">
-                <a
+                <NavLink
                   href="/terms-conditions"
                   className="text-white hover:text-blue-400 py-2 px-4 block"
                 >
                   Terms &amp; Conditions
-                </a>
+                </NavLink>
               </li>
               <li className="w-full md:w-1/2">
-                <a
+                <NavLink
                   href="/credits"
                   className="text-white hover:text-blue-400 py-2 px-4 block"
                 >
                   Credits
-                </a>
+                </NavLink>
               </li>
             </ul>
           </nav>
