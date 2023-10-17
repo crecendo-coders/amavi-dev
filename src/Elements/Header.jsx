@@ -20,8 +20,8 @@ const Header = () => {
                             title="Please consider donating to Amavi"
                             className={({ isActive }) =>
                                 isActive
-                                    ? "bg-blue-500 m-2 text-white px-4 py-2 rounded-full underline border-[1px] border-blue-800 focus:text-white hover:text-white"
-                                    : "bg-blue-500 m-2 text-white px-4 py-2 rounded-full hover:bg-white no-underline hover:no-underline border-[1px] border-blue-800 focus:no-underline"
+                                    ? "bg-blue-500 text-lg m-2 text-white px-4 py-2 rounded-full underline border-[1px] border-blue-800 focus:text-white hover:text-white"
+                                    : "bg-blue-500 text-lg m-2 text-white px-4 py-2 rounded-full hover:bg-white no-underline hover:no-underline border-[1px] border-blue-800 focus:no-underline"
                             }
                         >
                             Donate
