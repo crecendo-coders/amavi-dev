@@ -4,9 +4,14 @@ import session from "express-session";
 import event from "./controllers/eventCtrl.js"
 import audition from "./controllers/audition.js"
 import auth from "./controllers/authCtrl.js"
+import Stripe from "stripe";
+import 'dotenv/config'
+import process from 'process'
 
 const app = express();
 const PORT = 2319;
+const stripe = new Stripe(process.env.STRIPE_SECRET)
+const domain = process.env.DOMAIN
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
@@ -34,6 +39,24 @@ app.delete('/api/logout', auth.logout)
 app.post('/api/register', auth.register)
 app.post('/api/login', auth.login)
 app.get('/api/user', auth.checkUser)
+
+// Stripe endpoints
+app.post('/create-checkout-session', async (req, res) => {
+    const session = await stripe.checkout.sessions.create({
+      line_items: [
+        {
+          // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+          price: 'price_1O2HeTHC1pU4F4it9spgSk9A',
+          quantity: 1,
+        },
+      ],
+      mode: 'payment',
+      success_url: `${domain}?success=true`,
+      cancel_url: `${domain}?canceled=true`,
+    });
+  
+    res.redirect(303, session.url);
+  });
 
 ViteExpress.listen(app, PORT, () => console.log(`Server is running on http://localhost:${PORT}`));
 
