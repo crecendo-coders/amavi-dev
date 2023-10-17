@@ -2,11 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button, ButtonGroup, Checkbox } from "rsuite";
 import AddEvent from "../Elements/AddEvent";
+import EditEvent from "../Elements/EditEvent";
 
 export default function Admin() {
   const appearance = "primary";
   const [events, setEvents] = useState([]);
-  const [editMode, setEditMode] = useState(false);
+  const [editEvent, setEditEvent] = useState(null);
   const [addEvent, setAddEvent] = useState(false);
   const [showArchived, setShowArchived] = useState(false);
 
@@ -22,23 +23,9 @@ export default function Admin() {
       .catch((err) => {
         console.error("unable to get events for admin page", err);
       });
-  }, [editMode, showArchived]);
+  }, [editEvent, showArchived]);
 
-  const updateEvent = (i, values) => {
-    console.log("save id", id, values);
-    axios
-      .put(`/api/event/${id}`, values)
-      .then((res) => {
-        console.log("events", res.data);
-      })
-      .catch((err) => {
-        console.error("unable to get events for admin page", err);
-      });
-    setEditMode(false);
-    const newEvents = [...events]
-    newEvents[i] = values
-    setEvents(newEvents);
-  };
+
   const archiveEvent = (event) => {
     console.log("archive id", event.eventId);
     axios
@@ -77,13 +64,9 @@ export default function Admin() {
       {addEvent && <AddEvent setAddEvent={setAddEvent}/>}
       {events.map((event) => (
         <div key={event.eventId} className="bg-white rounded-lg p-4 shadow-md">
-          {(editMode) ? (
+          {(editEvent === event.eventId) ? (
             <div>
-              <div>event form todo</div>
-              <ButtonGroup>
-                <Button onClick={() => updateEvent(event.eventId, values)}>Save</Button>
-                <Button onClick={() => setEditMode(false)}>Cancel</Button>
-              </ButtonGroup>
+              <EditEvent setEditEvent={setEditEvent} event={event} />
             </div>
           ) : (
             <div>
@@ -98,7 +81,7 @@ export default function Admin() {
                 :
                 <Button onClick={() => archiveEvent(event)}>Archive</Button>
                 }
-                <Button onClick={() => setEditMode(true)}>Edit</Button>
+                <Button onClick={() => setEditEvent(event.eventId)}>Edit</Button>
               </ButtonGroup>
             </div>
           )}
