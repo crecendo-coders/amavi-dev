@@ -206,6 +206,10 @@ Event.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    archive: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
     programme: {
       type: DataTypes.TEXT,
     },
@@ -215,14 +219,12 @@ Event.init(
     address: {
       type: DataTypes.STRING,
     },
-    date: {
-      type: DataTypes.STRING,
+    datetime: {
+      type: DataTypes.DATE,
     },
-    start_time: {
-      type: DataTypes.STRING,
-    },
-    duration: {
-      type: DataTypes.STRING,
+    durationMin: {
+      type: DataTypes.INTEGER,
+      default: 120
     },
     name: {
       type: DataTypes.STRING,

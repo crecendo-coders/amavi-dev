@@ -12,6 +12,7 @@
   "scripts": {
     "dev": "nodemon server/index.js -w index.js -w server",
     "build": "vite build",
+    "start": "vite",
     "style": "postcss css/tailwind.css -o public/build/tailwind.css",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "createdb": "dropdb --if-exists amavi && createdb amavi",

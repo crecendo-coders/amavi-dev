@@ -9,10 +9,10 @@ const EventComponent = () => {
       .get("/api/events")
       .then((res) => {
         setEvents(res.data);
-        console.log(res.data);
+        console.log("events page events", res.data);
       })
       .catch((err) => {
-        console.error(err);
+        console.error("unable to get events for the events page:", err);
       });
   }, []);
 
