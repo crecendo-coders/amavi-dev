@@ -10,17 +10,6 @@ export default function Admin() {
   const [addEvent, setAddEvent] = useState(false);
   const [showArchived, setShowArchived] = useState(false);
 
-  const handleCheckbox = event => {
-    if (event.target.checked) {
-      console.log('✅ Checkbox is checked');
-      setShowArchived(true)
-    } else {
-      console.log('⛔️ Checkbox is NOT checked');
-      setShowArchived(false)
-    }
-    setIsSubscribed(current => !current);
-  };
-
 
   useEffect(() => {
     const route = showArchived?"/api/events/all":"/api/events"
@@ -36,7 +25,6 @@ export default function Admin() {
   }, [editMode, showArchived]);
 
   const updateEvent = (i, values) => {
-    const id = i + 1;
     console.log("save id", id, values);
     axios
       .put(`/api/event/${id}`, values)
@@ -51,34 +39,31 @@ export default function Admin() {
     newEvents[i] = values
     setEvents(newEvents);
   };
-
-
-
-  const archiveEvent = (i) => {
-    const id = i + 1;
-    console.log("archive id", id);
+  const archiveEvent = (event) => {
+    console.log("archive id", event.eventId);
     axios
-      .put(`/api/event/archive/${id}`)
+      .put(`/api/event/archive/${event.eventId}`, event)
       .then((res) => {
+        console.log("res.data", res.data);
+        setEvents(res.data)
         console.log("event archive", res.data);
       })
       .catch((err) => {
         console.error("unable to get events for admin page", err);
       });
-    setEvents(events.filter((event) => event.eventId != id));
+    
   };
-  const deleteEvent = (i) => {
-    const id = i + 1;
-    console.log("delete id", id);
+  const deleteEvent = (event) => {
+    console.log("delete id", event.eventId);
     axios
-      .delete(`/api/event/${id}`)
+      .delete(`/api/event/${event.eventId}`)
       .then((res) => {
         console.log("events", res.data);
       })
       .catch((err) => {
         console.error("unable to get events for admin page", err);
       });
-    setEvents(events.filter((event) => event.eventId != id));
+    setEvents(events.filter((event1) => event1.eventId != event.eventId));
   };
   return (
     <div>
@@ -90,14 +75,14 @@ export default function Admin() {
         <Button color="yellow" onClick={()=>setShowArchived(true)}>Show Archived Events</Button>}
       </ButtonGroup>
       {addEvent && <AddEvent setAddEvent={setAddEvent}/>}
-      {events.map((event, i) => (
+      {events.map((event) => (
         <div key={event.eventId} className="bg-white rounded-lg p-4 shadow-md">
-          {editMode ? (
+          {(editMode) ? (
             <div>
               <div>event form todo</div>
               <ButtonGroup>
-                <Button onClick={() => updateEvent(i, values)}>Save</Button>
-                <Button onClick={() => editMode(false)}>Cancel</Button>
+                <Button onClick={() => updateEvent(event.eventId, values)}>Save</Button>
+                <Button onClick={() => setEditMode(false)}>Cancel</Button>
               </ButtonGroup>
             </div>
           ) : (
@@ -106,9 +91,14 @@ export default function Admin() {
               <p>Date: {event.date}</p>
               <p className="mt-2">{event.summary}</p>
               <ButtonGroup>
-                <Button onClick={() => deleteEvent(i)}>Delete</Button>
-                <Button onClick={() => archiveEvent(i)}>Archive</Button>
-                <Button onClick={() => editMode(true)}>Edit</Button>
+                <Button onClick={() => deleteEvent(event)}>Delete</Button>
+                {event.archive
+                ?
+                <Button onClick={() => archiveEvent(event)}>Restore</Button>
+                :
+                <Button onClick={() => archiveEvent(event)}>Archive</Button>
+                }
+                <Button onClick={() => setEditMode(true)}>Edit</Button>
               </ButtonGroup>
             </div>
           )}
