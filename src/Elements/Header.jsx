@@ -27,7 +27,7 @@ const Header = () => {
                             Donate
                         </NavLink>
                     </div>
-                    <SocialMedia />
+                    <SocialMedia/>
                 </div>
             </div>
         </header>
