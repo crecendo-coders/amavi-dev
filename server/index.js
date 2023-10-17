@@ -5,11 +5,13 @@ import eventCtrl from "./controllers/eventCtrl.js"
 import audition from "./controllers/audition.js"
 import auth from "./controllers/authCtrl.js"
 import Stripe from "stripe";
+import 'dotenv/config'
+import process from 'process'
 
 const app = express();
 const PORT = 2319;
-const stripe = new Stripe('sk_test_51O2FNkHC1pU4F4ituDaDTdfPmsU5payolEcEOsjKkhlci78zj6kGzflpcX5i5BDxtL5KBjsA8T5wU0NTx9gdWhR900akNuXfCn')
-const domain = 'http://localhost:2319'
+const stripe = new Stripe(process.env.STRIPE_SECRET)
+const domain = process.env.DOMAIN
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));

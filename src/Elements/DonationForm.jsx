@@ -16,7 +16,7 @@ const DonationForm = () => (
     </div>
     <form action="/create-checkout-session" method="POST" className="flex flex-col">
       <div className="flex justify-center">
-      <button type="submit" className="p-8">
+      <button type="submit" className="bg-blue-400">
         Donate
       </button>
       </div>
