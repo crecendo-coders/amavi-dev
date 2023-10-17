@@ -1,8 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { Button, ButtonGroup, Checkbox } from "rsuite";
-import AddEvent from "../Elements/AddEvent";
-import EditEvent from "../Elements/EditEvent";
+import { Button, ButtonGroup } from "rsuite";
 import ManageEvents from "../Elements/ManageEvents";
 
 export default function Admin() {

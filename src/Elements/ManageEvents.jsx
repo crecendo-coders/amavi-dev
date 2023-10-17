@@ -1,11 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Button, ButtonGroup, Checkbox } from "rsuite";
+import { Button, ButtonGroup } from "rsuite";
 import AddEvent from "../Elements/AddEvent";
 import EditEvent from "../Elements/EditEvent";
 
 export default function ManageEvents() {
-  const appearance = "primary";
   const [events, setEvents] = useState([]);
   const [editEvent, setEditEvent] = useState(null);
   const [addEvent, setAddEvent] = useState(false);
