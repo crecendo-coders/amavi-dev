@@ -219,11 +219,8 @@ Event.init(
     address: {
       type: DataTypes.STRING,
     },
-    date: {
-      type: DataTypes.STRING,
-    },
-    start_time: {
-      type: DataTypes.STRING,
+    datetime: {
+      type: DataTypes.DATE,
     },
     durationMin: {
       type: DataTypes.INTEGER,
