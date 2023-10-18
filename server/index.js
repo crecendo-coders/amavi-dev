@@ -1,9 +1,9 @@
 import express from "express";
 import ViteExpress from 'vite-express';
 import session from "express-session";
-import event from "./controllers/eventCtrl.js"
+import event from "./controllers/event.js"
+import subscriber from "./controllers/subscriber.js"
 import audition from "./controllers/audition.js"
-import auth from "./controllers/authCtrl.js"
 import Stripe from "stripe";
 import 'dotenv/config'
 import process from 'process'
@@ -32,13 +32,14 @@ app.put('/api/event/archive/:id', event.archive)
 app.delete('/api/event/:id', event.delete)
 app.post('/api/event/', event.post)
 
-app.post('/api/audition', audition.post)
+app.get('/api/subscribers', subscriber.get)
+app.get('/api/subscribers/all', subscriber.getAll)
+app.put('/api/subscriber/:id', subscriber.put)
+app.put('/api/subscriber/unsubscribe/:id', subscriber.unsubscribe)
+app.delete('/api/subscriber/:id', subscriber.delete)
+app.post('/api/subscriber/', subscriber.post)
 
-// Authentication endpoints Go Here
-app.delete('/api/logout', auth.logout)
-app.post('/api/register', auth.register)
-app.post('/api/login', auth.login)
-app.get('/api/user', auth.checkUser)
+app.post('/api/audition', audition.post)
 
 // Stripe endpoints
 app.post('/create-checkout-session', async (req, res) => {
