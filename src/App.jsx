@@ -1,10 +1,10 @@
 import Homepage from "./Pages/Homepage";
 import {
-    Navigate,
-    Route,
-    RouterProvider,
-    createBrowserRouter,
-    createRoutesFromElements,
+  Navigate,
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
 } from "react-router-dom";
 import axios from "axios";
 import Layout from "./Elements/Layout";
@@ -24,6 +24,8 @@ import EqualityDiversityPolicy from "./Pages/EqualityDiversityPolicy";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import Contact from "./Pages/Contact";
 import ExecutiveTeam from "./Pages/ExecutiveTeam";
+import Members from "./Pages/Members";
+
 import ManageEvents from "./Admin/ManageEvents";
 import ManageSubscribers from "./Admin/ManageSubscribers";
 
@@ -38,6 +40,7 @@ function App() {
                     path="/equality-diversity-policy"
                     element={<EqualityDiversityPolicy />}
                 />
+                <Route path="/members" element={<Members />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route
