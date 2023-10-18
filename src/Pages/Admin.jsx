@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Button, ButtonGroup } from "rsuite";
 import ManageEvents from "../Elements/ManageEvents";
+import ManageSubscribers from "../Elements/ManageSubscribers";
 
 export default function Admin() {
   const appearance = "primary";
@@ -15,12 +16,8 @@ export default function Admin() {
         <Button appearance={appearance}>Edit</Button>
         <Button appearance={appearance}>Add</Button>
       </ButtonGroup>
-      <h1>Mailing List</h1>
-      <ButtonGroup>
-        <Button appearance={appearance}>Delete</Button>
-        <Button appearance={appearance}>Edit</Button>
-        <Button appearance={appearance}>Add</Button>
-      </ButtonGroup>
+      <h1>Subscribers</h1>
+      <ManageSubscribers />
       <h1>Members</h1>
       <ButtonGroup>
         <Button appearance={appearance}>Delete</Button>

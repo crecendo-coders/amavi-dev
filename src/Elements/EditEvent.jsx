@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-import { Button, ButtonGroup, Checkbox } from "rsuite";
+import { Button, ButtonGroup } from "rsuite";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";

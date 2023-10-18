@@ -6,6 +6,7 @@ import {
   Affiliate,
   Event,
   Audition,
+  Subscriber,
 } from "./../server/model.js";
 import bcrypt from "bcryptjs";
 
@@ -14,7 +15,7 @@ import 'dotenv/config'
 const salt = bcrypt.genSaltSync(10);
 
 const roles = [{ type: "Admin" }, { type: "User" }, { type: "Conductor" }];
-const statuses = [{ type: "Active" }, { type: "Inactive" }];
+const statuses = [{ type: "Active" }, { type: "Inactive" }, { type: "Prospective" }];
 const voicing = [
   { type: "Soprano I" },
   { type: "Soprano II" },
@@ -26,6 +27,30 @@ const voicing = [
   { type: "Bass" },
 ];
 
+const subscribers = [
+  {
+    firstName: "Larry",
+    email: "some@examploe.com",
+    phone: "123 123-123",
+  },
+  {
+    firstName: "Larry",
+    lastName: "Joe",
+    email: "some@examploe.com",
+    phone: "123 123-123",
+  },
+  {
+    firstName: "Moe",
+    lastName: "Money",
+    companyName: "Da Fed",
+    email: "Moe@examploe.com",
+  },
+  {
+    companyName: "Amazon.com",
+    email: "some@example.com",
+  },
+
+]
 const auditions = [
   {
     name: "Larry",
@@ -83,14 +108,14 @@ const affiliates = [
   {
     start_date: "2023-01-01",
     end_date: "2023-12-31",
-    name: "Affiliate 1",
+    subscriberId: 1,
     link: "https://affiliate1.com",
     logo: "logo1.jpg",
   },
   {
     start_date: "2023-02-01",
     end_date: "2023-11-30",
-    name: "Affiliate 2",
+    subscriberId: 2,
     link: "https://affiliate2.com",
     logo: "logo2.jpg",
   },
@@ -127,9 +152,10 @@ await db
     await Status.bulkCreate(statuses);
     await Voicing.bulkCreate(voicing);
     await Member.bulkCreate(members);
-    await Affiliate.bulkCreate(affiliates);
     await Audition.bulkCreate(auditions);
     await Event.bulkCreate(events);
+    await Subscriber.bulkCreate(subscribers);
+    await Affiliate.bulkCreate(affiliates);
     console.log("Seed data inserted successfully.");
   })
   .catch((error) => console.error("Error seeding data:", error));

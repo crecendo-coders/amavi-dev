@@ -79,6 +79,37 @@ Role.init(
   }
 );
 
+class Subscriber extends Model {
+  [util.inspect.custom]() {
+    return this.toJSON();
+  }
+}
+Subscriber.init(
+  {
+    subscriberId: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    subscribed: {
+      type: DataTypes.BOOLEAN,
+      defaultValue:true
+    },
+    lastName: DataTypes.STRING,
+    firstName: DataTypes.STRING,
+    companyName: DataTypes.STRING,
+    phone: DataTypes.STRING,
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+  },
+  {
+    modelName: "subscriber",
+    sequelize: db,
+  }
+);
+
 class Status extends Model {
   [util.inspect.custom]() {
     return this.toJSON();
@@ -251,8 +282,10 @@ Member.belongsTo(Voicing, { foreignKey: "voicingId" });
 Voicing.hasMany(Audition, { foreignKey: "voicingId" });
 Audition.belongsTo(Voicing, { foreignKey: "voicingId" });
 
+Subscriber.hasMany(Affiliate, {foreignKey: "subscriberId"})
+Affiliate.belongsTo(Subscriber, {foreignKey: "subscriberId"})
 
-export { Member, Role, Status, Voicing, Affiliate, Event, Audition };
+export { Member, Role, Status, Voicing, Affiliate, Event, Audition, Subscriber };
 
 if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
   console.log("Syncing database...");
