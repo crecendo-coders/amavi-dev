@@ -1,6 +1,5 @@
 import axios from "axios";
 import { Button, ButtonGroup } from "rsuite";
-import ManageEvents from "../Elements/ManageEvents";
 import ManageSubscribers from "../Elements/ManageSubscribers";
 
 export default function Admin() {
@@ -8,8 +7,6 @@ export default function Admin() {
   
   return (
     <div>
-      <h1>Manage Events</h1>
-      <ManageEvents/>
       <h1>Affiliates</h1>
       <ButtonGroup>
         <Button appearance={appearance}>Delete</Button>

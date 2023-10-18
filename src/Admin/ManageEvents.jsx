@@ -53,6 +53,7 @@ export default function ManageEvents() {
   };
   return (
     <div>
+      <h1>Manage Events</h1>
       <ButtonGroup>
         <Button onClick={()=> setAddEvent(true)}>Add</Button>
         {showArchived?
