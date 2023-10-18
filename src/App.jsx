@@ -18,11 +18,6 @@ import Support from "./Pages/Support";
 import Chorale from "./Pages/Chorale";
 import Artists from "./Pages/Artists";
 import Audition from "./Pages/Audition";
-import TermsConditions from "./Pages/TermsConditions";
-import Credits from "./Pages/Credits";
-import EqualityDiversityPolicy from "./Pages/EqualityDiversityPolicy";
-import PrivacyPolicy from "./Pages/PrivacyPolicy";
-import Contact from "./Pages/Contact";
 import ExecutiveTeam from "./Pages/ExecutiveTeam";
 import Members from "./Pages/Members";
 
@@ -34,15 +29,7 @@ function App() {
         createRoutesFromElements(
             <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
                 <Route index element={<Homepage />} />
-                <Route path="/terms-conditions" element={<TermsConditions />} />
-                <Route path="/credits" element={<Credits />} />
-                <Route
-                    path="/equality-diversity-policy"
-                    element={<EqualityDiversityPolicy />}
-                />
                 <Route path="/members" element={<Members />} />
-                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                <Route path="/contact" element={<Contact />} />
                 <Route
                     path="/about-conductor"
                     element={<Conductor />}
