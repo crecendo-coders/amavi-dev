@@ -96,16 +96,16 @@ export default function Audition() {
             </select>
             <br />
             Vocal Range(s):
-            <select {...register("voicing")}>
+            <select {...register("voicingId")}>
                 <option value="select">Select...</option>
-                <option value="soprano1">Soprano I</option>
-                <option value="soprano2">Soprano II</option>
-                <option value="alto1">Alto I</option>
-                <option value="alto2">Alto II</option>
-                <option value="tenor1">Tenor I</option>
-                <option value="tenor2">Tenor II</option>
-                <option value="baritone">Baritone</option>
-                <option value="bass">Bass</option>
+                <option value="1">Soprano I</option>
+                <option value="2">Soprano II</option>
+                <option value="3">Alto I</option>
+                <option value="4">Alto II</option>
+                <option value="5">Tenor I</option>
+                <option value="6">Tenor II</option>
+                <option value="7">Baritone</option>
+                <option value="8">Bass</option>
             </select>
             <div
                 class="g-recaptcha"

@@ -36,22 +36,24 @@ Member.init(
       type: DataTypes.STRING,
     },
     experience: {
-      type: DataTypes.TEXT,
+      type: DataTypes.INTEGER,
     },
     expDetail: {
+      type: DataTypes.TEXT,
+    },
+    connection: {
       type: DataTypes.STRING,
     },
     voicingId: {
       type: DataTypes.INTEGER,
     },
-    connection: {
-      type: DataTypes.STRING,
-    },
     statusId: {
       type: DataTypes.INTEGER,
+      defaultValue: 1,
     },
     hasAuditioned: {
-      type: DataTypes.BOOLEAN
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
     }
   },
   {
@@ -70,10 +72,10 @@ Status.init(
     statusId: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true,
     },
     type: {
       type: DataTypes.STRING,
+      defaultValue: 'Pending'
     },
   },
   {
@@ -124,7 +126,6 @@ Voicing.init(
     voicingId: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true,
     },
     type: {
       type: DataTypes.STRING,

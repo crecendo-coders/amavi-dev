@@ -2,7 +2,7 @@ import nodemailer from 'nodemailer'
 import previewEmail from 'preview-email'
 import dotenv from 'dotenv'
 dotenv.config()
-import { Member, Event } from "../model.js";
+import { Member, Status, Voicing } from "../model.js";
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -18,6 +18,7 @@ export default {
   post: (req, res) => {
     console.log("add audition", req.body);
     Member.create(req.body)
+    
       .then((val) => {
         console.log("New person created:", val);
         res.json(val);
