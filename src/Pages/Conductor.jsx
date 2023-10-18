@@ -9,7 +9,7 @@ export default function AboutConductor() {
           About Adam About Adam About Adam About Adam About Adam About Adam
           About Adam About Adam About Adam About Adam About Adam About Adam
           About Adam About Adam About Adam About Adam About Adam About Adam
-          About Adam About Adam About Adam
+          About Adam About Adam About Adam Adam
         </div>
       </div>
     </div>
