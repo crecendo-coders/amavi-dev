@@ -12,7 +12,7 @@ const Header = () => {
                         alt="Amavi Logo"
                     />
                 </NavLink>
-                <div className="flex items-center">
+                <div className="hidden sm:flex items-center"> {/* Hide on small screens */}
                     <div className="flex ">
                         <NavLink
                             to="/support"

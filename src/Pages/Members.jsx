@@ -37,8 +37,16 @@ const Members = () => {
   ];
 
   return (
-    <div className="bg-gray-900 min-h-screen flex flex-col items-center justify-center">
+    <div className="bg-gray-800 min-h-screen flex flex-col items-center justify-center">
       <p className="text-white text-3xl mb-4">Choir Member Resources</p>
+      <a
+        href="https://youtube.com/playlist?list=PLOuLLSj-H3t4OvJFdaKCGlbEhsRFFyfqm&si=2Ax4e0LOHARvg2UA"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-400 underline mb-4"
+      >
+        Full Playlist on YouTube
+      </a>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {videos.map((video, index) => (
           <div key={index} className="w-full">
