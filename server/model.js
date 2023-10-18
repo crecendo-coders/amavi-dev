@@ -23,11 +23,8 @@ Member.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    roleId: {
-      type: DataTypes.INTEGER,
-    },
-    statusId: {
-      type: DataTypes.INTEGER,
+    name: {
+      type: DataTypes.STRING,
     },
     email: {
       type: DataTypes.STRING,
@@ -39,17 +36,25 @@ Member.init(
       type: DataTypes.STRING,
     },
     experience: {
+      type: DataTypes.INTEGER,
+    },
+    expDetail: {
       type: DataTypes.TEXT,
+    },
+    connection: {
+      type: DataTypes.STRING,
     },
     voicingId: {
       type: DataTypes.INTEGER,
     },
-    username: {
-      type: DataTypes.STRING,
+    statusId: {
+      type: DataTypes.INTEGER,
+      defaultValue: 1,
     },
-    password: {
-      type: DataTypes.STRING,
-    },
+    hasAuditioned: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }
   },
   {
     modelName: "member",
@@ -57,24 +62,24 @@ Member.init(
   }
 );
 
-class Role extends Model {
+class Status extends Model {
   [util.inspect.custom]() {
     return this.toJSON();
   }
 }
-Role.init(
+Status.init(
   {
-    roleId: {
+    statusId: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true,
     },
     type: {
       type: DataTypes.STRING,
+      defaultValue: 'Pending'
     },
   },
   {
-    modelName: "roles",
+    modelName: "status",
     sequelize: db,
   }
 );
@@ -110,27 +115,6 @@ Subscriber.init(
   }
 );
 
-class Status extends Model {
-  [util.inspect.custom]() {
-    return this.toJSON();
-  }
-}
-Status.init(
-  {
-    statusId: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    type: {
-      type: DataTypes.STRING,
-    },
-  },
-  {
-    modelName: "status",
-    sequelize: db,
-  }
-);
 
 class Voicing extends Model {
   [util.inspect.custom]() {
@@ -142,7 +126,6 @@ Voicing.init(
     voicingId: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true,
     },
     type: {
       type: DataTypes.STRING,
@@ -188,42 +171,6 @@ Affiliate.init(
   }
 );
 
-class Audition extends Model {
-  [util.inspect.custom]() {
-    return this.toJSON();
-  }
-}
-Audition.init(
-  {
-    auditionId: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    name: {
-      type: DataTypes.STRING,
-    },
-    email: {
-      type: DataTypes.STRING,
-    },
-    phone: {
-      type: DataTypes.STRING,
-    },
-    expDetail: {
-      type: DataTypes.STRING,
-    },
-    experience: {
-      type: DataTypes.INTEGER,
-    },
-    connection: {
-      type: DataTypes.STRING,
-    },
-  },
-  {
-    modelName: "audition",
-    sequelize: db,
-  }
-);
 
 class Event extends Model {
   [util.inspect.custom]() {
@@ -270,8 +217,6 @@ Event.init(
   }
 );
 
-Role.hasMany(Member, { foreignKey: "roleId" });
-Member.belongsTo(Role, { foreignKey: "roleId" });
 
 Status.hasMany(Member, { foreignKey: "statusId" });
 Member.belongsTo(Status, { foreignKey: "statusId" });
@@ -279,13 +224,13 @@ Member.belongsTo(Status, { foreignKey: "statusId" });
 Voicing.hasMany(Member, { foreignKey: "voicingId" });
 Member.belongsTo(Voicing, { foreignKey: "voicingId" });
 
-Voicing.hasMany(Audition, { foreignKey: "voicingId" });
-Audition.belongsTo(Voicing, { foreignKey: "voicingId" });
+Voicing.hasMany(Member, { foreignKey: "voicingId" });
+Member.belongsTo(Voicing, { foreignKey: "voicingId" });
 
 Subscriber.hasMany(Affiliate, {foreignKey: "subscriberId"})
 Affiliate.belongsTo(Subscriber, {foreignKey: "subscriberId"})
 
-export { Member, Role, Status, Voicing, Affiliate, Event, Audition, Subscriber };
+export { Member, Status, Voicing, Affiliate, Event, Subscriber };
 
 if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
   console.log("Syncing database...");
