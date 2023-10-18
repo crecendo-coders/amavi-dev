@@ -2,8 +2,8 @@ import nodemailer from 'nodemailer'
 import previewEmail from 'preview-email'
 import dotenv from 'dotenv'
 dotenv.config()
-import { Audition, Event } from "../model.js";
 import { auditionRequest } from '../emails.js';
+import { Member, Status, Voicing } from "../model.js";
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -18,16 +18,16 @@ const transporter = nodemailer.createTransport({
 export default {
   post: (req, res) => {
     console.log("add audition", req.body);
-    Audition.create(req.body)
-      .then((person) => {
-        console.log("New person created:", val);
-        auditionRequest(req.body)
-        res.json(val);
+    Member.create(req.body)
+      .then((audition) => {
+        console.log("New person created:", audition);
+        auditionRequest(audition)
+        res.json(audition);
       })
       .catch((error) => {
         console.error(`Unable to Add Person ${req.body}`, error);
       }).then( () => { 
-        auditionRequest(req.body)
+        // auditionRequest(audition)
        }
       )
   },

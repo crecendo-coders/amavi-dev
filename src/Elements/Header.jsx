@@ -7,12 +7,12 @@ const Header = () => {
             <div className="container mx-auto flex justify-between items-center">
                 <NavLink href="/">
                     <img
-                        src="amavi-big-logo.png"
-                        className="h-[150px]"
+                        src="amavi-big-logo.svg"
+                        className="max-h-[150px]"
                         alt="Amavi Logo"
                     />
                 </NavLink>
-                <div className="flex items-center">
+                <div className="hidden sm:flex items-center"> {/* Hide on small screens */}
                     <div className="flex ">
                         <NavLink
                             to="/support"

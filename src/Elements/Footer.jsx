@@ -6,7 +6,7 @@ const Footer = () => {
     <footer id="primary" className="bg-gray-900 text-white py-8">
       <section id="footer" className="wrapper">
         <div className="flex flex-col md:flex-row">
-          <NavLink href="/mailing-list" id="footerMailingList" className="md:w-1/2 p-4">
+          <NavLink to="/mailing-list" id="footerMailingList" className="md:w-1/2 p-4">
             <h3 className="text-xl font-semibold">Join our Mailing List</h3>
             <p>
               Subscribe to receive advance notice of concerts, and occasional
@@ -14,7 +14,7 @@ const Footer = () => {
             </p>
           </NavLink>
 
-          <NavLink href="/support" id="footerDonate" className="md:w-1/2 p-4">
+          <NavLink to="/support" id="footerDonate" className="md:w-1/2 p-4">
             <h3 className="text-xl font-semibold">Donate to Amavi</h3>
             <p>
               Please help sustain the choir's essential music education work
@@ -33,42 +33,10 @@ const Footer = () => {
             <ul id="menu-secondary" className="flex flex-wrap">
               <li className="w-full md:w-1/2">
                 <NavLink
-                  href="/contact"
+                  to="/contact"
                   className="text-white hover:text-blue-400 py-2 px-4 block"
                 >
                   Contact
-                </NavLink>
-              </li>
-              <li className="w-full md:w-1/2">
-                <NavLink
-                  href="/privacy-policy"
-                  className="text-white hover:text-blue-400 py-2 px-4 block"
-                >
-                  Privacy Policy
-                </NavLink>
-              </li>
-              <li className="w-full md:w-1/2">
-                <NavLink
-                  href="/equality-diversity-policy"
-                  className="text-white hover:text-blue-400 py-2 px-4 block"
-                >
-                  Equality &amp; Diversity Policy
-                </NavLink>
-              </li>
-              <li className="w-full md:w-1/2">
-                <NavLink
-                  href="/terms-conditions"
-                  className="text-white hover:text-blue-400 py-2 px-4 block"
-                >
-                  Terms &amp; Conditions
-                </NavLink>
-              </li>
-              <li className="w-full md:w-1/2">
-                <NavLink
-                  href="/credits"
-                  className="text-white hover:text-blue-400 py-2 px-4 block"
-                >
-                  Credits
                 </NavLink>
               </li>
             </ul>
@@ -78,7 +46,7 @@ const Footer = () => {
           </p>
 
           <p className="text-center md:text-left py-4">
-            Amavi is a working name of The Amavi Chorale, 501(c)(3) Registration: ##-#######. Office: ***************Address**********.
+            Amavi is a working name of The Amavi Chorale, 501(c)(3)
           </p>
         </div>
       </section>
