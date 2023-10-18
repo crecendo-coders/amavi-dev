@@ -20,6 +20,12 @@ const NavBar = () => {
             Events
           </NavLink>
           <NavLink
+            to="/members"
+            className="text-white hover:text-gray-300 transition duration-300"
+          >
+            Members
+          </NavLink>
+          <NavLink
             to="/support"
             className="text-white hover:text-gray-300 transition duration-300"
           >
