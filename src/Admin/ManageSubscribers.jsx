@@ -53,6 +53,7 @@ export default function ManageSubscribers() {
   };
   return (
     <div>
+      <h1>Subscribers</h1>
       <ButtonGroup>
         <Button onClick={()=> setAddSubscriber(true)}>Add</Button>
         {showAll?

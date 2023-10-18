@@ -25,6 +25,7 @@ import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import Contact from "./Pages/Contact";
 import ExecutiveTeam from "./Pages/ExecutiveTeam";
 import ManageEvents from "./Admin/ManageEvents";
+import ManageSubscribers from "./Admin/ManageSubscribers";
 
 function App() {
     const router = createBrowserRouter(
@@ -113,6 +114,10 @@ function App() {
                 <Route
                   path='/manageEvents'
                   element={<ManageEvents/>}
+                />
+                <Route
+                  path='/ManageSubscribers'
+                  element={<ManageSubscribers/>}
                 />
             </Route>
         )
