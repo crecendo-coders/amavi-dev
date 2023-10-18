@@ -63,7 +63,7 @@ export default {
       res.status(200).json(event);
     } catch (err) {
       console.log(err);
-      res.status(500).send("Error in events put call");
+      res.status(500).send("Error in events post");
     }
   },
 };
