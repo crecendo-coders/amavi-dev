@@ -2,14 +2,19 @@ import { useLoaderData } from "react-router-dom";
 import EventComponent from "./Events";
 
 export default function Homepage() {
-  // const { hero } = useLoaderData();
   return (
     <div className="bg-gray-100 h-screen flex flex-col justify-center items-center">
-      <img
-        src="/hero.jpeg"
-        alt="Choir image"
-        className="w-64 h-auto rounded-lg shadow-lg"
-      />
+      <iframe
+        width="80%"
+        height="70%"
+        src="https://www.youtube.com/embed/NfNPQ6ljU1Q?si=0ZoM14JeOL-Wphx3"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+        autoplay
+        muted
+      ></iframe>
+
       <EventComponent />
     </div>
   );

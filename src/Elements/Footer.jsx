@@ -39,38 +39,6 @@ const Footer = () => {
                   Contact
                 </NavLink>
               </li>
-              <li className="w-full md:w-1/2">
-                <NavLink
-                  to="/privacy-policy"
-                  className="text-white hover:text-blue-400 py-2 px-4 block"
-                >
-                  Privacy Policy
-                </NavLink>
-              </li>
-              <li className="w-full md:w-1/2">
-                <NavLink
-                  to="/equality-diversity-policy"
-                  className="text-white hover:text-blue-400 py-2 px-4 block"
-                >
-                  Equality &amp; Diversity Policy
-                </NavLink>
-              </li>
-              <li className="w-full md:w-1/2">
-                <NavLink
-                  to="/terms-conditions"
-                  className="text-white hover:text-blue-400 py-2 px-4 block"
-                >
-                  Terms &amp; Conditions
-                </NavLink>
-              </li>
-              <li className="w-full md:w-1/2">
-                <NavLink
-                  to="/credits"
-                  className="text-white hover:text-blue-400 py-2 px-4 block"
-                >
-                  Credits
-                </NavLink>
-              </li>
             </ul>
           </nav>
           <p id="copyright" className="text-center md:text-left py-4">
@@ -78,7 +46,7 @@ const Footer = () => {
           </p>
 
           <p className="text-center md:text-left py-4">
-            Amavi is a working name of The Amavi Chorale, 501(c)(3) Registration: ##-#######. Office: ***************Address**********.
+            Amavi is a working name of The Amavi Chorale, 501(c)(3)
           </p>
         </div>
       </section>
