@@ -4,9 +4,11 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import "./../../css/form.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Audition() {
   const Confirm = withReactContent(Swal);
+  const navigate = useNavigate();
 
   const {register, handleSubmit, formState: { errors }} = useForm();
   console.log("new audition form errors", errors);
@@ -17,6 +19,12 @@ export default function Audition() {
       .post("/api/audition", data)
       .then((res) => {
         console.log("Response: ", res.data);
+        Confirm.fire({
+          icon: "success",
+          title: "Thanks for requesting an audition. We will contact you soon",
+          showConfirmButton: true,
+        });
+        navigate("/")
       })
       .catch((err) => {
         Confirm.fire({
