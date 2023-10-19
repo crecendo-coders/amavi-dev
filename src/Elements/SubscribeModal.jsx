@@ -76,9 +76,8 @@ const SubscribeModal = ({ setShowModal }) => {
                     <form className="my-4 text-lg leading-relaxed" onSubmit={handleSubmit(onSubmit)}>
                       <input type="text" placeholder="name" {...register("name", {})} />
                       <input type="text" placeholder="email" {...register("email", {})} />
-                      <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-                        <button type="submit" > Subscribe </button>
-                      </div>
+                      <input type="submit" name="Subscribe"/>
+                      <div class="g-recaptcha" data-sitekey={import.meta.env.VITE_PUBLIC_CAPTCHA}></div>
                     </form>
                   </div>
                 </>
