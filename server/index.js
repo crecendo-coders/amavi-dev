@@ -39,7 +39,7 @@ app.put('/api/subscriber/unsubscribe/:id', subscriber.unsubscribe)
 app.delete('/api/subscriber/:id', subscriber.delete)
 app.post('/api/subscriber/', subscriber.post)
 
-app.post('/api/audition', audition.post)
+app.post('/api/audition', audition.request)
 
 // Stripe endpoints
 app.post('/create-checkout-session', async (req, res) => {

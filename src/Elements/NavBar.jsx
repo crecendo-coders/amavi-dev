@@ -88,20 +88,6 @@ const NavBar = () => {
                             <Menu.Item>
                                 {({ active }) => (
                                     <NavLink
-                                        to="/about-artists"
-                                        className={`${
-                                            active
-                                                ? `text-black `
-                                                : `text-black `
-                                        } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
-                                    >
-                                        Guest Artists
-                                    </NavLink>
-                                )}
-                            </Menu.Item>
-                            <Menu.Item>
-                                {({ active }) => (
-                                    <NavLink
                                         to="/about-chorale"
                                         className={`${
                                             active
@@ -110,20 +96,6 @@ const NavBar = () => {
                                         } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
                                     >
                                         Chorale
-                                    </NavLink>
-                                )}
-                            </Menu.Item>
-                            <Menu.Item>
-                                {({ active }) => (
-                                    <NavLink
-                                        to="/about-executive-team"
-                                        className={`${
-                                            active
-                                                ? `text-black `
-                                                : `text-black `
-                                        } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
-                                    >
-                                        Executive Team
                                     </NavLink>
                                 )}
                             </Menu.Item>
