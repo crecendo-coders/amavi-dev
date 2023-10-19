@@ -36,6 +36,20 @@ export default {
       res.status(500).send("Error in subscribers unsubscribe");
     }
   },
+  unsubscribeEmail: async (req, res) => {
+    try {
+      console.log(`Unsubscribe ${req.params.email} with ${req.params.token}` );
+      const subscriberId = await Subscriber.findOne({where: {email}})
+      const subscriber = await Subscriber.update(
+        { subscribed: false },
+        { where: { subscriberId: subscriberId } }
+      );
+
+    } catch (err) {
+      console.log(err);
+      res.status(500).send("Error in subscribers unsubscribe");
+    }
+  },
   delete: async (req, res) => {
     try {
       console.log("delete", req.params.id);

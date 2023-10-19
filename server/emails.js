@@ -1,5 +1,6 @@
 import nodemailer from 'nodemailer'
 import Email from 'email-templates'
+import crypto from 'crypto'
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -91,6 +92,26 @@ export async function auditionDenied(audition) {
     message: {
       from: `Amavi Chorale <${process.env.EMAIL}>`,
       to: audition.email,
+    },
+  })
+}
+      
+export async function newsletter(subscriber) {
+  await email.send({
+    template: 'newsletter',
+    locals: {
+      name: subcriber.name,
+      month: name,
+    },
+    message: {
+      from: `Amavi Chorale <${process.env.EMAIL}>`,
+      to: audition.email,
+      list: {
+        unsubscribe: {
+          url: `/unsubscribe/${emailHash}`,
+          comment: 'Unsubscribe from the Amavi Newsletter',
+        },
+      }
     },
   })
 }
