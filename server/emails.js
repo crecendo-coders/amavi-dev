@@ -22,18 +22,19 @@ export const email = new Email({
 })
 
 export async function auditionRequest(audition) {
-  
+
   await email.send({
     template: 'auditionRequest',
     locals: {
-      firstName: audition.firstName,
-      lastName: audition.lastName,
+      name: audition.name,
+      // lastName: audition.lastName,
       email: audition.email,
       phone: audition.phone,
-      preferredContactMethod: audition.preferredContactMethod,
+      // text: audition.personalizedNote
+      // preferredContactMethod: audition.preferredContactMethod,
     },
     message: {
-      from: `Amavi Chorale <${process.env.EMAIL}>`,
+      from: `Amavi Chorale <${process.env.AMAVI_EMAIL}>`,
       to: process.env.CONDUCTOR_EMAIL,
     },
   })
