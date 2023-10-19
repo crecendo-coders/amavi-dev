@@ -17,11 +17,9 @@ import Support from "./Pages/Support";
 import Chorale from "./Pages/Chorale";
 import Audition from "./Pages/Audition";
 import Members from "./Pages/Members";
-
 import ManageEvents from "./Admin/ManageEvents";
 import ManageSubscribers from "./Admin/ManageSubscribers";
-import Subscribed from "./Pages/Subscribed";
-import Unsubscribed from "./Pages/Unsubscribed";
+
 
 function App() {
   const router = createBrowserRouter(
@@ -30,8 +28,6 @@ function App() {
         <Route index element={<Homepage />} />
         <Route path="/members" element={<Members />} />
         <Route path="/about-conductor" element={<Conductor />} />
-        <Route path="/subscribed" element={<Subscribed />} />
-        <Route path="/unsubscribed" element={<Unsubscribed />} />
         <Route path="/about-chorale" element={<Chorale />} />
         <Route path="/audition" element={<Audition />} />
         <Route path="/affiliates" element={<Affiliate />} />

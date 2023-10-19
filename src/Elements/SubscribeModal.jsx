@@ -1,10 +1,11 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-
-import Swal from "sweetalert2";
 import axios from "axios";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const SubscribeModal = ({ setShowModal }) => {
+  const Confirm = withReactContent(Swal);
   const [confirm, setConfirm] = useState(false)
   const [data, setData] = useState({})
   const {register, handleSubmit, formState: { errors }} = useForm();
@@ -14,11 +15,25 @@ const SubscribeModal = ({ setShowModal }) => {
     .post(`/api/subscribe/`, data)
     .then((res) => {
       console.log("Response: ", res.data);
-      setData(data)
+      setData(res.data)
       setConfirm(true);
       })
       .catch((err) => console.log("subscribe error:", err));
   };
+
+  const unsubscribe = (subscriber) => {
+    axios
+    .put("/api/unsubscribe", subscriber)
+      .then((res) => {
+        console.log("res", res);
+          Confirm.fire({
+            icon: "info",
+            title: `Goodbye ${subscriber.name}.  ${subscriber.email} has been unsubscribed`,
+            timer: 2000
+          });
+          setShowModal(false);
+      });
+  }
   return (
     <>
       <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
@@ -41,7 +56,9 @@ const SubscribeModal = ({ setShowModal }) => {
             {confirm?(
               <>
                 <div className="relative p-6 flex-auto">
-                  <p>Congratulations {data.name}!  {data.email} has been subscribed to our mailing list</p>
+                  <p>Congratulations {data.name}!</p>
+                  <p>{data.email} has been subscribed to our mailing list</p>
+                  <button onClick={()=>unsubscribe(data)}>Unsubscribe</button>
                 </div>
                 <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
                 <button
