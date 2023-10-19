@@ -7,7 +7,7 @@ const Header = () => {
             <div className="container mx-auto flex justify-between items-center">
                 <NavLink href="/">
                     <img
-                        src="amavi-big-logo.svg"
+                        src="https://amaviphotos.s3.us-west-2.amazonaws.com/amavi-big-logo.png"
                         className="max-h-[150px]"
                         alt="Amavi Logo"
                     />
