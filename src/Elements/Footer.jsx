@@ -120,6 +120,21 @@ const Footer = () => {
                                                             </NavLink>
                                                         )}
                                                     </Menu.Item>
+                                                    <Menu.Item>
+                                                        {({ active }) => (
+                                                            <NavLink
+                                                                to="/manageMembers"
+                                                                className={`${
+                                                                    active
+                                                                        ? `text-black `
+                                                                        : `text-black `
+                                                                } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
+                                                            >
+                                                                Manage
+                                                                Members
+                                                            </NavLink>
+                                                        )}
+                                                    </Menu.Item>
                                                 </Menu.Items>
                                             </Menu>
                                         </div>

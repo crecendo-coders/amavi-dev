@@ -25,6 +25,7 @@ app.use(session({
     }
 }));
 // Routes Go Here
+// Event endpoints
 app.get('/api/events', event.get)
 app.get('/api/events/all', event.getAll)
 app.put('/api/event/:id', event.put)
@@ -32,12 +33,19 @@ app.put('/api/event/archive/:id', event.archive)
 app.delete('/api/event/:id', event.delete)
 app.post('/api/event/', event.post)
 
+// Subscriber endpoints
 app.get('/api/subscribers', subscriber.get)
 app.get('/api/subscribers/all', subscriber.getAll)
 app.put('/api/subscriber/:id', subscriber.put)
 app.put('/api/subscriber/unsubscribe/:id', subscriber.unsubscribe)
 app.delete('/api/subscriber/:id', subscriber.delete)
 app.post('/api/subscriber/', subscriber.post)
+
+// Member endpoints
+app.get('/api/activeMembers')
+app.get('/api/members')
+app.get('/api/everyone')
+app.put('/api/subscriber/:id')
 
 app.post('/api/audition', audition.request)
 
