@@ -50,7 +50,7 @@ const NavBar = () => {
                         Support Us
                     </NavLink>
 
-                    <Menu as="div" className="relative rounded-full mx-6">
+                    <Menu as="div" className="relative">
                         <Menu.Button
                             className={`bg-blue-500 text-lg m-2 mx-6 px-4 py-4 rounded-full text-white hover:text-blue-500 hover:bg-white no-underline hover:no-underline focus:no-underline`}
                         >
