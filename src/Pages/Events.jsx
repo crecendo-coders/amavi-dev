@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const EventComponent = () => {
+  // const [events, setEvents] = useState([]);
+
+  // useEffect(() => {
+  //   axios
+  //     .get("/api/events")
+  //     .then((res) => {
+  //       setEvents(res.data);
+  //       console.log("Events page events", res.data);
+  //     })
+  //     .catch((err) => {
+  //       console.error("Unable to get events for the Events page:", err);
+  //     });
+  // }, []);
+
+  // console.log(events);
+
   return (
-    <div className="flex w-4/5 gap-3 my-4">
+    <div className="flex w-4/5 gap-3 my-4 justify-center">
       <a
         href="/events/2023/11/3/introit"
         className="bg-gray-100 flex items-center justify-center"
@@ -35,7 +52,7 @@ const EventComponent = () => {
                 that span time and style.
               </p>
               <div className="flex flex-row items-center mt-4 text-gray-700">
-                <div className="w-1/2">St. Mark's Cathedral</div>
+                <div className="w-1/2"><a href="https://maps.app.goo.gl/iydDRkw79hczfSQ19">St. Mark's Cathedral</a></div>
               </div>
             </div>
           </div>
@@ -74,7 +91,7 @@ const EventComponent = () => {
                 that span time and style.
               </p>
               <div className="flex flex-row items-center mt-4 text-gray-700">
-                <div className="w-1/2">St. Mark's Cathedral</div>
+              <div className="w-1/2"><a href="https://maps.app.goo.gl/iydDRkw79hczfSQ19">St. Mark's Cathedral</a></div>
               </div>
             </div>
           </div>
@@ -85,18 +102,3 @@ const EventComponent = () => {
 };
 
 export default EventComponent;
-
-// const [events, setEvents] = useState([]);
-
-// useEffect(() => {
-//   axios
-//     .get("/api/events")
-//     .then((res) => {
-//       setEvents(res.data);
-//       console.log("Events page events", res.data);
-//     })
-//     .catch((err) => {
-//       console.error("Unable to get events for the Events page:", err);
-//     });
-// }, []);
-// console.log(events);
