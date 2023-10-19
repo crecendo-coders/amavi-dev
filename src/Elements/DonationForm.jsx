@@ -6,7 +6,7 @@ const DonationForm = () => (
 
     <div className="product flex flex-col align-middle w-[500px]">
       <img
-        src="amavi-big-logo.png"
+        src="https://amaviphotos.s3.us-west-2.amazonaws.com/amavi-big-logo.png"
         alt="Insert a donation image"
         className="h-36"
         />
