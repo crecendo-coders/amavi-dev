@@ -8,7 +8,7 @@ import Admin from "../Pages/Admin";
 import { Menu } from "@headlessui/react";
 
 const activeNav =
-    "bg-blue-500 text-lg text-white m-2 mx-6 px-4 py-4 rounded-full underline  focus:text-white hover:text-white";
+    "bg-blue-500 text-lg m-2 text-white px-4 py-4 rounded-full underline  focus:text-white hover:text-white"
 const inactiveNav =
     "bg-blue-500 text-lg text-white m-2 mx-6 px-4 py-4 rounded-full hover:bg-white no-underline hover:no-underline focus:no-underline";
 
@@ -26,7 +26,7 @@ const NavBar = () => {
                         className={({ isActive }) =>
                             isActive
                                 ? "bg-blue-500 text-lg m-2 text-white px-4 py-4 rounded-full underline  focus:text-white hover:text-white"
-                                : "bg-blue-500 text-lg m-2 text-white px-4 py-4 rounded-full hover:bg-white no-underline hover:no-underline focus:no-underline"
+                                : "bg-blue-500 text-lg text-white m-2 mx-6 px-4 py-4 rounded-full hover:bg-white no-underline hover:no-underline focus:no-underline"
                         }
                     >
                         Events
@@ -35,8 +35,8 @@ const NavBar = () => {
                         to="/members"
                         className={({ isActive }) =>
                             isActive
-                                ? "bg-blue-500 text-lg m-2 text-white px-4 py-4 rounded-full underline  focus:text-white hover:text-white"
-                                : "bg-blue-500 text-lg m-2 text-white px-4 py-4 rounded-full hover:bg-white no-underline hover:no-underline focus:no-underline"
+                                ? activeNav
+                                : inactiveNav
                         }
                     >
                         Members
