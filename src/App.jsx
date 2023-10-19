@@ -9,7 +9,6 @@ import {
 import axios from "axios";
 import Layout from "./Elements/Layout";
 import ErrorPage from "./Pages/Error";
-import Login from "./Pages/Login";
 import Conductor from "./Pages/Conductor";
 import Affiliate from "./Pages/Affiliate";
 import Admin from "./Pages/Admin";
