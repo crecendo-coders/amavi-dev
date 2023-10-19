@@ -4,10 +4,11 @@ export default function AboutChorale() {
   return (
     <div>
       <div className="text-left p-6">
-        <h2 className="text-4xl font-bold mb-6 text-center">Our Mission</h2>
         <div className="w-3/4 mx-auto flex">
-          <img src="ChoirGroupJPGfile.jpg" alt="Choir" className="w-1/3 p-4" />
-          <div className="w-2/3 p-4 text-lg">
+          <img src="ChoirGroupJPGfile.jpg" alt="Choir" className="w-2/5 p-4" />
+          <div className="w-3/5 p-4 text-lg">
+            <h2 className="text-4xl font-bold mb-6 text-center">Our Mission</h2>
+
             <p>
               Amavi Chorale aspires to contribute to an already rich choral
               tradition along the Utah Wasatch Front by:
@@ -22,9 +23,9 @@ export default function AboutChorale() {
         </div>
       </div>
       <div className="text-left p-6">
-        <h2 className="text-4xl font-bold mb-6 text-center">Our Motivation</h2>
         <div className="w-3/4 mx-auto flex">
-          <div className="w-2/3 p-4 text-lg">
+          <div className="w-3/5 p-4 text-lg">
+        <h2 className="text-4xl font-bold mb-6 text-center">Our Motivation</h2>
             <p>
               Founded in 2017, Amavi Chorale is dedicated to creating meaningful
               musical experiences by giving first rate performances of the
@@ -38,7 +39,11 @@ export default function AboutChorale() {
               God.
             </p>
           </div>
-          <img src="Cathedral(2)JPGfile.jpg" alt="Cathedral Organ" className="w-1/3 p-4" />
+          <img
+            src="Cathedral(2)JPGfile.jpg"
+            alt="Cathedral Organ"
+            className="w-2/5 p-4"
+          />
         </div>
       </div>
     </div>
