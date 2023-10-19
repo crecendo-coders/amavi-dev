@@ -1,8 +1,11 @@
 import { useLoaderData } from "react-router-dom";
 import EventComponent from "./Events";
+import Newsletter from "../Elements/Newsletter";
 
 export default function Homepage() {
   return (
+    <>
+
     <div className="bg-gray-100 h-screen flex flex-col justify-center items-center">
       <iframe
         width="80%"
@@ -17,5 +20,6 @@ export default function Homepage() {
 
       <EventComponent />
     </div>
+    </>
   );
 }
