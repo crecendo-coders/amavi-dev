@@ -58,22 +58,16 @@ const SubscribeModal = ({ setShowModal }) => {
                 <div className="relative p-6 flex-auto">
                   <p>Congratulations {data.name}!</p>
                   <p>{data.email} has been subscribed to our mailing list</p>
-                  <button onClick={()=>unsubscribe(data)}>Unsubscribe</button>
+                  <button className="text-red-500" onClick={()=>unsubscribe(data)}>Unsubscribe</button>
                 </div>
                 <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-                <button
-                  className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                  type="button"
-                  onClick={() => setShowModal(false)}
-                >
-                  Close
-                </button>
+                  <button className="text-lg" onClick={() => setShowModal(false)} > Close </button>
                 </div>
               </>
               ):(
                 <>
                   <div className="relative p-6 flex-auto">
-                    <form className="my-4 text-lg leading-relaxed" onSubmit={handleSubmit(onSubmit)}>
+                    <form className="my-4 text-lg leading-relaxed text-blue-500" onSubmit={handleSubmit(onSubmit)}>
                       <input type="text" placeholder="name" {...register("name", {})} />
                       <input type="text" placeholder="email" {...register("email", {})} />
                       <input type="submit" name="Subscribe"/>

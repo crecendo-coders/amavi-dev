@@ -1,6 +1,5 @@
 import nodemailer from 'nodemailer'
 import Email from 'email-templates'
-import crypto from 'crypto'
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
