@@ -19,23 +19,22 @@ const EventComponent = () => {
   // console.log(events);
 
   return (
-    <div className="flex w-4/5 gap-3 my-4 justify-center">
+    <div className="flex w-4/5 gap-4 my-4 justify-center">
       <a
         href="/events/2023/11/3/introit"
         className="bg-gray-100 flex items-center justify-center"
         style={{ textDecoration: "none" }}
       >
-        <div className="flex flex-col w-full bg-white rounded shadow-lg">
-          <div class="w-full h-fit bg-top bg-cover rounded-t flex-col flex justify-end">
+        <div className="flex flex-col w-full bg-white shadow-lg">
+          <div class="w-full h-fit bg-top bg-cover flex-col flex justify-end">
             <img
               src="https://amaviphotos.s3.us-west-2.amazonaws.com/Event-Banner-Introit.jpg"
               alt="concert-banner"
-              class="rounded-top"
             />
           </div>
 
           <div className="flex flex-col w-full md:flex-row">
-            <div className="flex flex-row justify-around p-4 font-bold leading-none text-gray-800 uppercase bg-gray-400 rounded-bottom md:flex-col md:items-center md:justify-center md:w-1/4">
+            <div className="flex flex-row justify-around p-4 font-bold leading-none text-gray-800 uppercase bg-gray-400 md:flex-col md:items-center md:justify-center md:w-1/4">
               <div className="md:text-3xl">Nov</div>
               <div className="md:text-6xl">3</div>
               <div className="md:text-xl">7:30 pm</div>
@@ -64,17 +63,16 @@ const EventComponent = () => {
         className="bg-gray-100 flex items-center justify-center"
         style={{ textDecoration: "none" }}
       >
-        <div className="flex flex-col w-full bg-white rounded shadow-lg">
-          <div class="w-full h-fit bg-top bg-cover rounded-t flex-col flex justify-end">
+        <div className="flex flex-col w-full bg-white shadow-lg">
+          <div class="w-full h-fit bg-top bg-cover flex-col flex justify-end">
             <img
               src="https://amaviphotos.s3.us-west-2.amazonaws.com/Event-Banner-Introit.jpg"
               alt="concert-banner"
-              class="rounded-top"
             />
           </div>
 
           <div className="flex flex-col w-full md:flex-row">
-            <div className="flex flex-row justify-around p-4 font-bold leading-none text-gray-800 uppercase bg-gray-400 rounded-bottom md:flex-col md:items-center md:justify-center md:w-1/4">
+            <div className="flex flex-row justify-around p-4 font-bold leading-none text-gray-800 uppercase bg-gray-400 md:flex-col md:items-center md:justify-center md:w-1/4">
               <div className="md:text-3xl">Nov</div>
               <div className="md:text-6xl">4</div>
               <div className="md:text-xl">7:30 pm</div>
