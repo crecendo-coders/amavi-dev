@@ -16,9 +16,7 @@ import Admin from "./Pages/Admin";
 import Events from "./Pages/Events";
 import Support from "./Pages/Support";
 import Chorale from "./Pages/Chorale";
-import Artists from "./Pages/Artists";
 import Audition from "./Pages/Audition";
-import ExecutiveTeam from "./Pages/ExecutiveTeam";
 import Members from "./Pages/Members";
 
 import ManageEvents from "./Admin/ManageEvents";
@@ -42,24 +40,6 @@ function App() {
                 <Route
                     path="/about-chorale"
                     element={<Chorale />}
-                    // loader={async () => {
-                    //   const res = await axios.get(`/api/conductor`);
-                    //   console.log("res.data", res.data);
-                    //   return { conductor: res.data };
-                    // }}
-                />
-                <Route
-                    path="/about-artists"
-                    element={<Artists />}
-                    // loader={async () => {
-                    //   const res = await axios.get(`/api/conductor`);
-                    //   console.log("res.data", res.data);
-                    //   return { conductor: res.data };
-                    // }}
-                />
-                <Route
-                    path="/about-executive-team"
-                    element={<ExecutiveTeam />}
                     // loader={async () => {
                     //   const res = await axios.get(`/api/conductor`);
                     //   console.log("res.data", res.data);
