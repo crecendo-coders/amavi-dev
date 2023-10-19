@@ -2,7 +2,7 @@ import nodemailer from 'nodemailer'
 import previewEmail from 'preview-email'
 import dotenv from 'dotenv'
 dotenv.config()
-import { auditionRequest } from '../emails.js';
+import { auditionAccepted, auditionDenied, auditionReminder, auditionRequest } from '../emails.js';
 import { Member, Status, Voicing } from "../model.js";
 
 const transporter = nodemailer.createTransport({
@@ -16,7 +16,7 @@ const transporter = nodemailer.createTransport({
 });
 
 export default {
-  post: (req, res) => {
+  request: (req, res) => {
     console.log("add audition", req.body);
     Member.create(req.body)
       .then((audition) => {
@@ -30,5 +30,17 @@ export default {
         // auditionRequest(audition)
        }
       )
+  },
+  remind: (req, res) => {
+    console.log("add audition", req.body);
+    auditionReminder(req.body)
+  },
+  notAccepted: (req, res) => {
+    console.log("add audition", req.body);
+    auditionDenied(req.body)
+  },
+  accepted: (req, res) => {
+    console.log("add audition", req.body);
+    auditionAccepted(req.body)
   },
 };

@@ -44,7 +44,7 @@ export async function auditionAccepted(audition) {
   await email.send({
     template: 'auditionAccepted',
     locals: {
-      firstName: audition.firstName,
+      name: audition.name,
     },
     message: {
       from: `Amavi Chorale <${process.env.EMAIL}>`,
@@ -57,7 +57,7 @@ export async function auditionReminder(audition) {
   await email.send({
     template: 'auditionReminder',
     locals: {
-      firstName: audition.firstName,
+      name: audition.name,
       date: audition.date,
       time: audition.time,
       location: audition.location,
@@ -73,7 +73,20 @@ export async function auditionReceived(audition) {
   await email.send({
     template: 'auditionReceived',
     locals: {
-      firstName: audition.firstName
+      name: audition.name
+    },
+    message: {
+      from: `Amavi Chorale <${process.env.EMAIL}>`,
+      to: audition.email,
+    },
+  })
+}
+
+export async function auditionDenied(audition) {
+  await email.send({
+    template: 'auditionDenied',
+    locals: {
+      name: audition.name
     },
     message: {
       from: `Amavi Chorale <${process.env.EMAIL}>`,
