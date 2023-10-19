@@ -5,7 +5,7 @@ export default function AboutChorale() {
     <div>
       <div className="text-left p-6">
         <div className="w-3/4 mx-auto flex">
-          <img src="ChoirGroupJPGfile.jpg" alt="Choir" className="w-2/5 p-4" />
+          <img src="https://amaviphotos.s3.us-west-2.amazonaws.com/ChoirGroupJPGfile+-+instasize.jpg" alt="Choir" className="w-2/5 p-4" />
           <div className="w-3/5 p-4 text-lg">
             <h2 className="text-4xl font-bold mb-6 text-center">Our Mission</h2>
 
@@ -40,7 +40,7 @@ export default function AboutChorale() {
             </p>
           </div>
           <img
-            src="Cathedral(2)JPGfile.jpg"
+            src="https://amaviphotos.s3.us-west-2.amazonaws.com/Cathedral(2)JPGfile+-+instasize.jpg"
             alt="Cathedral Organ"
             className="w-2/5 p-4"
           />

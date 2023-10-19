@@ -51,6 +51,7 @@
     "react-dom": "^18.2.0",
     "react-fontawesome": "^1.7.1",
     "react-hook-form": "^7.47.0",
+    "react-icons": "^4.11.0",
     "react-router-dom": "^6.16.0",
     "rsuite": "^5.40.0",
     "sequelize": "^6.33.0",

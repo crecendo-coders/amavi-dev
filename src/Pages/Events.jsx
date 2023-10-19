@@ -26,7 +26,7 @@ const EventComponent = () => {
               <div
                 className="w-full h-64 bg-top bg-cover rounded-t"
                 style={{
-                  backgroundImage: `url("/Introit-Poster.jpg")`,
+                  backgroundImage: `url("https://amaviphotos.s3.us-west-2.amazonaws.com/Introit-Poster.jpg")`,
                   backgroundSize: "100%",
                   backgroundRepeat: "no-repeat",
                 }}
