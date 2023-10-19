@@ -100,8 +100,7 @@ Subscriber.init(
       type: DataTypes.BOOLEAN,
       defaultValue:true
     },
-    lastName: DataTypes.STRING,
-    firstName: DataTypes.STRING,
+    name: DataTypes.STRING,
     companyName: DataTypes.STRING,
     phone: DataTypes.STRING,
     email: {

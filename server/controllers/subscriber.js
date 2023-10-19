@@ -73,8 +73,19 @@ export default {
   post: async (req, res) => {
     try {
       console.log("New subscriber", req.body);
-      const subscriber = await Subscriber.create(req.body);
-      res.status(200).json(subscriber);
+
+      const isSubscriber = await Subscriber.findOne({where: {email:req.body.email}})
+      if (isSubscriber) {
+        const subscriber = await Subscriber.update(
+          { subscribed: true,
+          name:req.body.name },
+          { where: { subscriberId: isSubscriber.subscriberId } }
+          );
+        res.status(200).json(subscriber);
+      } else {
+        const subscriber = await Subscriber.create(req.body);
+        res.status(200).json(subscriber);
+      }
     } catch (err) {
       console.log(err);
       res.status(500).send("Error in subscribers post");

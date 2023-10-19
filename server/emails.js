@@ -28,7 +28,6 @@ export async function auditionRequest(audition) {
     template: 'auditionRequest',
     locals: {
       name: audition.name,
-      // lastName: audition.lastName,
       email: audition.email,
       phone: audition.phone,
       // text: audition.personalizedNote

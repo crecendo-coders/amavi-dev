@@ -37,7 +37,7 @@ app.get('/api/subscribers/all', subscriber.getAll)
 app.put('/api/subscriber/:id', subscriber.put)
 app.put('/api/subscriber/unsubscribe/:id', subscriber.unsubscribe)
 app.delete('/api/subscriber/:id', subscriber.delete)
-app.post('/api/subscriber/', subscriber.post)
+app.post('/api/subscribe/', subscriber.post)
 
 app.post('/api/audition', audition.request)
 

@@ -69,7 +69,7 @@ export default function ManageSubscribers() {
             </div>
           ) : (
             <div>
-              <h3 className="text-lg font-semibold">{subscriber.firstName} {subscriber.lastName}</h3>
+              <h3 className="text-lg font-semibold">{subscriber.name} {subscriber.lastName}</h3>
               <h3 className="text-lg font-semibold">{subscriber.companyName}</h3>
               <p>Email: {subscriber.email}</p>
               {subscriber.phone&&<p>Phone: {subscriber.phone}</p>}

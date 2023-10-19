@@ -13,8 +13,7 @@ export default function EditSubscriber({ setEditSubscriber, subscriber }) {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      lastName:subscriber.lastName,
-      firstName:subscriber.firstName,
+      name:subscriber.name,
       companyName:subscriber.companyName,
       id:subscriber.subscriberId,
       email:subscriber.email,
@@ -37,8 +36,7 @@ export default function EditSubscriber({ setEditSubscriber, subscriber }) {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label>Name of Subscriber</label>
-      <input type="text" {...register("firstName", {})} />
-      <input type="text" {...register("lastName", {})} />
+      <input type="text" {...register("name", {})} />
       <input type="text" {...register("companyName", {})} />
       <label>Email</label>
       <input type="text" {...register("email", {})} />
