@@ -23,14 +23,25 @@ export default {
   },
   unsubscribe: async (req, res) => {
     try {
-      console.log(`${req.body.subscribed?"Remove":"Add"} ${req.params.id} ${req.body.email}` );
-      const subscriber = await Subscriber.update(
-        { subscribed: !req.body.subscribed },
-        { where: { subscriberId: req.params.id } }
+      console.log(`unsubscribe  ${req.body}`);
+      const [lines, subscriber] = await Subscriber.update(
+        { subscribed: false },
+        { where: { subscriberId: req.body.subscriberId }, returning: true }
       );
-      const subscribers = await Subscriber.findAll();
-      console.log("subscribers", req.params.id, subscribers);
-      res.status(200).json(subscribers);
+      res.status(200).json(subscriber[0]);
+    } catch (err) {
+      console.log(err);
+      res.status(500).send("Error in subscribers unsubscribe");
+    }
+  },
+  unsubscribeEmail: async (req, res) => {
+    try {
+      console.log(`Unsubscribe ${req.params.email} with ${req.params.token}`);
+      const subscriberId = await Subscriber.findOne({ where: { email } });
+      const subscriber = await Subscriber.update(
+        { subscribed: false },
+        { where: { subscriberId: subscriberId } }
+      );
     } catch (err) {
       console.log(err);
       res.status(500).send("Error in subscribers unsubscribe");
@@ -49,18 +60,38 @@ export default {
   put: async (req, res) => {
     try {
       console.log("Update subscriber", req.params.id, "with", req.body);
-      await Subscriber.update(req.body, { where: { subscriberId: req.params.id } });
+      await Subscriber.update(req.body, {
+        where: { subscriberId: req.params.id },
+      });
       res.status(200).json({ success: true });
     } catch (err) {
       console.log(err);
       res.status(500).send("Error in subscribers put");
     }
   },
-  post: async (req, res) => {
+  subscribe: async (req, res) => {
     try {
-      console.log("New subscriber", req.body);
-      const subscriber = await Subscriber.create(req.body);
-      res.status(200).json(subscriber);
+      console.log("Subscribe Request", req.body);
+      const isSubscriber = await Subscriber.findOne({
+        where: { email: req.body.email },
+      });
+      if (isSubscriber) {
+        await Subscriber.update(
+          // update returns lines updated unless returning:true
+          {
+            subscribed: true,
+            name: req.body.name,
+          },
+          { where: { subscriberId: isSubscriber.subscriberId } }
+        );
+        const subscriber = await Subscriber.findByPk(isSubscriber.subscriberId);
+        console.log("subscriber-updated", subscriber);
+        res.status(200).json(subscriber);
+      } else {
+        const subscriber = await Subscriber.create(req.body);
+        console.log("subscriber-new", subscriber);
+        res.status(200).json(subscriber);
+      }
     } catch (err) {
       console.log(err);
       res.status(500).send("Error in subscribers post");

@@ -32,8 +32,7 @@ export default function AddSubscriber({ setAddSubscriber }) {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label>Name of Subscriber</label>
-      <input type="text" placeholder="John" {...register("firstName", {})} />
-      <input type="text" placeholder="Doe" {...register("lastName", {})} />
+      <input type="text" placeholder="First Last" {...register("name", {})} />
       <input type="text" placeholder="Company (optional)" {...register("companyName", {})} />
       <label>Email</label>
       <input
