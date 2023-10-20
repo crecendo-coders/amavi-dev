@@ -60,7 +60,7 @@ export default function Audition() {
                 })}
             />
             <input
-                type="dob"
+                type="date"
                 className="auditionInput"
                 placeholder="Date of Birth"
                 {...register("dob")}
@@ -86,11 +86,11 @@ export default function Audition() {
             How did you hear about us?
             <select {...register("connection")}>
                 <option value="select">Select...</option>
-                <option value="friend">Friend</option>
-                <option value=" event"> Event</option>
-                <option value=" social"> Social Media</option>
-                <option value=" advertisement"> Advertisement</option>
-                <option value=" other"> Other</option>
+                <option value="Friend">Friend</option>
+                <option value="Event"> Event</option>
+                <option value="Social"> Social Media</option>
+                <option value="Advertisement"> Advertisement</option>
+                <option value="Other"> Other</option>
             </select>
             <br />
             Vocal Range(s):
