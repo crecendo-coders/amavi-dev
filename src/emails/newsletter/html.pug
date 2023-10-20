@@ -1,0 +1,9 @@
+extends ../layout.pug
+
+block content
+  p Hi #{name},
+  p  
+  br 
+  div.footer
+    p.copyright © Peel the Garlic 2020
+    a.unsubscribe(href='https://www.peelthegarlic.com/unsubscribe?subscriber=' + id, target="_blank", rel="noopener noreferrer") Unsubscribe
