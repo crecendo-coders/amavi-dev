@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import "./../../css/form.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
