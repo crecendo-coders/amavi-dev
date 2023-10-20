@@ -1,10 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { ButtonGroup, Dropdown } from "rsuite";
 import "rsuite/dist/rsuite.min.css";
-import LoginButton from "./Login";
-import LogoutButton from "./Logout";
-import { useAuth0 } from "@auth0/auth0-react";
-import Admin from "../Pages/Admin";
 import { Menu } from "@headlessui/react";
 import {RiArrowDropDownLine} from "react-icons/ri"
 
@@ -13,11 +8,7 @@ const activeNav =
 const inactiveNav =
     "bg-blue-500 text-lg text-white m-2 mx-6 px-4 py-4 rounded-full hover:bg-white no-underline hover:no-underline focus:no-underline";
 
-const transitionActive =
-    "text-white hover:text-gray-300 transition duration-300";
-
 const NavBar = () => {
-    const { user } = useAuth0();
     return (
         <nav className="bg-blue-500 py-2 sticky top-0 z-10">
             <div className=" flex flex-row justify-between">

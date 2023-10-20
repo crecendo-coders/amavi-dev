@@ -11,11 +11,11 @@ const DonationForm = () => {
       <div className="flex justify-center m-12">
         <div className="w-2/5">
           <img
-            src="https://amaviphotos.s3.us-west-2.amazonaws.com/Choir+(1)+JPG+file.jpg"
+            src="https://amaviphotos.s3.us-west-2.amazonaws.com/facebook-vertical-post-1080x1350+(1).jpg"
             alt="Choir"
           />
         </div>
-        <div className="flex flex-col items-center ml-4 w-3/5 text-lg p-4">
+        <div className="flex flex-col items-center ml-10 w-3/5 text-lg">
           <div className="text-left mt-4">
             <h3 className="text-lg font-semibold">
               Option 1: One-Time Tax-Deductible Donation
@@ -88,16 +88,6 @@ const DonationForm = () => {
               grants you access to these exciting benefits. It's the perfect way
               to experience the magic of Amavi Chorale up close and personal.
             </p>
-            <p className="text-gray-600">
-              If you prefer to remain an anonymous donor, please indicate your
-              preference in the donation notes.
-            </p>
-
-            <p className="text-gray-600 mt-4">
-              Whichever option you choose, your contribution is invaluable to us
-              and helps us continue to create beautiful music and unforgettable
-              experiences for our community.
-            </p>
             <p className="text-gray-600 mt-4">
               Join us in our journey, and be a part of something truly
               extraordinary. Your support makes it all possible. Thank you for
@@ -119,7 +109,7 @@ const DonationForm = () => {
             </div>
             <div className="text-gray-600 mt-2 text-sm text-center">
               By clicking "Support Our Cause," you will be securely redirected
-              to the Stripe website for your payment.
+              to the Stripe website for your secure payment.
             </div>
           </form>
         </div>
