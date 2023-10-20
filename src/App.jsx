@@ -21,81 +21,30 @@ import ManageMembers from "./Admin/ManageMembers"
 import ManageEvents from "./Admin/ManageEvents";
 import ManageSubscribers from "./Admin/ManageSubscribers";
 
+
 function App() {
-    const router = createBrowserRouter(
-        createRoutesFromElements(
-            <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
-                <Route index element={<Homepage />} />
-                <Route path="/members" element={<Members />} />
-                <Route
-                    path="/about-conductor"
-                    element={<Conductor />}
-                    // loader={async () => {
-                    //   const res = await axios.get(`/api/conductor`);
-                    //   console.log("res.data", res.data);
-                    //   return { conductor: res.data };
-                    // }}
-                />
-                <Route
-                    path="/about-chorale"
-                    element={<Chorale />}
-                    // loader={async () => {
-                    //   const res = await axios.get(`/api/conductor`);
-                    //   console.log("res.data", res.data);
-                    //   return { conductor: res.data };
-                    // }}
-                />
-                <Route
-                    path="/audition"
-                    element={<Audition />}
-                    // loader={async () => {
-                    //   const res = await axios.get(`/api/conductor`);
-                    //   console.log("res.data", res.data);
-                    //   return { conductor: res.data };
-                    // }}
-                />
-                <Route
-                    path="/affiliates"
-                    element={<Affiliate />}
-                    // loader={async () => {
-                    //   const res = await axios.get(`/api/affiliates/`);
-                    //   console.log("res.data", res.data);
-                    //   return { affiliates: res.data };
-                    // }}
-                />
-                <Route
-                    path="/admin"
-                    element={<Admin />}
-                    // loader={async () => {
-                    //   const res = await axios.get(`/api/admin`);
-                    //   return { admin: res.data };
-                    // }}
-                />
-                <Route path="/events" element={<Events />} />
-                <Route
-                    path="/support"
-                    element={<Support />}
-                    // loader={async () => {
-                    //   const res = await axios.get(`/api/admin`);
-                    //   return { admin: res.data };
-                    // }}
-                />
-                <Route
-                  path='/manageEvents'
-                  element={<ManageEvents/>}
-                />
-                <Route
-                  path='/ManageSubscribers'
-                  element={<ManageSubscribers/>}
-                />
-                <Route
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
+        <Route index element={<Homepage />} />
+        <Route path="/members" element={<Members />} />
+        <Route path="/about-conductor" element={<Conductor />} />
+        <Route path="/about-chorale" element={<Chorale />} />
+        <Route path="/audition" element={<Audition />} />
+        <Route path="/affiliates" element={<Affiliate />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/support" element={<Support />} />
+        <Route path="/manageEvents" element={<ManageEvents />} />
+        <Route path="/ManageSubscribers" element={<ManageSubscribers />} />
+        <Route
                   path='/ManageMembers'
                   element={<ManageMembers/>}
                 />
-            </Route>
-        )
-    );
-    return <RouterProvider router={router} />;
+      </Route>
+    )
+  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

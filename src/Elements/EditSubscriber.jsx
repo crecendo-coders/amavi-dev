@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-export default function EditSubscriber({ setEditSubscriber, subscriber }) {
+export default function EditSubscriber({ setGetSubscribers, subscriber }) {
   const Confirm = withReactContent(Swal);
   const {
     register,
@@ -13,8 +13,7 @@ export default function EditSubscriber({ setEditSubscriber, subscriber }) {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      lastName:subscriber.lastName,
-      firstName:subscriber.firstName,
+      name:subscriber.name,
       companyName:subscriber.companyName,
       id:subscriber.subscriberId,
       email:subscriber.email,
@@ -32,13 +31,12 @@ export default function EditSubscriber({ setEditSubscriber, subscriber }) {
         .catch((err) => {
           console.error("unable to get subscribers for admin page", err);
         });
-      setEditSubscriber(null);
+      setGetSubscribers(false);
     };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label>Name of Subscriber</label>
-      <input type="text" {...register("firstName", {})} />
-      <input type="text" {...register("lastName", {})} />
+      <input type="text" {...register("name", {})} />
       <input type="text" {...register("companyName", {})} />
       <label>Email</label>
       <input type="text" {...register("email", {})} />
@@ -46,7 +44,7 @@ export default function EditSubscriber({ setEditSubscriber, subscriber }) {
       <input type="text" {...register("phone", {})} />
       <ButtonGroup>
         <Button type="submit">Save</Button>
-        <Button onClick={() => setEditSubscriber(false)}>Cancel</Button>
+        <Button onClick={() => setGetSubscribers(false)}>Cancel</Button>
       </ButtonGroup>
     </form>
   );

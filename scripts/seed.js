@@ -28,19 +28,17 @@ const voicing = [
 
 const subscribers = [
     {
-        firstName: "Larry",
+        name: "Larry",
         email: "some@examploe.com",
         phone: "123 123-123",
     },
     {
-        firstName: "Larry",
-        lastName: "Joe",
+        name: "Larry",
         email: "some@examploe.com",
         phone: "123 123-123",
     },
     {
-        firstName: "Moe",
-        lastName: "Money",
+        name: "Moe",
         companyName: "Da Fed",
         email: "Moe@examploe.com",
     },

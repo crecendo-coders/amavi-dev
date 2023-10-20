@@ -27,7 +27,6 @@ export async function auditionRequest(audition) {
     template: 'auditionRequest',
     locals: {
       name: audition.name,
-      // lastName: audition.lastName,
       email: audition.email,
       phone: audition.phone,
       // text: audition.personalizedNote
@@ -91,6 +90,26 @@ export async function auditionDenied(audition) {
     message: {
       from: `Amavi Chorale <${process.env.EMAIL}>`,
       to: audition.email,
+    },
+  })
+}
+      
+export async function newsletter(subscriber) {
+  await email.send({
+    template: 'newsletter',
+    locals: {
+      name: subcriber.name,
+      month: name,
+    },
+    message: {
+      from: `Amavi Chorale <${process.env.EMAIL}>`,
+      to: audition.email,
+      list: {
+        unsubscribe: {
+          url: `/unsubscribe/${emailHash}`,
+          comment: 'Unsubscribe from the Amavi Newsletter',
+        },
+      }
     },
   })
 }

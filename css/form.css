@@ -11,7 +11,7 @@ body {
   
   h1 {
     font-weight: 100;
-    /* color: white; */
+    color: white;
     text-align: center;
     padding-bottom: 10px;
     border-bottom: 1px solid rgb(79, 98, 148);
@@ -49,8 +49,8 @@ body {
   
   button[type="submit"],
   input[type="submit"] {
-    background: #ec5990;
-    color: white;
+    background: #abeea4;
+    color: rgb(34, 37, 203);
     text-transform: uppercase;
     border: none;
     margin-top: 40px;
@@ -62,7 +62,7 @@ body {
   
   button[type="submit"]:hover,
   input[type="submit"]:hover {
-    background: #bf1650;
+    background: #04fa2d;
   }
   
   button[type="submit"]:active,
