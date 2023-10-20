@@ -36,7 +36,6 @@ const DonationForm = () => {
           <form
             action="/create-checkout-session"
             method="POST"
-            className="mt-4"
           >
             <div className="flex justify-center">
               <button
@@ -109,7 +108,6 @@ const DonationForm = () => {
           <form
             action="/create-checkout-session/affiliates"
             method="POST"
-            className="mt-4"
           >
             <div className="flex justify-center">
               <button

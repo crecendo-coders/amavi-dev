@@ -3,7 +3,7 @@ import React from "react";
 export default function Affiliate() {
   return (
     <div className="text-left p-6">
-      <div className="w-3/4 mx-auto flex">
+      <div className="flex">
         <img
           src="https://amaviphotos.s3.us-west-2.amazonaws.com/Cathedral(7)JPGfile+-+instasize.jpg"
           alt="Affiliates"
