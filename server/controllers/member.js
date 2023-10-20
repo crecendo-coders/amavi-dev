@@ -6,8 +6,9 @@ export default {
         try {
             console.log("Get current Members");
             const memberData = await Member.findAll({
-                include: [{model: Voicing},{
-                            model: Status,
+                include: [
+                    {model: Voicing},
+                    {model: Status,
                             where: {statusId:2},
                             
                 }],
@@ -56,11 +57,11 @@ export default {
         try {
             console.log("Get all pending auditions");
             const memberData = await Member.findAll({
+                where: {hasAuditioned:false},
                 include: [
-                    { model: Voicing},
-                    { model: Status,
-                        where: {statusId:1}
-                    }],
+                    {model: Voicing},
+                    {model: Status,}
+                ],
             });
             console.log(memberData)
             res.status(200).json(memberData);

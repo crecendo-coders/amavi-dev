@@ -54,6 +54,9 @@ export default function ManageMembers() {
                             setRoute("/api/members");
                         }
                         if (index === 2) {
+                            setRoute("/api/auditions");
+                        }
+                        if (index === 3) {
                             setRoute("/api/everyone");
                         }
                         console.log("Changed selected tab to:", index);
@@ -99,6 +102,19 @@ export default function ManageMembers() {
                                 )
                             }
                         >
+                            Pending Auditions
+                        </Tab>
+                        <Tab
+                            className={({ selected }) =>
+                                classNames(
+                                    "w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700",
+                                    "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2 whitespace-nowrap",
+                                    selected
+                                        ? "bg-white shadow"
+                                        : "text-blue-100 hover:bg-white/[0.12] hover:text-white"
+                                )
+                            }
+                        >
                             Show Everyone
                         </Tab>
                     </Tab.List>
@@ -123,11 +139,12 @@ export default function ManageMembers() {
                     )}
 
                     <Tab.Panels>
-                        <Tab.Panel>
+                        <Tab.Panel className={'w-[50vw]'}>
+                            <h1 className="flex justify-center">Choir Members:</h1>
                             {members.map((member) => (
                                 <div
                                     key={member.memberId}
-                                    className="bg-white rounded-lg p-4 shadow-md"
+                                    className="bg-white border-black border-[1px] rounded-lg p-4 shadow-md"
                                 >
                                     <h4 className="text-lg font-semibold">
                                         {member.name}
@@ -136,24 +153,24 @@ export default function ManageMembers() {
                                     <p>Email: {member.email}</p>
                                     <p>Phone: {member.phone}</p>
                                     <p>
-                                        Auditioned:
-                                        {member.hasAuditioned.toString()}
+                                        Auditioned:{' '}{member.hasAuditioned.toString()}
                                     </p>
                                     <p>Vocal Range: {member.voicing.type}</p>
                                 </div>
                             ))}
                         </Tab.Panel>
-                        <Tab.Panel>
+                        <Tab.Panel className={'w-[50vw]'}>
+                          <h1 className="flex justify-center">Present and Past Members:</h1>
                             {members.map((member) => (
                                 <div
                                     key={member.memberId}
-                                    className="bg-white rounded-lg p-4 shadow-md"
+                                    className="bg-white rounded-lg border-black border-[1px] p-4 shadow-md"
                                 >
                                     <h4 className="text-lg font-semibold">
                                         {member.name}
                                     </h4>
                                     <p>
-                                        Status:{" "}
+                                        Choir Status:{" "}
                                         {member.status.type === "Active" ? (
                                             <span className="text-green-500">
                                                 {member.status.type}
@@ -166,19 +183,16 @@ export default function ManageMembers() {
                                     </p>
                                     <p>Email: {member.email}</p>
                                     <p>Phone: {member.phone}</p>
-                                    <p>
-                                        Auditioned:
-                                        {member.hasAuditioned.toString()}
-                                    </p>
                                     <p>Vocal Range: {member.voicing.type}</p>
                                 </div>
                             ))}
                         </Tab.Panel>
-                        <Tab.Panel>
+                        <Tab.Panel className={'w-[50vw]'}>
+                            <h1 className="flex justify-center">Manage Pending Auditions:</h1>
                             {members.map((member) => (
                                 <div
                                     key={member.memberId}
-                                    className="bg-white rounded-lg p-4 shadow-md"
+                                    className="bg-white rounded-lg border-black border-[1px] p-4 shadow-md"
                                 >
                                     {editMember === member.memberId ? (
                                         <div>
@@ -193,7 +207,83 @@ export default function ManageMembers() {
                                                 {member.name}
                                             </h4>
                                             <p>
-                                                Status:{" "}
+                                                Choir Status:{" "}
+                                                {member.status.type ===
+                                                "Active" ? (
+                                                    <span className="text-green-500">
+                                                        {member.status.type}
+                                                    </span>
+                                                ) : (
+                                                    <span className="text-red-500">
+                                                        {member.status.type}
+                                                    </span>
+                                                )}
+                                            </p>
+                                            <p>Email: {member.email}</p>
+                                            <p>Phone: {member.phone}</p>
+                                            <p>
+                                                Auditioned:{" "}
+                                                {member.hasAuditioned ? (
+                                                    <span className="text-green-500">
+                                                        {member.hasAuditioned.toString()}
+                                                    </span>
+                                                ) : (
+                                                    <span className="text-red-500">
+                                                        {member.hasAuditioned.toString()}
+                                                    </span>
+                                                )}
+                                                
+                                            </p>
+                                            <p>
+                                                Vocal Range:{" "}
+                                                {member.voicing.type}
+                                            </p>
+                                            <p>{member.expDetail}</p>
+                                            <p>{member.connection}</p>
+                                            <ButtonGroup>
+                                                <Button
+                                                    onClick={() =>
+                                                        deleteEvent(member)
+                                                    }
+                                                >
+                                                    Delete
+                                                </Button>
+                                                <Button
+                                                    onClick={() =>
+                                                        setEditMember(
+                                                            member.memberId
+                                                        )
+                                                    }
+                                                >
+                                                    Edit
+                                                </Button>
+                                            </ButtonGroup>
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                        </Tab.Panel>
+                        <Tab.Panel className={'w-[50vw]'}>
+                            <h1 className="flex justify-center">Manage All:</h1>
+                            {members.map((member) => (
+                                <div
+                                    key={member.memberId}
+                                    className="bg-white rounded-lg border-black border-[1px] p-4 shadow-md"
+                                >
+                                    {editMember === member.memberId ? (
+                                        <div>
+                                            <EditMember
+                                                setEditMember={setEditMember}
+                                                member={member}
+                                            />
+                                        </div>
+                                    ) : (
+                                        <div>
+                                            <h4 className="text-lg font-semibold">
+                                                {member.name}
+                                            </h4>
+                                            <p>
+                                                Choir Status:{" "}
                                                 {member.status.type ===
                                                 "Active" ? (
                                                     <span className="text-green-500">

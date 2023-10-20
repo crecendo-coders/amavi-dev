@@ -47,6 +47,7 @@ app.post("/api/audition", audition.request);
 // Member endpoints
 app.get('/api/activeMembers',member.get)
 app.get('/api/members',member.getAllMembers)
+app.get('/api/auditions',member.getAuditions)
 app.get('/api/everyone',member.getAll)
 app.put('/api/member/:id',member.put)
 
