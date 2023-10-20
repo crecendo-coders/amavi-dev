@@ -69,9 +69,11 @@ const DonationForm = () => {
               never miss a captivating performance.
             </li>
             <li>
-              Your Name Featured in the Program: Your name will be prominently
-              featured in our concert program, recognizing your valued support.
+              Your Name Featured in the Program and Amavi Website: Your name
+              will be prominently featured in our concert program and on the
+              Amavi website, recognizing your valued support.
             </li>
+
             <li>
               Invitation to a Special Reception: You will receive an exclusive
               invitation to join us at a special reception following our season

@@ -33,7 +33,7 @@ export default function Affiliate() {
 
           <div className="text-left mt-4">
             <h2 className="text-4xl font-bold mb-6 text-center">
-              Become an Amavi Affiliate - Annual Subscription of $250
+              Become an Amavi Affiliate
             </h2>
 
             <p className="text-gray-600">
@@ -67,8 +67,7 @@ export default function Affiliate() {
               </li>
             </ul>
             <p className="text-gray-600">
-              If you prefer to remain an anonymous donor, please indicate your
-              preference in the donation notes.
+              If you prefer to remain an anonymous donor, please email us at info@amavichorale.org
             </p>
             <form
               action="/create-checkout-session/affiliates"
