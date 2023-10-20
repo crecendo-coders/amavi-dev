@@ -17,6 +17,7 @@ import Support from "./Pages/Support";
 import Chorale from "./Pages/Chorale";
 import Audition from "./Pages/Audition";
 import Members from "./Pages/Members";
+import ManageMembers from "./Admin/ManageMembers"
 import ManageEvents from "./Admin/ManageEvents";
 import ManageSubscribers from "./Admin/ManageSubscribers";
 
@@ -36,6 +37,10 @@ function App() {
         <Route path="/support" element={<Support />} />
         <Route path="/manageEvents" element={<ManageEvents />} />
         <Route path="/ManageSubscribers" element={<ManageSubscribers />} />
+        <Route
+                  path='/ManageMembers'
+                  element={<ManageMembers/>}
+                />
       </Route>
     )
   );

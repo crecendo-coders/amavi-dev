@@ -3,6 +3,7 @@ import ViteExpress from "vite-express";
 import session from "express-session";
 import event from "./controllers/event.js";
 import subscriber from "./controllers/subscriber.js";
+import member from "./controllers/member.js";
 import audition from "./controllers/audition.js";
 import Stripe from "stripe";
 import "dotenv/config";
@@ -27,21 +28,28 @@ app.use(
   })
 );
 // Routes Go Here
-app.get("/api/events", event.get);
-app.get("/api/events/all", event.getAll);
-app.put("/api/event/:id", event.put);
-app.put("/api/event/archive/:id", event.archive);
-app.delete("/api/event/:id", event.delete);
-app.post("/api/event", event.post);
+app.get('/api/events', event.get)
+app.get('/api/events/all', event.getAll)
+app.put('/api/event/:id', event.put)
+app.put('/api/event/archive/:id', event.archive)
+app.delete('/api/event/:id', event.delete)
+app.post('/api/event/', event.post)
 
-app.get("/api/subscribers", subscriber.get);
-app.get("/api/subscribers/all", subscriber.getAll);
-app.put("/api/subscriber/:id", subscriber.put);
-app.delete("/api/subscriber/:id", subscriber.delete);
-app.put("/api/unsubscribe", subscriber.unsubscribe);
-app.post("/api/subscribe", subscriber.subscribe);
+app.get('/api/subscribers', subscriber.get)
+app.get('/api/subscribers/all', subscriber.getAll)
+app.put('/api/subscriber/:id', subscriber.put)
+app.put('/api/subscriber/unsubscribe/:id', subscriber.unsubscribe)
+app.delete('/api/subscriber/:id', subscriber.delete)
+app.post('/api/subscriber/', subscriber.subscribe)
 
 app.post("/api/audition", audition.request);
+
+// Member endpoints
+app.get('/api/activeMembers',member.get)
+app.get('/api/members',member.getAllMembers)
+app.get('/api/auditions',member.getAuditions)
+app.get('/api/everyone',member.getAll)
+app.put('/api/member/:id',member.put)
 
 // Stripe endpoints
 app.post("/create-checkout-session", async (req, res) => {
