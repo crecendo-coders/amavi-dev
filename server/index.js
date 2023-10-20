@@ -61,6 +61,25 @@ app.post("/create-checkout-session", async (req, res) => {
   res.redirect(303, session.url);
 });
 
+app.post("/create-checkout-session/affiliates", async (req, res) => {
+  const session = await stripe.checkout.sessions.create({
+    line_items: [
+      {
+        price: "price_1O3N7DHC1pU4F4itf0kaFREd",
+        quantity: 1,
+      
+      },
+    ],
+    mode: "subscription",
+    success_url: `${domain}?success=true`,
+    cancel_url: `${domain}?canceled=true`,
+  });
+
+  res.redirect(303, session.url);
+});
+
+
+
 ViteExpress.listen(app, PORT, () =>
   console.log(`Server is running on http://localhost:${PORT}`)
 );

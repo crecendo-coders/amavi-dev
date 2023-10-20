@@ -21,7 +21,7 @@ const EventComponent = () => {
   return (
     <div className="flex w-4/5 gap-4 my-4 justify-center">
       <a
-        href="/events/2023/11/3/introit"
+        href="https://maps.app.goo.gl/iydDRkw79hczfSQ19"
         className="bg-gray-100 flex items-center justify-center"
         style={{ textDecoration: "none" }}
       >
@@ -59,7 +59,7 @@ const EventComponent = () => {
       </a>
 
       <a
-        href="/events/2023/11/4/introit"
+        href="https://maps.app.goo.gl/iydDRkw79hczfSQ19"
         className="bg-gray-100 flex items-center justify-center"
         style={{ textDecoration: "none" }}
       >
