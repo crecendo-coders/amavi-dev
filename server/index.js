@@ -3,6 +3,7 @@ import ViteExpress from "vite-express";
 import session from "express-session";
 import event from "./controllers/event.js";
 import subscriber from "./controllers/subscriber.js";
+import member from "./controllers/member.js";
 import audition from "./controllers/audition.js";
 import Stripe from "stripe";
 import "dotenv/config";
@@ -39,15 +40,16 @@ app.get('/api/subscribers/all', subscriber.getAll)
 app.put('/api/subscriber/:id', subscriber.put)
 app.put('/api/subscriber/unsubscribe/:id', subscriber.unsubscribe)
 app.delete('/api/subscriber/:id', subscriber.delete)
-app.post('/api/subscriber/', subscriber.post)
+app.post('/api/subscriber/', subscriber.subscribe)
 
 app.post("/api/audition", audition.request);
 
 // Member endpoints
-app.get('/api/activeMembers')
-app.get('/api/members')
-app.get('/api/everyone')
-app.put('/api/subscriber/:id')
+app.get('/api/activeMembers',member.get)
+app.get('/api/members',member.getAllMembers)
+app.get('/api/everyone',member.getAll)
+app.put('/api/member/:id',member.put)
+
 // Stripe endpoints
 app.post("/create-checkout-session", async (req, res) => {
   const session = await stripe.checkout.sessions.create({
