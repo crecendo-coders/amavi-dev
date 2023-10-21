@@ -107,6 +107,7 @@ Subscriber.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    emailHash: DataTypes.STRING,
   },
   {
     modelName: "subscriber",

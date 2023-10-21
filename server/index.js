@@ -38,8 +38,11 @@ app.get("/api/subscribers", subscriber.get);
 app.get("/api/subscribers/all", subscriber.getAll);
 app.put("/api/subscriber/:id", subscriber.put);
 app.delete("/api/subscriber/:id", subscriber.delete);
+
 app.put("/api/unsubscribe", subscriber.unsubscribe);
 app.post("/api/subscribe", subscriber.subscribe);
+app.put('/api/unsubscribe/email/:emailHash', subscriber.unsubscribeEmail);
+app.post("/api/send", subscriber.send);
 
 app.post("/api/audition", audition.request);
 

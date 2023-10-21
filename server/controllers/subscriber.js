@@ -1,4 +1,8 @@
+import { sendEmail } from "../emails.js";
 import { Subscriber } from "../model.js";
+import bcrypt from 'bcryptjs'
+
+const salt = bcrypt.genSaltSync(10)
 
 export default {
   get: async (req, res) => {
@@ -34,19 +38,33 @@ export default {
       res.status(500).send("Error in subscribers unsubscribe");
     }
   },
+
+
   unsubscribeEmail: async (req, res) => {
     try {
-      console.log(`Unsubscribe ${req.params.email} with ${req.params.token}`);
-      const subscriberId = await Subscriber.findOne({ where: { email } });
-      const subscriber = await Subscriber.update(
+      console.log(`Unsubscribe ${req.params.emailHash}`);
+      const subscriber = await Subscriber.findOne({ where: { emailHash: req.params.emailHash } });
+  
+      if (!subscriber) {
+        // Handle the case where the subscriber doesn't exist
+        return res.status(404).json({ message: 'Subscriber not found' });
+      }
+  
+      await Subscriber.update(
         { subscribed: false },
-        { where: { subscriberId: subscriberId } }
+        { where: { subscriberId: subscriber.subscriberId } }
       );
+  
+      // Re-fetch the updated subscriber data
+      const updatedSubscriber = await Subscriber.findByPk(subscriber.subscriberId);
+  
+      res.status(200).json(updatedSubscriber);
     } catch (err) {
       console.log(err);
-      res.status(500).send("Error in subscribers unsubscribe");
+      res.status(500).json({ error: 'Error in subscribers unsubscribe' });
     }
   },
+  
   delete: async (req, res) => {
     try {
       console.log("delete", req.params.id);
@@ -88,6 +106,9 @@ export default {
         console.log("subscriber-updated", subscriber);
         res.status(200).json(subscriber);
       } else {
+        let data = {...req.body}
+        // just need a way to encrypt emails without any special characters
+        data.emailHash = bcrypt.hashSync(data.email, 1).replace(/[^a-zA-Z]/g, '').slice(0, 15)
         const subscriber = await Subscriber.create(req.body);
         console.log("subscriber-new", subscriber);
         res.status(200).json(subscriber);
@@ -96,5 +117,18 @@ export default {
       console.log(err);
       res.status(500).send("Error in subscribers post");
     }
+  },
+  send: async (req, res) => {
+    try {
+      console.log("send", req.body);
+      const subscribers = await Subscriber.findAll({ where: { subscribed: true } });
+      console.log(subscribers);
+      subscribers.map((subscriber => sendEmail({subscriber, ...req.body})))
+      res.status(200);
+    } catch (err) {
+      console.log(err);
+      res.status(500).send("Error in subscribers get");
+    }
+    
   },
 };

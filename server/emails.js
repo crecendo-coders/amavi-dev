@@ -6,14 +6,14 @@ const transporter = nodemailer.createTransport({
   port: 465, //587 is default for insecure
   secure: true,
   auth: {
-    user: process.env.EMAIL,
+    user: process.env.AMAVI_EMAIL,
     pass: process.env.EMAIL_PASSWORD,
   },
 });
 
 export const email = new Email({
   transport: transporter,
-  send: process.env.NODE_ENV === 'production',
+  send: process.env.ENV === 'production',
   preview: true,
   views: {
     root: 'src/emails',
@@ -46,7 +46,7 @@ export async function auditionAccepted(audition) {
       name: audition.name,
     },
     message: {
-      from: `Amavi Chorale <${process.env.EMAIL}>`,
+      from: `Amavi Chorale <${process.env.AMAVI_EMAIL}>`,
       to: audition.email,
     },
   })
@@ -75,7 +75,7 @@ export async function auditionReceived(audition) {
       name: audition.name
     },
     message: {
-      from: `Amavi Chorale <${process.env.EMAIL}>`,
+      from: `Amavi Chorale <${process.env.AMAVI_EMAIL}>`,
       to: audition.email,
     },
   })
@@ -88,25 +88,30 @@ export async function auditionDenied(audition) {
       name: audition.name
     },
     message: {
-      from: `Amavi Chorale <${process.env.EMAIL}>`,
+      from: `Amavi Chorale <${process.env.AMAVI_EMAIL}>`,
       to: audition.email,
     },
   })
 }
       
-export async function newsletter(subscriber) {
+export async function sendEmail({subscriber, subject, body}) {
+  const url = `${process.env.DOMAIN}unsubscribe/${subscriber.emailHash}`
   await email.send({
     template: 'newsletter',
     locals: {
-      name: subcriber.name,
-      month: name,
+      name: subscriber.name,
+      body: body,
+      emailHash:subscriber.emailHash,
+      unsubscribeUrl: url
     },
+    // TODO: Doesn't seem to open a link from the email?
     message: {
-      from: `Amavi Chorale <${process.env.EMAIL}>`,
-      to: audition.email,
+      from: `Amavi Chorale <${process.env.AMAVI_EMAIL}>`,
+      to: subscriber.email,
+      subject: subject,
       list: {
         unsubscribe: {
-          url: `/unsubscribe/${emailHash}`,
+          url: url,
           comment: 'Unsubscribe from the Amavi Newsletter',
         },
       }

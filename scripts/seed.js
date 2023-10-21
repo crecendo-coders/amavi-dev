@@ -30,22 +30,26 @@ const subscribers = [
     {
         name: "Larry",
         email: "some@examploe.com",
+        emailHash: "hashedEmail4",
         phone: "123 123-123",
-    },
-    {
+      },
+      {
         name: "Larry",
         email: "some@examploe.com",
+        emailHash: "hashedEmail3",
         phone: "123 123-123",
-    },
-    {
+      },
+      {
         name: "Moe",
         companyName: "Da Fed",
         email: "Moe@examploe.com",
-    },
-    {
+        emailHash: "hashedEmail2",
+      },
+      {
         companyName: "Amazon.com",
         email: "some@example.com",
-    },
+        emailHash: "hashedEmail1",
+      },
 ];
 const status = [
     {
