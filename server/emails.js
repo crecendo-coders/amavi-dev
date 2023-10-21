@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
 export const email = new Email({
   transport: transporter,
   send: process.env.ENV === 'production',
-  preview: true,
+  preview: false,
   views: {
     root: 'src/emails',
   },
@@ -94,27 +94,35 @@ export async function auditionDenied(audition) {
   })
 }
       
-export async function sendEmail({subscriber, subject, body}) {
-  const url = `${process.env.DOMAIN}unsubscribe/${subscriber.emailHash}`
-  await email.send({
-    template: 'newsletter',
-    locals: {
-      name: subscriber.name,
-      body: body,
-      emailHash:subscriber.emailHash,
-      unsubscribeUrl: url
-    },
-    // TODO: Doesn't seem to open a link from the email?
-    message: {
-      from: `Amavi Chorale <${process.env.AMAVI_EMAIL}>`,
-      to: subscriber.email,
-      subject: subject,
-      list: {
-        unsubscribe: {
-          url: url,
-          comment: 'Unsubscribe from the Amavi Newsletter',
+export async function sendEmail({ subscriber, subject, body }) {
+  const url = `${process.env.DOMAIN}unsubscribe/${subscriber.emailHash}`;
+
+  try {
+    await email.send({
+      template: 'newsletter',
+      locals: {
+        name: subscriber.name,
+        body: body,
+        emailHash: subscriber.emailHash,
+        unsubscribeUrl: url,
+      },
+      message: {
+        from: `Amavi Chorale <${process.env.AMAVI_EMAIL}>`,
+        to: subscriber.email,
+        subject: subject,
+        list: {
+          unsubscribe: {
+            url: url,
+            comment: 'Unsubscribe from the Amavi Newsletter',
+          },
         },
-      }
-    },
-  })
+      },
+    });
+
+    // Email sent successfully
+    console.log('Email sent successfully');
+  } catch (error) {
+    // Handle email send error
+    console.error('Email send error:', error);
+  }
 }

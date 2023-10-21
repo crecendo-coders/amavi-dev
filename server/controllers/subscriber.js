@@ -109,7 +109,7 @@ export default {
         let data = {...req.body}
         // just need a way to encrypt emails without any special characters
         data.emailHash = bcrypt.hashSync(data.email, 1).replace(/[^a-zA-Z]/g, '').slice(0, 15)
-        const subscriber = await Subscriber.create(req.body);
+        const subscriber = await Subscriber.create(data);
         console.log("subscriber-new", subscriber);
         res.status(200).json(subscriber);
       }
