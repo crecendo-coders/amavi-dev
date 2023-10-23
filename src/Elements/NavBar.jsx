@@ -19,9 +19,9 @@ const NavBar = () => {
     return (
         <div className="sticky">
             {/* mobile nav bar */}
-            <div className="lg:hidden sm:bg-blue-500 sm:py-2 sm:sticky sm:top-0 sm:z-10">
+            <div className="lg:hidden bg-blue-500 py-2 sticky top-0 z-10">
             {isClicked ? (
-                <nav className="">
+                <nav className=''>
                     <button
                         className="sm:hidden flex h-full items-center"
                         onClick={() => setIsClicked(!isClicked)}
