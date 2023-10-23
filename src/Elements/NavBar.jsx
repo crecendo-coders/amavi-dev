@@ -28,7 +28,7 @@ const NavBar = () => {
               className="sm:hidden flex h-full items-center"
               onClick={() => setIsClicked(!isClicked)}
             >
-              <span className="text-2xl">&#9776;</span>
+              <span className="text-2xl m-4">&#9776;</span>
             </button>
             <div className="flex items-center flex-col text-center gap-3">
               <NavLink
