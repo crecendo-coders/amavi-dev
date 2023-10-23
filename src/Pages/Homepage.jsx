@@ -16,6 +16,10 @@ export default function Homepage() {
         autoplay
         muted
       ></iframe>
+      {/* <img
+            src="https://amaviphotos.s3.us-west-2.amazonaws.com/ChoirGroupJPGfile+-+instasize.jpg"
+            alt="Cathedral Organ"
+          /> */}
 
       <EventComponent />
     </div>
