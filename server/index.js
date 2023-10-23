@@ -35,6 +35,10 @@ app.put('/api/event/archive/:id', event.archive)
 app.delete('/api/event/:id', event.delete)
 app.post('/api/event/', event.post)
 
+app.put("/api/unsubscribe", subscriber.unsubscribe);
+app.post("/api/subscribe", subscriber.subscribe);
+app.put('/api/unsubscribe/email/:emailHash', subscriber.unsubscribeEmail);
+app.post("/api/send", subscriber.send);
 app.get('/api/subscribers', subscriber.get)
 app.get('/api/subscribers/all', subscriber.getAll)
 app.put('/api/subscriber/:id', subscriber.put)

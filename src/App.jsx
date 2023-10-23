@@ -29,6 +29,7 @@ import Members from "./Pages/Members";
 import ManageMembers from "./Admin/ManageMembers"
 import ManageEvents from "./Admin/ManageEvents";
 import ManageSubscribers from "./Admin/ManageSubscribers";
+import Unsubscribe from "./Pages/Unsubscribe";
 
 const Auth0ProviderWithRedirectCallback = ({ children, ...props }) => {
   const navigate = useNavigate();
@@ -55,6 +56,7 @@ function App() {
         <Route path="/affiliates" element={<Affiliate />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/unsubscribe/:hashedEmail" element={<Unsubscribe />} />
         <Route path="/support" element={<Support />} />
         <Route path="/manageEvents" element={<ManageEvents />} />
         <Route path="/ManageSubscribers" element={<ManageSubscribers />} />

@@ -1,6 +1,7 @@
 import React from "react";
 
 const Members = () => {
+  // TODO: move this to a table in the DB with an axios get and react map
   const videos = [
     {
       title: "Messe Solennelle, Op. 16: I. Kyrie",
