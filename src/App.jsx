@@ -35,7 +35,6 @@ function App() {
         <Route path="/affiliates" element={<Affiliate />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/events" element={<Events />} />
-        <Route path="/subscribe/:hashedEmail" element={<Unsubscribe />} />
         <Route path="/unsubscribe/:hashedEmail" element={<Unsubscribe />} />
         <Route path="/support" element={<Support />} />
         <Route path="/manageEvents" element={<ManageEvents />} />

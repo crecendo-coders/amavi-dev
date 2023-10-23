@@ -38,15 +38,12 @@ export default function Unsubscribe() {
       .catch((err) => console.log("unsubscribe error:", err));
   }, [])
 
-  if (!subscriber){
-    return  <div>Loading...</div>
-  }
-  // TODO: the header and footer don't render here...Why?
-  return (
-    <div>
+  return (subscriber && (
+    <div className="text-center">
       <h1>Sad to see you go. </h1>
-      <h2>{subscriber.email} has been removed from our mailing list.   </h2>
+      <h4 >{subscriber.email} has been removed from our mailing list.</h4>
       <p>Click <button onClick={resubscribe}>here</button> to resubscribe</p>
     </div>
+  )
   );
 }
