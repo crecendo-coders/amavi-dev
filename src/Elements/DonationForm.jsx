@@ -9,13 +9,13 @@ const DonationForm = () => {
         </h1>
       </div>
       <div className="flex justify-center m-12">
-        <div className="w-2/5">
+        <div className="w-2/5 p-4 hidden lg:block">
           <img
             src="https://amaviphotos.s3.us-west-2.amazonaws.com/facebook-vertical-post-1080x1350+(1).jpg"
             alt="Choir"
           />
         </div>
-        <div className="flex flex-col items-center ml-10 w-3/5 text-lg">
+        <div className="flex flex-col items-center lg:ml-10 lg:w-3/5 text-lg">
           <div className="text-left mt-4">
             <h3 className="text-lg font-semibold">
               Option 1: One-Time Tax-Deductible Donation
@@ -33,10 +33,7 @@ const DonationForm = () => {
             </p>
           </div>
 
-          <form
-            action="/create-checkout-session"
-            method="POST"
-          >
+          <form action="/create-checkout-session" method="POST">
             <div className="flex justify-center">
               <button
                 type="submit"
@@ -95,10 +92,7 @@ const DonationForm = () => {
               to the world.
             </p>
           </div>
-          <form
-            action="/create-checkout-session/affiliates"
-            method="POST"
-          >
+          <form action="/create-checkout-session/affiliates" method="POST">
             <div className="flex justify-center">
               <button
                 type="submit"
