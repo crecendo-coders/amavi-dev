@@ -1,12 +1,21 @@
 import Homepage from "./Pages/Homepage";
 import {
-  Navigate,
   Route,
   RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
+  useNavigate,
 } from "react-router-dom";
-import axios from "axios";
+// added
+import { Auth0Provider, withAuthenticationRequired } from '@auth0/auth0-react';
+import Profile from './Profile';
+
+const ProtectedRoute = ({ component, ...args }) => {
+  const Component = withAuthenticationRequired(component, args);
+  return <Component />;
+};
+// end of added
+//Pages
 import Layout from "./Elements/Layout";
 import ErrorPage from "./Pages/Error";
 import Conductor from "./Pages/Conductor";
@@ -20,6 +29,18 @@ import Members from "./Pages/Members";
 import ManageMembers from "./Admin/ManageMembers"
 import ManageEvents from "./Admin/ManageEvents";
 import ManageSubscribers from "./Admin/ManageSubscribers";
+
+const Auth0ProviderWithRedirectCallback = ({ children, ...props }) => {
+  const navigate = useNavigate();
+  const onRedirectCallback = (appState) => {
+    navigate((appState && appState.returnTo) || window.location.pathname);
+  };
+  return (
+    <Auth0Provider onRedirectCallback={onRedirectCallback} {...props}>
+      {children}
+    </Auth0Provider>
+  );
+};
 
 
 function App() {
