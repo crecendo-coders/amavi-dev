@@ -88,20 +88,6 @@ const Footer = () => {
                                                     <Menu.Item>
                                                         {({ active }) => (
                                                             <NavLink
-                                                                to="/admin"
-                                                                className={`${
-                                                                    active
-                                                                        ? `text-black `
-                                                                        : `text-black `
-                                                                } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
-                                                            >
-                                                                Admin
-                                                            </NavLink>
-                                                        )}
-                                                    </Menu.Item>
-                                                    <Menu.Item>
-                                                        {({ active }) => (
-                                                            <NavLink
                                                                 to="/manageEvents"
                                                                 className={`${
                                                                     active
@@ -139,6 +125,20 @@ const Footer = () => {
                                                                 } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
                                                             >
                                                                 Manage Members
+                                                            </NavLink>
+                                                        )}
+                                                    </Menu.Item>
+                                                    <Menu.Item>
+                                                        {({ active }) => (
+                                                            <NavLink
+                                                                to="/newsletter"
+                                                                className={`${
+                                                                    active
+                                                                        ? `text-black `
+                                                                        : `text-black `
+                                                                } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
+                                                            >
+                                                                Newsletter
                                                             </NavLink>
                                                         )}
                                                     </Menu.Item>

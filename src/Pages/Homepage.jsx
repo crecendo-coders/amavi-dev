@@ -1,6 +1,4 @@
-import { useLoaderData } from "react-router-dom";
 import EventComponent from "./Events";
-import Newsletter from "../Elements/Newsletter";
 
 export default function Homepage() {
   return (
@@ -11,9 +9,9 @@ export default function Homepage() {
         height="750"
         src="https://www.youtube.com/embed/NfNPQ6ljU1Q?si=0ZoM14JeOL-Wphx3"
         title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
-        autoplay
+        autoPlay
         muted
       ></iframe>
 

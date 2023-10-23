@@ -2,7 +2,7 @@ import axios from "axios";
 import { Button, ButtonGroup } from "rsuite";
 import { useState } from "react";
 
-export default function Admin() {
+export default function Newsletter() {
   const [subject, setSubject] = useState("");
   const [body, setBody] = useState("");
 
