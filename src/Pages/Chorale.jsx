@@ -5,42 +5,74 @@ export default function AboutChorale() {
     <div>
       <div className="text-left p-6">
         <div className="w-3/4 mx-auto flex">
-          <img src="https://amaviphotos.s3.us-west-2.amazonaws.com/ChoirGroupJPGfile+-+instasize.jpg" alt="Choir" className="w-2/5 p-4" />
+          <img
+            src="https://amaviphotos.s3.us-west-2.amazonaws.com/Cathedral(2)JPGfile+-+instasize.jpg"
+            alt="Choir"
+            className="w-2/5 p-4"
+          />
           <div className="w-3/5 p-4 text-lg">
             <h2 className="text-4xl font-bold mb-6 text-center">Our Mission</h2>
 
+            <h5>Championing the Elevation of Choral Repertoire</h5>
             <p>
-              Amavi Chorale aspires to contribute to an already rich choral
-              tradition along the Utah Wasatch Front by:
+              Amavi Chorale is dedicated to the meticulous interpretation and
+              vocal rendition of the most sublime and intricate choral
+              compositions. We embrace this profound commitment as a means of
+              preserving and revitalizing the cherished choral heritage in our
+              region. By selecting and performing the finest choral repertoire,
+              we aim to both honor the past and inspire the future.
             </p>
-            <li>Singing the finest choral repertoire</li>
-            <li>Collaborating with local and national artists</li>
-            <li>
-              Providing a space for creativity and artistic outlet for our
-              singers, staff, and audiences
-            </li>
+
+            <h5>Facilitating Collaborative Artistry</h5>
+            <p>
+              We recognize the immense power of collaborative creativity. To
+              this end, Amavi Chorale actively seeks out and collaborates with
+              both local and national artists. These collaborations breathe
+              fresh life and perspective into our performances, infusing our
+              choral artistry with a dynamic spirit that transcends boundaries
+              and draws from a diverse pool of talent.
+            </p>
+
+            <h5>Fostering an Oasis of Creativity</h5>
+            <p>
+              Within the Amavi Chorale community, we consider the act of choral
+              expression not only as a performance but as a profound artistic
+              outlet. This extends to our dedicated singers, staff, and
+              cherished audiences. We aim to create a nurturing space that
+              nurtures creativity, offering the opportunity for all involved to
+              find their own artistic voice and experience the transformative
+              power of music. Through these collective efforts, we endeavor to
+              weave a vibrant tapestry that beautifully contributes to the rich
+              tapestry of the Utah Wasatch Front's choral legacy.
+            </p>
           </div>
         </div>
       </div>
       <div className="text-left p-6">
         <div className="w-3/4 mx-auto flex">
           <div className="w-3/5 p-4 text-lg">
-        <h2 className="text-4xl font-bold mb-6 text-center">Our Motivation</h2>
+            <h2 className="text-4xl font-bold mb-6 text-center">
+              Our Motivation
+            </h2>
             <p>
-              Founded in 2017, Amavi Chorale is dedicated to creating meaningful
-              musical experiences by giving first rate performances of the
-              finest choral literature. As artists, educators, and advocates of
-              the choral art, the Amavi Chorale aspires to reach audiences of
-              all ages, backgrounds and socio-economic circumstances.
+              Amavi Chorale, established in the year 2017, is passionately
+              committed to curating and delivering profound musical experiences
+              through the rendition of the most exquisite choral compositions.
+              As a multifaceted collective of artists, educators, and ardent
+              advocates of the choral discipline, Amavi Chorale earnestly
+              aspires to engage and resonate with diverse audiences across all
+              age groups, socio-economic strata, and cultural backgrounds.
             </p>
             <p>
-              The name Amavi (lat. I loved) illustrates how we are motivated by
-              our love for music, people, all things beautiful, and our love for
-              God.
+              The very appellation "Amavi," derived from the Latin term "I
+              loved," encapsulates our profound motivation—a deep-seated
+              affection for music, a genuine reverence for the beauty that
+              envelops our world, a profound love for humanity in all its
+              diversity, and an abiding love for the divine presence.
             </p>
           </div>
           <img
-            src="https://amaviphotos.s3.us-west-2.amazonaws.com/Cathedral(2)JPGfile+-+instasize.jpg"
+            src="https://amaviphotos.s3.us-west-2.amazonaws.com/ChoirGroupJPGfile+-+instasize.jpg"
             alt="Cathedral Organ"
             className="w-2/5 p-4"
           />
