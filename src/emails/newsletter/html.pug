@@ -2,8 +2,10 @@ extends ../layout.pug
 
 block content
   p Hi #{name},
+  p 
+  p #{body}
   p  
   br 
   div.footer
-    p.copyright © Peel the Garlic 2020
-    a.unsubscribe(href='https://www.peelthegarlic.com/unsubscribe?subscriber=' + id, target="_blank", rel="noopener noreferrer") Unsubscribe
+    p.copyright © Amavi Chorale 2023
+    a(href=unsubscribeUrl) Click here to unsubscribe
