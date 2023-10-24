@@ -6,15 +6,15 @@ const transporter = nodemailer.createTransport({
   port: 465, //587 is default for insecure
   secure: true,
   auth: {
-    user: process.env.EMAIL,
+    user: process.env.AMAVI_EMAIL,
     pass: process.env.EMAIL_PASSWORD,
   },
 });
 
 export const email = new Email({
   transport: transporter,
-  send: process.env.NODE_ENV === 'production',
-  preview: true,
+  send: process.env.ENV === 'production',
+  preview: false,
   views: {
     root: 'src/emails',
   },
@@ -46,7 +46,7 @@ export async function auditionAccepted(audition) {
       name: audition.name,
     },
     message: {
-      from: `Amavi Chorale <${process.env.EMAIL}>`,
+      from: `Amavi Chorale <${process.env.AMAVI_EMAIL}>`,
       to: audition.email,
     },
   })
@@ -75,7 +75,7 @@ export async function auditionReceived(audition) {
       name: audition.name
     },
     message: {
-      from: `Amavi Chorale <${process.env.EMAIL}>`,
+      from: `Amavi Chorale <${process.env.AMAVI_EMAIL}>`,
       to: audition.email,
     },
   })
@@ -88,28 +88,41 @@ export async function auditionDenied(audition) {
       name: audition.name
     },
     message: {
-      from: `Amavi Chorale <${process.env.EMAIL}>`,
+      from: `Amavi Chorale <${process.env.AMAVI_EMAIL}>`,
       to: audition.email,
     },
   })
 }
       
-export async function newsletter(subscriber) {
-  await email.send({
-    template: 'newsletter',
-    locals: {
-      name: subcriber.name,
-      month: name,
-    },
-    message: {
-      from: `Amavi Chorale <${process.env.EMAIL}>`,
-      to: audition.email,
-      list: {
-        unsubscribe: {
-          url: `/unsubscribe/${emailHash}`,
-          comment: 'Unsubscribe from the Amavi Newsletter',
+export async function sendEmail({ subscriber, subject, body }) {
+  const url = `${process.env.DOMAIN}unsubscribe/${subscriber.emailHash}`;
+
+  try {
+    await email.send({
+      template: 'newsletter',
+      locals: {
+        name: subscriber.name,
+        body: body,
+        emailHash: subscriber.emailHash,
+        unsubscribeUrl: url,
+      },
+      message: {
+        from: `Amavi Chorale <${process.env.AMAVI_EMAIL}>`,
+        to: subscriber.email,
+        subject: subject,
+        list: {
+          unsubscribe: {
+            url: url,
+            comment: 'Unsubscribe from the Amavi Newsletter',
+          },
         },
-      }
-    },
-  })
+      },
+    });
+
+    // Email sent successfully
+    console.log('Email sent successfully');
+  } catch (error) {
+    // Handle email send error
+    console.error('Email send error:', error);
+  }
 }

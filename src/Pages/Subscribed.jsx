@@ -1,9 +1,10 @@
 import axios from "axios";
-import { NavLink } from "react-router-dom";
-import { Button, ButtonGroup } from "rsuite";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 
 export default function Subscribed({subscriber}) {
+  const Confirm = withReactContent(Swal);
 
   const unsubscribe = () => {
     axios

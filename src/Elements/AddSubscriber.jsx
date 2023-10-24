@@ -16,7 +16,7 @@ export default function AddSubscriber({ setAddSubscriber }) {
   const onSubmit = (data) => {
     console.log("Audition Data:", data);
     axios
-      .post(`/api/subscriber/`, data)
+      .post(`/api/subscribe/`, data)
       .then((res) => {
         console.log("Response: ", res.data);
         setAddSubscriber(false);
