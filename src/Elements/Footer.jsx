@@ -54,79 +54,91 @@ const Footer = () => {
                       <LogoutButton />
                     </li>
 
-                    <div className="flex">
-                      <Menu as="div" className="relative rounded-full mx-6">
-                        <Menu.Button
-                          className={` text-white hover:text-blue-500  no-underline hover:no-underline focus:no-underline`}
-                        >
-                          Admin
-                        </Menu.Button>
-                        <Menu.Items
-                          className={`absolute bottom-0 left-14 w-32 origin-top-right rounded-xl divide-y bg-white divide-black/50 ring-1 ring-black ring-opacity-50 focus:outline-none`}
-                        >
-                          <Menu.Item>
-                            {({ active }) => (
-                              <NavLink
-                                to="/admin"
-                                className={`${
-                                  active ? `text-black ` : `text-black `
-                                } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
-                              >
-                                Admin
-                              </NavLink>
-                            )}
-                          </Menu.Item>
-                          <Menu.Item>
-                            {({ active }) => (
-                              <NavLink
-                                to="/manageEvents"
-                                className={`${
-                                  active ? `text-black ` : `text-black `
-                                } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
-                              >
-                                Manage Events
-                              </NavLink>
-                            )}
-                          </Menu.Item>
-                          <Menu.Item>
-                            {({ active }) => (
-                              <NavLink
-                                to="/manageSubscribers"
-                                className={`${
-                                  active ? `text-black ` : `text-black `
-                                } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
-                              >
-                                Manage Subscribers
-                              </NavLink>
-                            )}
-                          </Menu.Item>
-                          <Menu.Item>
-                            {({ active }) => (
-                              <NavLink
-                                to="/manageMembers"
-                                className={`${
-                                  active ? `text-black ` : `text-black `
-                                } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
-                              >
-                                Manage Members
-                              </NavLink>
-                            )}
-                          </Menu.Item>
-                        </Menu.Items>
-                      </Menu>
-                    </div>
-                  </>
-                ) : (
-                  <li>
-                    <LoginButton />
-                  </li>
-                )}
-              </>
-            </ul>
-          </nav>
-          <p className="text-center py-4">
-            Copyright 2023 Amavi. All Rights Reserved.
-          </p>
+                                        <div className="flex">
+                                            <Menu
+                                                as="div"
+                                                className="relative rounded-full mx-6"
+                                            >
+                                                <Menu.Button
+                                                    className={` text-white hover:text-blue-500  no-underline hover:no-underline focus:no-underline`}
+                                                >
+                                                    Admin
+                                                </Menu.Button>
+                                                <Menu.Items
+                                                    className={`absolute bottom-0 left-14 w-32 origin-top-right rounded-xl divide-y bg-white divide-black/50 ring-1 ring-black ring-opacity-50 focus:outline-none`}
+                                                >
+                                                    <Menu.Item>
+                                                        {({ active }) => (
+                                                            <NavLink
+                                                                to="/manageEvents"
+                                                                className={`${
+                                                                    active
+                                                                        ? `text-black `
+                                                                        : `text-black `
+                                                                } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
+                                                            >
+                                                                Manage Events
+                                                            </NavLink>
+                                                        )}
+                                                    </Menu.Item>
+                                                    <Menu.Item>
+                                                        {({ active }) => (
+                                                            <NavLink
+                                                                to="/manageSubscribers"
+                                                                className={`${
+                                                                    active
+                                                                        ? `text-black `
+                                                                        : `text-black `
+                                                                } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
+                                                            >
+                                                                Manage
+                                                                Subscribers
+                                                            </NavLink>
+                                                        )}
+                                                    </Menu.Item>
+                                                    <Menu.Item>
+                                                        {({ active }) => (
+                                                            <NavLink
+                                                                to="/manageMembers"
+                                                                className={`${
+                                                                    active
+                                                                        ? `text-black `
+                                                                        : `text-black `
+                                                                } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
+                                                            >
+                                                                Manage Members
+                                                            </NavLink>
+                                                        )}
+                                                    </Menu.Item>
+                                                    <Menu.Item>
+                                                        {({ active }) => (
+                                                            <NavLink
+                                                                to="/newsletter"
+                                                                className={`${
+                                                                    active
+                                                                        ? `text-black `
+                                                                        : `text-black `
+                                                                } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
+                                                            >
+                                                                Newsletter
+                                                            </NavLink>
+                                                        )}
+                                                    </Menu.Item>
+                                                </Menu.Items>
+                                            </Menu>
+                                        </div>
+                                    </>
+                                ) : (
+                                    <li>
+                                        <LoginButton />
+                                    </li>
+                                )}
+                            </>
+                        </ul>
+                    </nav>
+                    <p id="copyright" className="text-center md:text-left py-4">
+                        Copyright 2023 Amavi. All Rights Reserved.
+                    </p>
 
           <p className="text-center py-4">
             Amavi is a working name of The Amavi Chorale, 501(c)(3)
