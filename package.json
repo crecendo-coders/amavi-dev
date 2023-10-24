@@ -11,6 +11,7 @@
   },
   "scripts": {
     "dev": "nodemon server/index.js -w index.js -w server",
+    "pm2": "pm2 start amavi-server",
     "build": "vite build",
     "start": "vite",
     "style": "postcss css/tailwind.css -o public/build/tailwind.css",
