@@ -9,7 +9,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             domain="dev-d5utb7dzjctc84ng.us.auth0.com"
             clientId="woxDYBlsNThoMz7vc2FXrR7S1dxao8UB"
             authorizationParams={{
-                redirect_uri: "http://localhost:2319/",
+                redirect_uri: import.meta.env.VITE_HOST,
             }}
         >
             <App />

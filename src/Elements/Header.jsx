@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
     return (
-        <header className="bg-zinc-200 py-4">
+        <header className="bg-zinc-200 p-4">
             <div className="container mx-auto flex justify-between items-center">
                 <NavLink href="/">
                     <img
