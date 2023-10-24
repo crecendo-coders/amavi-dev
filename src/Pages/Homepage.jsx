@@ -17,7 +17,7 @@ export default function Homepage() {
       ></iframe> */}
 
       <img
-        src="https://amaviphotos.s3.us-west-2.amazonaws.com/ChoirGroupJPGfile+-+instasize.jpg"
+        src="https://amaviphotos.s3.us-west-2.amazonaws.com/ChoirGroupJPGfile.jpg"
         alt="Cathedral Organ"
         className="mt-4 sm:h-auto lg:h-auto lg:w-[90%] sm:w-[100%]"
       />
