@@ -28,11 +28,13 @@ const EventComponent = () => {
           <div className="flex flex-col w-full md:flex-row">
             <div className="flex flex-row justify-around p-4 font-bold leading-none text-gray-800 uppercase bg-gray-400 md:flex-col md:items-center md:justify-center md:w-1/4">
               <div className="md:text-3xl">
-                {event.datetime.toLocaleString("en-US", { month: "short" })}
+                {new Date(event.datetime).toLocaleString("en-US", { month: "short" })}
               </div>
-              <div className="md:text-6xl">{event.datetime}</div>
+              <div className="md:text-6xl">{new Date(event.datetime).toLocaleString("en-US", {
+                  day: "numeric",
+                })}</div>
               <div className="md:text-xl">
-                {event.datetime.toLocaleString("en-US", {
+                {new Date(event.datetime).toLocaleString("en-US", {
                   hour: "numeric",
                   minute: "numeric",
                   hour12: true,
