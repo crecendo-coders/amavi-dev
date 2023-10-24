@@ -22,7 +22,9 @@ export default function Homepage() {
         className="mt-4 sm:h-auto lg:h-auto lg:w-[90%] sm:w-[100%]"
       />
 
-      <EventComponent />
+      <div className="lg:w-[90%] sm:w-[100%]">
+        <EventComponent />
+        </div>
     </div>
   );
 }
