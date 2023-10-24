@@ -9,7 +9,6 @@ const inactiveNav =
 
 const LoginButton = () => {
     const { loginWithRedirect } = useAuth0();
-
     return (
         <NavLink
             className={({ isActive }) => (isActive ? inactiveNav : inactiveNav)}
