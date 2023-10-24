@@ -118,7 +118,7 @@ const NavBar = () => {
           </nav>
         ) : (
           <button
-            className="sm:hidden flex items-center relative"
+            className="sm:hidden flex justify-end items-center relative"
             onClick={() => setIsClicked(!isClicked)}
           >
             <span className="text-2xl">&#9776;</span>
@@ -126,14 +126,14 @@ const NavBar = () => {
         )}
       </div>
       {/* desktop nav bar */}
-      <div className="sm:flex sm:bg-blue-500 ">
+      <div className="sm:flex sm:bg-blue-500">
           <button
             className="sm:hidden flex items-center"
             onClick={() => setIsClicked(!isClicked)}
           >
           </button>
           <div className="sm:flex flex-row justify-between hidden">
-            <div className="flex items-center flex-row text-center">
+            <div className="flex items-center flex-row text-center ml-24">
               <NavLink
                 to="/events"
                 className={({ isActive }) =>isActive ? activeNav : inactiveNav}

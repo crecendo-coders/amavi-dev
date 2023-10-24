@@ -56,24 +56,7 @@ app.get('/api/everyone',member.getAll)
 app.put('/api/member/:id',member.put)
 
 // Stripe endpoints
-app.post("/create-checkout-session", async (req, res) => {
-  const session = await stripe.checkout.sessions.create({
-    line_items: [
-      {
-        // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-        price: "price_1O2HeTHC1pU4F4it9spgSk9A",
-        quantity: 1,
-      },
-    ],
-    mode: "payment",
-    success_url: `${domain}?success=true`,
-    cancel_url: `${domain}?canceled=true`,
-  });
-  
-  res.redirect(303, session.url);
-});
-
-app.post("/create-checkout-session/affiliates", async (req, res) => {
+app.post("/api/create-checkout-session/affiliates", async (req, res) => {
   const session = await stripe.checkout.sessions.create({
     line_items: [
       {
@@ -89,6 +72,24 @@ app.post("/create-checkout-session/affiliates", async (req, res) => {
 
   res.redirect(303, session.url);
 });
+
+app.post("/api/create-checkout-session", async (req, res) => {
+  const session = await stripe.checkout.sessions.create({
+    line_items: [
+      {
+        // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+        price: "price_1O2HeTHC1pU4F4it9spgSk9A",
+        quantity: 1,
+      },
+    ],
+    mode: "payment",
+    success_url: `${domain}?success=true`,
+    cancel_url: `${domain}?canceled=true`,
+  });
+
+  res.redirect(303, session.url);
+});
+
 
 
 
