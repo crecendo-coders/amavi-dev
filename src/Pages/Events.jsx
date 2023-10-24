@@ -19,22 +19,17 @@ import axios from "axios";
 
 const EventComponent = () => {
   return (
-<div class="flex flex-col sm:flex-row w-full md:w-4/5 gap-4 my-4 justify-center">
-      <a
-        href="https://maps.app.goo.gl/iydDRkw79hczfSQ19"
-        className="bg-gray-100 flex items-center justify-center"
-        style={{ textDecoration: "none" }}
-      >
+<div className="flex flex-col sm:flex-row w-full md:w-4/5 gap-4 my-4 justify-center">
         <div className="flex flex-col w-full bg-white shadow-lg">
-          <div class="w-full h-fit bg-top bg-cover flex-col flex justify-end">
+          <div className="w-full h-fit bg-top bg-cover flex-col flex justify-end">
             <img
               src="https://amaviphotos.s3.us-west-2.amazonaws.com/Event-Banner-Introit.jpg"
               alt="concert-banner"
             />
           </div>
 
-          <div className="flex flex-col w-full sm:flex-row">
-            <div className="flex flex-row justify-around p-4 font-bold leading-none text-gray-800 uppercase bg-gray-400 md:flex-col md:items-center md:justify-center md:w-1/4">
+          <div className="flex flex-col w-full md:flex-row">
+          <div className="flex flex-row justify-around p-4 font-bold leading-none text-gray-800 uppercase bg-gray-400 md:flex-col md:items-center md:justify-center md:w-1/4">
               <div className="md:text-3xl">Nov</div>
               <div className="md:text-6xl">3</div>
               <div className="md:text-xl">7:30 pm</div>
@@ -60,15 +55,9 @@ const EventComponent = () => {
             </div>
           </div>
         </div>
-      </a>
 
-      <a
-        href="https://maps.app.goo.gl/iydDRkw79hczfSQ19"
-        className="bg-gray-100 flex items-center justify-center"
-        style={{ textDecoration: "none" }}
-      >
         <div className="flex flex-col w-full bg-white shadow-lg">
-          <div class="w-full h-fit bg-top bg-cover flex-col flex justify-end">
+          <div className="w-full h-fit bg-top bg-cover flex-col flex justify-end">
             <img
               src="https://amaviphotos.s3.us-west-2.amazonaws.com/Event-Banner-Introit.jpg"
               alt="concert-banner"
@@ -102,7 +91,6 @@ const EventComponent = () => {
             </div>
           </div>
         </div>
-      </a>
     </div>
   );
 };
