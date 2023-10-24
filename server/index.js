@@ -12,7 +12,7 @@ import process from "process";
 const app = express();
 const PORT = 2319;
 const stripe = new Stripe(process.env.STRIPE_SECRET);
-const domain = process.env.DOMAIN;
+const domain = process.env.VITE_HOST;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
@@ -69,7 +69,7 @@ app.post("/create-checkout-session", async (req, res) => {
     success_url: `${domain}?success=true`,
     cancel_url: `${domain}?canceled=true`,
   });
-
+  
   res.redirect(303, session.url);
 });
 

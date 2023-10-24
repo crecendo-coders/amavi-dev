@@ -188,23 +188,19 @@ Event.init(
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
-    programme: {
-      type: DataTypes.TEXT,
-    },
     location: {
-      type: DataTypes.STRING,
-    },
-    address: {
       type: DataTypes.STRING,
     },
     datetime: {
       type: DataTypes.DATE,
     },
-    durationMin: {
-      type: DataTypes.INTEGER,
-      default: 120
-    },
     name: {
+      type: DataTypes.STRING,
+    },
+    image: {
+      type: DataTypes.STRING,
+    },
+    map: {
       type: DataTypes.STRING,
     },
     summary: {
