@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-// const [events, setEvents] = useState([]);
-
-// useEffect(() => {
-//   axios
-//     .get("/api/events")
-//     .then((res) => {
-//       setEvents(res.data);
-//       console.log("Events page events", res.data);
-//     })
-//     .catch((err) => {
-//       console.error("Unable to get events for the Events page:", err);
-//     });
-// }, []);
 
 // console.log(events);
 
 const EventComponent = () => {
+  const [events, setEvents] = useState([]);
+  
+  useEffect(() => {
+    axios
+      .get("/api/events")
+      .then((res) => {
+        setEvents(res.data);
+        console.log("Events page events", res.data);
+      })
+      .catch((err) => {
+        console.error("Unable to get events for the Events page:", err);
+      });
+  }, []);
   return (
 <div class="flex flex-col sm:flex-row w-full md:w-4/5 gap-4 my-4 justify-center">
       <a
