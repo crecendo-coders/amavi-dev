@@ -1,4 +1,30 @@
 ﻿import React from "react";
+import axios from "axios";
+
+
+
+  
+const createCheckoutSession = async (e) => {
+    e.preventDefault()
+    try {
+      const {data} = await axios.post('/api/create-checkout-session')
+      location.replace(data)
+    } catch (err) {
+      console.log(err)
+    }
+    
+    
+}
+
+const createCheckoutAffiliates = async (e) => {
+  e.preventDefault()
+  try {
+    const {data} = await axios.post('/api/create-checkout-session/affiliates')
+    location.replace(data)
+  } catch (err) {
+    console.log(err)
+  }
+}
 
 const DonationForm = () => {
   return (
@@ -33,7 +59,7 @@ const DonationForm = () => {
             </p>
           </div>
 
-          <form action="/create-checkout-session" method="POST">
+          <form onSubmit={createCheckoutSession}>
             <div className="flex justify-center">
               <button
                 type="submit"
@@ -92,7 +118,7 @@ const DonationForm = () => {
               to the world.
             </p>
           </div>
-          <form action="/create-checkout-session/affiliates" method="POST">
+          <form onSubmit={createCheckoutAffiliates}>
             <div className="flex justify-center">
               <button
                 type="submit"

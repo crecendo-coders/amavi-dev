@@ -57,6 +57,7 @@ app.put('/api/member/:id',member.put)
 
 // Stripe endpoints
 app.post("/api/create-checkout-session/affiliates", async (req, res) => {
+  console.log('hit2')
   const session = await stripe.checkout.sessions.create({
     line_items: [
       {
@@ -69,11 +70,12 @@ app.post("/api/create-checkout-session/affiliates", async (req, res) => {
     success_url: `${domain}?success=true`,
     cancel_url: `${domain}?canceled=true`,
   });
-
-  res.redirect(303, session.url);
+  console.log(session.url)
+  res.status(200).send(session.url);
 });
 
 app.post("/api/create-checkout-session", async (req, res) => {
+  console.log('hit')
   const session = await stripe.checkout.sessions.create({
     line_items: [
       {
@@ -86,10 +88,9 @@ app.post("/api/create-checkout-session", async (req, res) => {
     success_url: `${domain}?success=true`,
     cancel_url: `${domain}?canceled=true`,
   });
-
-  res.redirect(303, session.url);
+  console.log(session.url)
+  res.status(200).send(session.url);
 });
-
 
 
 
