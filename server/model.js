@@ -188,23 +188,20 @@ Event.init(
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
-    location: {
-      type: DataTypes.STRING,
-    },
-    datetime: {
-      type: DataTypes.DATE,
-    },
-    name: {
-      type: DataTypes.STRING,
-    },
+    name:  DataTypes.STRING,
+    summary:  DataTypes.TEXT,
     image: {
       type: DataTypes.STRING,
+      defaultValue: "/logo.svg"
     },
+    datetime: DataTypes.DATE,
     map: {
       type: DataTypes.STRING,
+      defaultValue: "St. Mark's Cathedral"
     },
-    summary: {
-      type: DataTypes.TEXT,
+    location: {
+      type: DataTypes.STRING,
+      defaultValue: "https://maps.app.goo.gl/iydDRkw79hczfSQ19"
     },
   },
   {
