@@ -95,7 +95,7 @@ export async function auditionDenied(audition) {
 }
       
 export async function sendEmail({ subscriber, subject, body }) {
-  const url = `${process.env.DOMAIN}unsubscribe/${subscriber.emailHash}`;
+  const url = `${process.env.VITE_HOST}unsubscribe/${subscriber.emailHash}`;
 
   try {
     await email.send({

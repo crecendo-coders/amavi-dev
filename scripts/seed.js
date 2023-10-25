@@ -148,22 +148,20 @@ const affiliates = [
 
 const events = [
     {
-        programme: "Programme 1",
-        location: "Location 1",
-        address: "Address 1",
-        datetime: new Date(Date.parse("Oct 10 2023 19:00:00")),
-        durationMin: 120,
-        name: "Event 1",
-        summary: "Event 1 summary",
+        location: "St. Mark's Cathedral",
+        image: "https://amaviphotos.s3.us-west-2.amazonaws.com/Event-Banner-Introit.jpg",
+        map: "https://maps.app.goo.gl/iydDRkw79hczfSQ19",
+        datetime: new Date(Date.parse("Nov 3 2023 19:30:00")),
+        name: "Introit",
+        summary: 'Join us for an enchanting evening of choral and orchestral music at the "Introit" concert, where classical and contemporary compositions converge in harmony. This musical journey promises to elevate your senses with a captivating selection of pieces that span time and style.',
     },
     {
-        programme: "Programme 2",
-        location: "Location 2",
-        address: "Address 2",
-        date: new Date(Date.parse("Nov 10 2023 19:00:00")),
-        durationMin: 180,
-        name: "Event 2",
-        summary: "Event 2 summary",
+        location: "St. Mark's Cathedral",
+        image: "https://amaviphotos.s3.us-west-2.amazonaws.com/Event-Banner-Introit.jpg",
+        map: "https://maps.app.goo.gl/iydDRkw79hczfSQ19",
+        datetime: new Date(Date.parse("Nov 4 2023 19:30:00")),
+        name: "Introit",
+        summary: 'Join us for an enchanting evening of choral and orchestral music at the "Introit" concert, where classical and contemporary compositions converge in harmony. This musical journey promises to elevate your senses with a captivating selection of pieces that span time and style.',
     },
 ];
 

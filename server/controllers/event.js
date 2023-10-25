@@ -5,6 +5,7 @@ export default {
     try {
       console.log("Get unarchived Events");
       const eventData = await Event.findAll({ where: { archive: false } });
+      
       res.status(200).json(eventData);
     } catch (err) {
       console.log(err);
