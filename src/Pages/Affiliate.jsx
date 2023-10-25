@@ -1,4 +1,15 @@
 import React from "react";
+import axios from "axios";
+
+const createCheckoutAffiliates = async (e) => {
+  e.preventDefault()
+  try {
+    const {data} = await axios.post('/api/create-checkout-session/affiliates')
+    location.replace(data)
+  } catch (err) {
+    console.log(err)
+  }
+}
 
 export default function Affiliate() {
   return (
@@ -70,8 +81,7 @@ export default function Affiliate() {
               If you prefer to remain an anonymous donor, please email us at info@amavichorale.org
             </p>
             <form
-              action="/create-checkout-session/affiliates"
-              method="POST"
+              onSubmit={createCheckoutAffiliates}
               className="mt-4"
             >
               <div className="flex justify-center">
