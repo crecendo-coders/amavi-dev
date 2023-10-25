@@ -19,4 +19,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 // add these to your .env
 // VITE_DOMAIN=dev-d5utb7dzjctc84ng.us.auth0.com
 // VITE_CLIENT_ID=woxDYBlsNThoMz7vc2FXrR7S1dxao8UB
-// VITE_AUTH0_SECRET=kxV_DTT93MahxtIsBS_mcCUQbUPwBz9KAVGfUT9GHFC7Zp_g39jhl7yrFNUEUMEW
