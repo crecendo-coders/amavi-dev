@@ -19,7 +19,7 @@ import axios from "axios";
 
 const EventComponent = () => {
   return (
-<div className="flex flex-col sm:flex-row w-full md:w-4/5 gap-4 my-4 justify-center">
+<div className="flex flex-col sm:flex-row w-full gap-4 my-4 justify-center items-center">
         <div className="flex flex-col w-full bg-white shadow-lg">
           <div className="w-full h-fit bg-top bg-cover flex-col flex justify-end">
             <img

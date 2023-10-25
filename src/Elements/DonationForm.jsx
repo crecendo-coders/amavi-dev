@@ -58,7 +58,6 @@ const DonationForm = () => {
               preference in the donation notes.
             </p>
           </div>
-
           <form onSubmit={createCheckoutSession}>
             <div className="flex justify-center">
               <button

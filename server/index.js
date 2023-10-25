@@ -12,7 +12,8 @@ import process from "process";
 const app = express();
 const PORT = 2319;
 const stripe = new Stripe(process.env.STRIPE_SECRET);
-const domain = process.env.DOMAIN;
+const domain = process.env.VITE_HOST;
+// VITE_HOST=http://localhost:2319/
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
