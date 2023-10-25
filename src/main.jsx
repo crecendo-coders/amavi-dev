@@ -16,6 +16,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </Auth0Provider>
     </React.StrictMode>
 );
-// add these to your .env
-// VITE_DOMAIN=dev-d5utb7dzjctc84ng.us.auth0.com
-// VITE_CLIENT_ID=woxDYBlsNThoMz7vc2FXrR7S1dxao8UB
+
