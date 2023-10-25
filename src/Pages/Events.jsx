@@ -18,13 +18,14 @@ const EventComponent = () => {
       });
   }, []);
   return (
-    <div className="flex flex-col sm:flex-row w-full md:w-4/5 gap-4 my-4 justify-center">
+    <div className="flex-row justify-center">
+
+    <div className="flex flex-col md:flex-row w-full gap-4 my-4">
       {events.map((event) => (
         <div className="flex flex-col w-full bg-white shadow-lg">
           <div className="w-full h-fit bg-top bg-cover flex-col flex justify-end">
             <img src={event.image} alt="concert-banner" />
           </div>
-
           <div className="flex flex-col w-full md:flex-row">
             <div className="flex flex-row justify-around p-4 font-bold leading-none text-gray-800 uppercase bg-gray-400 md:flex-col md:items-center md:justify-center md:w-1/4">
               <div className="md:text-3xl">
@@ -55,6 +56,7 @@ const EventComponent = () => {
           </div>
         </div>
       ))}
+    </div>
     </div>
   );
 };
