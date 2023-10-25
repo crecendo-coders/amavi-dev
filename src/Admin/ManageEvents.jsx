@@ -51,9 +51,10 @@ export default function ManageEvents() {
     setEvents(events.filter((event1) => event1.eventId != event.eventId));
   };
   return (
-    <div>
-      <h1>Manage Events</h1>
-      <ButtonGroup>
+    <div >
+    <h1>Manage Events</h1>
+
+      <ButtonGroup className="flex flex-row justify-center">
         <Button onClick={() => setAddEvent(true)}>Add</Button>
         {showArchived ? (
           <Button color="green" onClick={() => setShowArchived(false)}>
@@ -66,40 +67,33 @@ export default function ManageEvents() {
         )}
       </ButtonGroup>
       {addEvent && <AddEvent setAddEvent={setAddEvent} />}
-      <div className="flex-row justify-center">
-        <div className="flex flex-col md:flex-row w-full gap-4 my-4">
-          {events.map((event) => (
-            <div
-              key={event.eventId}
-              className="bg-white rounded-lg p-4 shadow-md"
-            >
-              {editEvent === event.eventId ? (
-                <div>
-                  <EditEvent setEditEvent={setEditEvent} event={event} />
-                </div>
-              ) : (
-                <div className="flex w-max flex-col gap-1 justify-center">
-                  <Event event={event} />
-                  <ButtonGroup >
-                    <Button onClick={() => deleteEvent(event)}>Delete</Button>
-                    {event.archive ? (
-                      <Button onClick={() => archiveEvent(event)}>
-                        Restore
-                      </Button>
-                    ) : (
-                      <Button onClick={() => archiveEvent(event)}>
-                        Archive
-                      </Button>
-                    )}
-                    <Button onClick={() => setEditEvent(event.eventId)}>
-                      Edit
-                    </Button>
-                  </ButtonGroup>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+      <div className="flex flex-col justify-center md:flex-row w-full gap-4 my-4">        {events.map((event) => (
+          <div
+            key={event.eventId}
+            className="flex flex-col justify-center md:flex-row w-full "
+          >
+            {editEvent == event.eventId ? (
+              <div className="flex flex-col justify-center">
+                <EditEvent setEditEvent={setEditEvent} event={event} />
+              </div>
+            ) : (
+              <div className="flex w-max flex-col gap-3 justify-center">
+                <Event event={event} />
+                <ButtonGroup className="flex flex-row justify-center">
+                  <Button className="bg-red-500 text-white font-bold" onClick={() => deleteEvent(event)}>Delete</Button>
+                  {event.archive ? (
+                    <Button className="bg-yellow-200 text-black font-bold" onClick={() => archiveEvent(event)}>Restore</Button>
+                  ) : (
+                    <Button className="bg-green-500 text-black font-bold" onClick={() => archiveEvent(event)}>Archive</Button>
+                  )}
+                  <Button className="bg-blue-500 text-white font-bold" onClick={() => setEditEvent(event.eventId)}>
+                    Edit
+                  </Button>
+                </ButtonGroup>
+              </div>
+            )}
+          </div>
+        ))}
       </div>
     </div>
   );
