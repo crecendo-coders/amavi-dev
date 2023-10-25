@@ -33,7 +33,7 @@ const DonationForm = () => {
             </p>
           </div>
 
-          <form action="/create-checkout-session" method="POST">
+          <form action="/api/create-checkout-session" method="POST">
             <div className="flex justify-center">
               <button
                 type="submit"
@@ -92,7 +92,7 @@ const DonationForm = () => {
               to the world.
             </p>
           </div>
-          <form action="/create-checkout-session/affiliates" method="POST">
+          <form action="/api/create-checkout-session/affiliates" method="POST">
             <div className="flex justify-center">
               <button
                 type="submit"
