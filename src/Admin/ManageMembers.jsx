@@ -238,12 +238,12 @@ export default function ManageMembers() {
                                                 Vocal Range:{" "}
                                                 {member.voicing.type}
                                             </p>
-                                            <p>{member.expDetail}</p>
-                                            <p>{member.connection}</p>
+                                            <p>Bio:</p><p>{member.expDetail}</p>
+                                            <p>Connected by:{" "} {member.connection}</p>
                                             <ButtonGroup>
                                                 <Button
                                                     onClick={() =>
-                                                        deleteEvent(member)
+                                                        deleteMember(member)
                                                     }
                                                 >
                                                     Delete
@@ -317,7 +317,7 @@ export default function ManageMembers() {
                                             <ButtonGroup>
                                                 <Button
                                                     onClick={() =>
-                                                        deleteEvent(member)
+                                                        deleteMember(member)
                                                     }
                                                 >
                                                     Delete
