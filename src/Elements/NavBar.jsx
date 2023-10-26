@@ -7,7 +7,7 @@ import React, { useState } from "react";
 const activeNav =
   "bg-blue-500 text-lg m-2 mx-6 text-white px-3 py-1 rounded-full underline focus:text-white hover:text-white";
 const inactiveNav =
-  "bg-blue-500 text-lg text-white m-2 mx-6 px-3 py-1 rounded-full hover:bg-white no-underline hover:no-underline focus:no-underline";
+  "bg-blue-500 text-lg text-white m-2 mx-6 px-3 py-1 rounded-full hover:bg-white no-underline hover:no-underline focus:no-underline hover:text-blue-500";
 
   const transitionActive = "text-white hover:text-gray-300";
 
