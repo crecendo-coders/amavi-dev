@@ -20,7 +20,7 @@ const Footer = () => {
               className="md:w-1/2 p-4"
               onClick={() => setShowModal(true)}
             >
-              <h3 className="text-xl font-semibold">Join our Mailing List</h3>
+              <h3 className="text-xl font-semibold text-blue-500">Join our Mailing List</h3>
             </NavLink>
             <p>
               Subscribe to receive advance notice of concerts, and occasional
@@ -30,7 +30,7 @@ const Footer = () => {
           {showModal && <SubscribeModal setShowModal={setShowModal} />}
           <div className="md:w-1/2 p-4">
             <NavLink to="/support" id="footerDonate" className="md:w-1/2 p-4">
-              <h3 className="text-xl font-semibold">Donate to Amavi</h3>
+              <h3 className="text-xl font-semibold text-blue-500">Donate to Amavi</h3>
             </NavLink>
             <p>
               Please help sustain the choir's essential music education work and
