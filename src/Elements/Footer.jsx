@@ -20,7 +20,7 @@ const Footer = () => {
               className="md:w-1/2 p-4"
               onClick={() => setShowModal(true)}
             >
-              <h3 className="text-xl font-semibold text-blue-500">Join our Mailing List</h3>
+              <h3 className="text-xl font-semibold text-blue-500 hover:text-blue-700">Join our Mailing List</h3>
             </NavLink>
             <p>
               Subscribe to receive advance notice of concerts, and occasional
@@ -30,7 +30,7 @@ const Footer = () => {
           {showModal && <SubscribeModal setShowModal={setShowModal} />}
           <div className="md:w-1/2 p-4">
             <NavLink to="/support" id="footerDonate" className="md:w-1/2 p-4">
-              <h3 className="text-xl font-semibold text-blue-500">Donate to Amavi</h3>
+              <h3 className="text-xl font-semibold text-blue-500 hover:text-blue-700">Donate to Amavi</h3>
             </NavLink>
             <p>
               Please help sustain the choir's essential music education work and
@@ -50,14 +50,14 @@ const Footer = () => {
               <>
                 {user ? (
                   <>
-                    <li className="text-white hover:text-blue-400 ">
+                    <li className="text-white hover:text-blue-700">
                       <LogoutButton />
                     </li>
 
                     <div className="flex">
                       <Menu as="div" className="relative rounded-full mx-6">
                         <Menu.Button
-                          className={` text-white hover:text-blue-500  no-underline hover:no-underline focus:no-underline`}
+                          className={` text-white hover:text-blue-700 no-underline hover:no-underline focus:no-underline`}
                         >
                           Admin
                         </Menu.Button>
