@@ -43,8 +43,18 @@ export default function EditSubscriber({ setGetSubscribers, subscriber }) {
       <label>Phone</label>
       <input type="text" {...register("phone", {})} />
       <ButtonGroup>
-        <Button type="submit">Save</Button>
-        <Button onClick={() => setGetSubscribers(false)}>Cancel</Button>
+      <Button
+          className="h-12 justify-center font-bold tracking-widest w-40 m-1 p-1 bg-blue-500 text-gray-200 hover:bg-blue-700 hover:text-white"
+          type="submit"
+        >
+          Save
+        </Button>
+        <Button
+          className="h-12 uppercase justify-center tracking-widest font-bold w-40 m-1 p-1 bg-gray-200 hover:bg-gray-400 hover:text-white"
+          onClick={() => setGetSubscribers(false)}
+        >
+          Cancel
+        </Button>
       </ButtonGroup>
     </form>
   );
