@@ -38,7 +38,7 @@ export default function Affiliate() {
             <li>Dave Hanks</li>
             <li>Bob and Debbie Stevens</li>
             <li>
-              <a href="https://www.kippandchristian.com/">
+              <a className="text-blue-500 hover:text-blue-700" href="https://www.kippandchristian.com/">
                 Kipp & Christian P.C.
               </a>
             </li>
