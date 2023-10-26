@@ -5,11 +5,12 @@ export default function AboutChorale() {
     <div>
       <div className="text-left p-6">
         <div className="w-3/4 mx-auto flex">
+        <div className="w-2/5 p-4 hidden lg:block">
           <img
             src="https://amaviphotos.s3.us-west-2.amazonaws.com/Cathedral(2)JPGfile+-+instasize.jpg"
             alt="Choir"
-            className="w-2/5 p-4 hidden lg:block" 
-            />
+          />
+        </div>
           <div className="lg:w-3/5 p-4 text-lg">
             <h2 className="text-4xl font-bold mb-6 text-center">Our Mission</h2>
 
@@ -71,11 +72,12 @@ export default function AboutChorale() {
               diversity, and an abiding love for the divine presence.
             </p>
           </div>
+          <div className="w-2/5 p-4 hidden lg:block">
           <img
             src="https://amaviphotos.s3.us-west-2.amazonaws.com/ChoirGroupJPGfile+-+instasize.jpg"
-            alt="Cathedral Organ"
-            className="w-2/5 p-4 hidden lg:block" 
-            />
+            alt="Choir"
+          />
+        </div>
         </div>
       </div>
     </div>
