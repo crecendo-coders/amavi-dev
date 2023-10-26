@@ -19,8 +19,8 @@ const EventComponent = () => {
       });
   }, []);
   return (
-      <div className="flex flex-col justify-center md:flex-row w-full gap-4 my-4">
-        {events.map((event) => (<Event event={event} />))}
+      <div className="grid justify-center md:grid-cols-2 gap-4 m-4">
+        {events.map((event) => (<Event key={event.eventId} event={event} />))}
       </div>
 
   );

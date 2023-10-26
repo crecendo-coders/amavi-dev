@@ -5,7 +5,7 @@ import axios from "axios";
 const Event = ({event}) => {
 
   return (
-        <div className="flex flex-col max-w-md bg-white shadow-lg">
+        <div className="flex flex-col justify-center bg-white shadow-lg">
           <div className="w-full h-fit bg-top bg-cover flex-col flex">
             <img src={event.image} alt="concert-banner" />
           </div>
