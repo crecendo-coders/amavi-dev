@@ -13,7 +13,7 @@ export default function AboutChorale() {
           <div className="lg:w-3/5 p-4 text-lg">
             <h2 className="text-4xl font-bold mb-6 text-center">Our Mission</h2>
 
-            <h5>Championing the Elevation of Choral Repertoire</h5>
+            <h5 className="font-bold">Championing the Elevation of Choral Repertoire</h5>
             <p>
               Amavi Chorale is dedicated to the meticulous interpretation and
               vocal rendition of the most sublime and intricate choral
@@ -23,7 +23,7 @@ export default function AboutChorale() {
               we aim to both honor the past and inspire the future.
             </p>
 
-            <h5>Facilitating Collaborative Artistry</h5>
+            <h5 className="font-bold">Facilitating Collaborative Artistry</h5>
             <p>
               We recognize the immense power of collaborative creativity. To
               this end, Amavi Chorale actively seeks out and collaborates with
@@ -33,7 +33,7 @@ export default function AboutChorale() {
               and draws from a diverse pool of talent.
             </p>
 
-            <h5>Fostering an Oasis of Creativity</h5>
+            <h5 className="font-bold">Fostering an Oasis of Creativity</h5>
             <p>
               Within the Amavi Chorale community, we consider the act of choral
               expression not only as a performance but as a profound artistic
