@@ -90,7 +90,6 @@ export default function Audition() {
             placeholder="Description of Vocal Experience"
             {...register("expDetail")}
           />
-
           <label className="block m-0 text-gray-100">
             How did you hear about us?
           </label>
@@ -121,7 +120,6 @@ export default function Audition() {
             <option value="7">Baritone</option>
             <option value="8">Bass</option>
           </select>
-
           <>
             <div
               className="g-recaptcha"
