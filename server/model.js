@@ -32,9 +32,6 @@ Member.init(
     phone: {
       type: DataTypes.STRING,
     },
-    dob: {
-      type: DataTypes.STRING,
-    },
     experience: {
       type: DataTypes.INTEGER,
     },

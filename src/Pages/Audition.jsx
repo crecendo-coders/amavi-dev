@@ -72,13 +72,6 @@ export default function Audition() {
             />
 
             <input
-              type="date"
-              className="p-2 mb-4 border border-gray-300 rounded"
-              placeholder="Date of Birth"
-              {...register("dob")}
-            />
-
-            <input
               type="tel"
               className="p-2 mb-4 border border-gray-300 rounded"
               placeholder="Phone"

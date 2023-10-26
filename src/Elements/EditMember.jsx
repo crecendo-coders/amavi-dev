@@ -20,7 +20,6 @@ export default function EditMember({ setEditMember, member }) {
       statusId:member.statusId,
       email:member.email,
       phone:member.phone,
-      dob:member.dob,
     //   experience:member.experience,
     expDetail:member.expDetail,
     connection:member.connection,
@@ -57,8 +56,6 @@ export default function EditMember({ setEditMember, member }) {
       <input type="email" {...register("email", {})} />
       <label>Phone</label>
       <input type="text" {...register("phone", {})} />
-      <label>Birthday</label>
-      <input type="dropdown" {...register("dob", {})} />
       <label>Has Auditioned</label>
       <select name='Has Auditioned' {...register("hasAuditioned", {})}>
         <option value={true}>True</option>
