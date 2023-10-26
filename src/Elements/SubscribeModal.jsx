@@ -51,7 +51,6 @@ const SubscribeModal = ({ setShowModal }) => {
                 type="button"
                 class="bg-white ml-4 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                 onClick={() => setShowModal(false)}
-
               >
                 <span class="sr-only">Close menu</span>
                 <svg
@@ -96,22 +95,24 @@ const SubscribeModal = ({ setShowModal }) => {
               </>
             ) : (
               <>
-                <div className="relative p-6 flex-auto">
+                <div className="pr-6">
                   <form
-                    className="my-4 text-lg leading-relaxed text-blue-500"
+                    className=" text-lg text-blue-500"
                     onSubmit={handleSubmit(onSubmit)}
                   >
                     <input
+                      className="m-3"
                       type="text"
                       placeholder="name"
                       {...register("name", {})}
                     />
                     <input
+                      className="m-3"
                       type="text"
                       placeholder="email"
                       {...register("email", {})}
                     />
-                    <input type="submit" name="Subscribe" />
+                    <input className="m-3" type="submit" name="Subscribe" />
                     <div
                       class="g-recaptcha"
                       data-sitekey={import.meta.env.VITE_PUBLIC_CAPTCHA}
