@@ -35,13 +35,14 @@ const DonationForm = () => {
         </h1>
       </div>
       <div className="flex justify-center m-12">
-        <div className="w-2/5 p-4 hidden lg:block">
+      <div className="w-2/5 p-4 hidden md:block overflow-hidden">
           <img
+          className="h-full w-full object-cover"
             src="https://amaviphotos.s3.us-west-2.amazonaws.com/facebook-vertical-post-1080x1350+(1).jpg"
             alt="Choir"
           />
         </div>
-        <div className="flex flex-col items-center lg:ml-10 lg:w-3/5 text-lg">
+        <div className="flex flex-col items-center md:ml-10 md:w-3/5 text-lg">
           <div className="text-left mt-4">
             <h3 className="text-lg font-semibold">
               Option 1: One-Time Tax-Deductible Donation

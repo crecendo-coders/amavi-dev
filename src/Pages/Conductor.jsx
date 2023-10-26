@@ -1,14 +1,15 @@
 export default function AboutConductor() {
   return (
     <div className="text-left p-6">
-      <div className="w-3/4 mx-auto flex">
-      <div className="w-2/5 p-4 hidden lg:block">
+      <div className="mx-auto flex">
+      <div className="w-2/5 p-4 hidden md:block overflow-hidden">
           <img
+          className="h-full w-full object-cover"
             src="https://amaviphotos.s3.us-west-2.amazonaws.com/Adamhansen+-+instasize+-+instasize.jpg"
             alt="Choir"
           />
         </div>
-        <div className="lg:w-3/5 p-4">
+        <div className="md:w-3/5 p-4">
         <h2 className="text-4xl font-bold mb-6 text-center">
           About the Conductor
         </h2>
