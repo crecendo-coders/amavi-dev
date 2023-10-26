@@ -15,13 +15,15 @@ export default function Affiliate() {
   return (
     <div className="text-left p-6">
       <div className="flex">
-      <img
-      src="https://amaviphotos.s3.us-west-2.amazonaws.com/Cathedral(7)JPGfile+-+instasize.jpg"
-      alt="Affiliates"
-      className="w-2/5 p-4 hidden lg:block" 
-    />
+      <div className="w-2/5 p-4 hidden md:block overflow-hidden">
+          <img
+          className="h-full w-full object-cover"
+            src="https://amaviphotos.s3.us-west-2.amazonaws.com/Cathedral(7)JPGfile+-+instasize.jpg"
+            alt="Choir"
+          />
+        </div>
 
-        <div className="lg:w-3/5 p-4 text-lg">
+        <div className="md:w-3/5 p-4 text-lg">
           <h2 className="text-4xl font-bold mb-6 text-center">
             Thank you to our Amavi Affiliates for their generous support!
           </h2>

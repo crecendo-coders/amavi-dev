@@ -1,7 +1,6 @@
 import axios from "axios";
 import React from "react";
 import { Button, ButtonGroup } from "rsuite";
-import EventForm from "./EventForm";
 import { useForm } from "react-hook-form";
 
 export default function EditEvent({ setEditEvent, event }) {
@@ -91,13 +90,13 @@ export default function EditEvent({ setEditEvent, event }) {
       </div>
       <ButtonGroup className="flex flex-row h-12 justify-center m-2">
         <Button
-          className="h-12 justify-center font-bold tracking-widest w-40 m-1 p-1"
+          className="h-12 justify-center font-bold tracking-widest w-40 m-1 p-1 bg-blue-500 text-gray-200 hover:bg-blue-700 hover:text-white"
           type="submit"
         >
           Save
         </Button>
         <Button
-          className="h-12 uppercase justify-center tracking-widest font-bold w-40 m-1 p-1"
+          className="h-12 uppercase justify-center tracking-widest font-bold w-40 m-1 p-1 bg-gray-200 hover:bg-gray-400 hover:text-white"
           onClick={() => setEditEvent(false)}
         >
           Cancel
