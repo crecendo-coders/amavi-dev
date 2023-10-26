@@ -2,13 +2,8 @@
 import React from "react";
 import { Button, ButtonGroup } from "rsuite";
 import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
-
-
 
 export default function EditMember({ setEditMember, member }) {
-  const Confirm = withReactContent(Swal);
   const {
     register,
     handleSubmit,

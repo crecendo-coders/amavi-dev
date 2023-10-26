@@ -2,8 +2,11 @@ import axios from "axios";
 import React from "react";
 import { Button, ButtonGroup } from "rsuite";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 export default function AddEvent({ setAddEvent }) {
+  const Confirm = withReactContent(Swal);
 
   const {
     register,
@@ -33,7 +36,7 @@ export default function AddEvent({ setAddEvent }) {
       className="flex flex-col p-2 bg-gray-600"
       onSubmit={handleSubmit(onSubmit)}
     >
-<div className="flex flex-row m-1 p-1">
+      <div className="flex flex-row m-1 p-1">
         <label className="px-1 my-2 w-24">Name: </label>
         <input className="px-1 my-0" type="text" {...register("name", {})} />
       </div>
@@ -78,7 +81,7 @@ export default function AddEvent({ setAddEvent }) {
         <input className="px-1 my-0" type="text" {...register("map", {})} />
       </div>
       <ButtonGroup className="flex flex-row h-12 justify-center m-2">
-      <Button
+        <Button
           className="h-12 justify-center font-bold tracking-widest w-40 m-1 p-1 bg-blue-500 text-gray-200 hover:bg-blue-700 hover:text-white"
           type="submit"
         >
@@ -90,7 +93,7 @@ export default function AddEvent({ setAddEvent }) {
         >
           Cancel
         </Button>
-        </ButtonGroup>
+      </ButtonGroup>
     </form>
   );
 }
