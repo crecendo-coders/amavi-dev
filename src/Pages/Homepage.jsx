@@ -1,6 +1,4 @@
-import { useLoaderData } from "react-router-dom";
 import EventComponent from "./Events";
-import Newsletter from "../Elements/Newsletter";
 
 export default function Homepage() {
   return (

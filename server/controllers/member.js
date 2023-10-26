@@ -84,5 +84,14 @@ export default {
       res.status(500).send("Error in member put");
     }
   },
-  // might run into error of not being able see those who aren't pending or have auditioned
-};
+  delete: async (req, res) => {
+    // console.log(req.body)
+    console.log("delete member", req.params.id);
+    try {
+      await Member.destroy({ where: { memberId: +req.params.id } });
+      res.status(200).json({ success: true });
+    } catch (err) {
+      console.log(err);
+      res.status(500).send("Error in member delete call");
+    }
+  },};
