@@ -87,7 +87,7 @@ export default function Affiliate() {
               <div className="flex justify-center">
                 <button
                   type="submit"
-                  className="bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="bg-primary text-white py-2 px-4 rounded hover:bg-white focus:outline-none focus:ring-2 focus:ring-primary hover:text-blue-500" 
                 >
                   Support Our Cause
                 </button>
