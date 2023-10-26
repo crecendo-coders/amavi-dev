@@ -1,23 +1,18 @@
 import axios from "axios";
 import React from "react";
-import { Button, ButtonGroup, Checkbox } from "rsuite";
+import { Button, ButtonGroup } from "rsuite";
+import EventForm from "./EventForm";
 import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
 
 export default function AddEvent({ setAddEvent }) {
-  const Confirm = withReactContent(Swal);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    defaultValues: {
-      durationMin: 120,
-      // datetime: new Date().setHours(19,0,0,0,0)
-    },
-  });
+  } = useForm();
   console.log("new event form errors", errors);
+
   const onSubmit = (data) => {
     console.log("Audition Data:", data);
     axios
@@ -35,29 +30,68 @@ export default function AddEvent({ setAddEvent }) {
       });
   };
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <label>Name of Event</label>
-      <input type="text" placeholder="name" {...register("name", {})} />
-      <label>Programme</label>
-      <input
-        type="text"
-        placeholder="programme"
-        {...register("programme", {})}
-      />
-      <label>Programme Summary</label>
-      <input type="text" placeholder="summary" {...register("summary", {})} />
-      <label>Location Name</label>
-      <input type="text" placeholder="location" {...register("location", {})} />
-      <label>Location Address</label>
-      <input type="text" placeholder="address" {...register("address", {})} />
-      <label>Location Date/Time</label>
-      <input type="datetime-local" {...register("datetime", {})} />
-      <label>Duration (min)</label>
-      <input type="number" {...register("durationMin")} />
-      <ButtonGroup>
-        <Button type="submit">Save</Button>
-        <Button onClick={() => setAddEvent(false)}>Cancel</Button>
-      </ButtonGroup>
+    <form
+      className="flex flex-col p-2 bg-gray-600"
+      onSubmit={handleSubmit(onSubmit)}
+    >
+<div className="flex flex-row m-1 p-1">
+        <label className="px-1 my-2 w-24">Name: </label>
+        <input className="px-1 my-0" type="text" {...register("name", {})} />
+      </div>
+      <div className="flex flex-row m-1 p-1  items-center">
+        <label className="px-1 my-2 w-20">Summary:</label>
+        <textarea
+          className="px-1 my-0 rounded-md"
+          rows={9}
+          cols={40}
+          type="text"
+          {...register("summary", {})}
+        />
+      </div>
+      <div className="flex flex-row m-1">
+        <label className="px-1 my-2 w-20">Image Url:</label>
+        <textarea
+          className="px-1 my-0 rounded-md"
+          rows={2}
+          cols={40}
+          type="text"
+          {...register("image", {})}
+        />
+      </div>
+      <div className="flex flex-row m-1">
+        <label className="px-1 my-2 w-24">Date/Time:</label>
+        <input
+          className="px-1 my-0"
+          type="datetime"
+          {...register("datetime", {})}
+        />
+      </div>
+      <div className="flex flex-row m-1">
+        <label className="px-1 my-2 w-24">Location:</label>
+        <input
+          className="px-1 my-0"
+          type="text"
+          {...register("location", {})}
+        />
+      </div>
+      <div className="flex flex-row m-1 p-1">
+        <label className="px-1 my-2 w-24">Map link: </label>
+        <input className="px-1 my-0" type="text" {...register("map", {})} />
+      </div>
+      <ButtonGroup className="flex flex-row h-12 justify-center m-2">
+          <Button
+            className="h-12 justify-center font-bold tracking-widest w-40 m-1 p-1"
+            type="submit"
+          >
+            Save
+          </Button>
+          <Button
+            className="h-12 uppercase justify-center tracking-widest font-bold w-40 m-1 p-1"
+            onClick={() => setAddEvent(false)}
+          >
+            Cancel
+          </Button>
+        </ButtonGroup>
     </form>
   );
 }
