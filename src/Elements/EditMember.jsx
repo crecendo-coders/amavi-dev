@@ -69,8 +69,18 @@ export default function EditMember({ setEditMember, member }) {
       <label>Connection</label>
       <input type="text" {...register("connection", {})} />
       <ButtonGroup>
-        <Button type="submit">Save</Button>
-        <Button onClick={() => setEditMember(false)}>Cancel</Button>
+      <Button
+          className="h-12 justify-center font-bold tracking-widest w-40 m-1 p-1 bg-blue-500 text-gray-200 hover:bg-blue-700 hover:text-white"
+          type="submit"
+        >
+          Save
+        </Button>
+        <Button
+          className="h-12 uppercase justify-center tracking-widest font-bold w-40 m-1 p-1 bg-gray-200 hover:bg-gray-400 hover:text-white"
+          onClick={() => setEditMember(false)}
+        >
+          Cancel
+        </Button>
       </ButtonGroup>
     </form>
   );
