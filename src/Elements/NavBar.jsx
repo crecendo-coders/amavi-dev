@@ -48,8 +48,7 @@ const NavBar = () => {
               </NavLink>
               <Menu as="div" className="relative">
                 <Menu.Button
-                  className={`flex items-center
-                             bg-blue-500 text-lg m-1 mx-6 px-1 py-1 rounded-full text-white hover:text-blue-500 hover:bg-white no-underline hover:no-underline focus:no-underline`}
+                  className={`flex items-center bg-blue-500 text-lg m-1 mx-6 px-3 py-1 rounded-full text-white hover:text-blue-500 hover:bg-white no-underline hover:no-underline focus:no-underline`}
                 >
                   About
                   <RiArrowDropDownLine className="h-6 w-6" />
@@ -150,8 +149,7 @@ const NavBar = () => {
               </NavLink>
               <Menu as="div" className="relative">
                 <Menu.Button
-                  className={`flex items-center
-                             bg-blue-500 text-lg m-2 mx-6 px-1 py-1 rounded-full text-white hover:text-blue-500 hover:bg-white no-underline hover:no-underline focus:no-underline`}
+                  className={`flex items-center bg-blue-500 text-lg m-2 mx-6 px-3 py-1 rounded-full text-white hover:text-blue-500 hover:bg-white no-underline hover:no-underline focus:no-underline`}
                 >
                   About
                   <RiArrowDropDownLine className="h-6 w-6" />
