@@ -76,18 +76,18 @@ export default function Audition() {
             placeholder="Phone"
             {...register("phone", { required: true })}
           />
-
           <input
             type="number"
             className="p-2 mb-4 border border-gray-300 rounded"
-            placeholder="Years of Experience"
+            placeholder="Years of Vocal Experience"
             {...register("experience")}
           />
-
-          <input
+          <textarea
             type="text"
+            id="expDetail"
             className="p-2 mb-1 border border-gray-300 rounded"
-            placeholder="Description of Vocal Experience"
+            placeholder="Please tell us a bit about your vocal background. Copy/Paste, enter for new lines, and tab spacings are allowed."
+            rows="3"
             {...register("expDetail")}
           />
           <label className="block m-0 text-gray-100">
@@ -127,7 +127,10 @@ export default function Audition() {
             ></div>
           </>
 
-          <button  type="submit" className="p-2 m-2 mt-4 bg-blue-500 text-white rounded">
+          <button
+            type="submit"
+            className="p-2 m-2 mt-4 bg-blue-500 text-white rounded"
+          >
             Submit
           </button>
         </form>
