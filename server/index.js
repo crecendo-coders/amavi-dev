@@ -54,6 +54,7 @@ app.get('/api/members',member.getAllMembers)
 app.get('/api/auditions',member.getAuditions)
 app.get('/api/everyone',member.getAll)
 app.put('/api/member/:id',member.put)
+app.delete('/api/member/:id',member.delete)
 
 // Stripe endpoints
 app.post("/api/create-checkout-session/affiliates", async (req, res) => {
